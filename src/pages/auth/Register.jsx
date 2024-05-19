@@ -4,14 +4,13 @@ import logoblue from '../../assets/logoblue.png'
 import google from '../../assets/google.png'
 import microsoft from '../../assets/microsoft.png'
 import { Link } from 'react-router-dom'
-import { ArrowLeftIcon } from '@heroicons/react/24/outline'
+import BackButton from '../../components/BackButton'
+
 
 const Register = () => {
   return (
     <>    
-      <Link to='/login'>
-        <ArrowLeftIcon className='absolute top-8 left-12 w-8' />
-      </Link>
+      <BackButton to='/login' color='black' />
       <div className='flex flex-col items-center gap-6 p-12'>
         <img src={logoblue} className='w-16' />
         <Typography variant='h3' className='font-inter font-black'>

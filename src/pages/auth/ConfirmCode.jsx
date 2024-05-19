@@ -2,21 +2,19 @@ import { Button, Input, Typography } from '@material-tailwind/react'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { LockClosedIcon } from '@heroicons/react/24/solid'
-import { ArrowLeftIcon } from '@heroicons/react/24/outline'
+import BackButton from '../../components/BackButton'
 
 const ConfirmCode = () => {
   return (
     <>
-      <Link to='/forgot-password'>
-        <ArrowLeftIcon className='absolute top-8 left-12 w-8' />
-      </Link>
+      <BackButton to='/forgot-password' color='black' />
       <div className='flex flex-col items-center gap-6 p-12'>
         <LockClosedIcon className='w-16'/>
         <Typography variant='h3' className='font-inter font-black'>
           Xác minh
         </Typography>
         <div className='w-full flex flex-col items-start'>
-          <Typography variant='h6' className='font-inter text-textGray mb-2'>
+          <Typography variant='h6' className='font-inter mb-2'>
             Nhập mã xác minh đã được gửi đến email của bạn
           </Typography>
           <Input label='XXX-XXX' />
