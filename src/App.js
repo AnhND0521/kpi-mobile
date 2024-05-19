@@ -3,11 +3,11 @@ import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import ForgotPassword from './pages/ForgotPassword';
-import ConfirmCode from './pages/ConfirmCode';
-import ResetPassword from './pages/ResetPassword';
+import Login from './pages/auth/Login';
+import Register from './pages/auth/Register';
+import ForgotPassword from './pages/auth/ForgotPassword';
+import ConfirmCode from './pages/auth/ConfirmCode';
+import ResetPassword from './pages/auth/ResetPassword';
 
 function App() {
   return (

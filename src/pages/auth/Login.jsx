@@ -1,8 +1,8 @@
 import { Button, IconButton, Input, Typography } from '@material-tailwind/react'
 import React from 'react'
-import logoblue from '../assets/logoblue.png'
-import google from '../assets/google.png'
-import microsoft from '../assets/microsoft.png'
+import logoblue from '../../assets/logoblue.png'
+import google from '../../assets/google.png'
+import microsoft from '../../assets/microsoft.png'
 import { Link } from 'react-router-dom'
 
 const Login = () => {
