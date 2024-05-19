@@ -3,18 +3,26 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { LockClosedIcon } from '@heroicons/react/24/solid'
 
-const ForgotPassword = () => {
+const ConfirmCode = () => {
   return (
     <div className='flex flex-col items-center gap-6 p-12'>
       <LockClosedIcon className='w-16'/>
       <Typography variant='h3' className='font-inter font-black'>
-        Quên mật khẩu
+        Xác minh
       </Typography>
       <div className='w-full flex flex-col items-start'>
         <Typography variant='h6' className='font-inter text-textGray mb-2'>
-          Nhập e-mail của bạn
+          Nhập mã xác minh đã được gửi đến email của bạn
         </Typography>
-        <Input label='E-mail' />
+        <Input label='XXX-XXX' />
+      </div>
+      <div className='flex items-center justify-center gap-2'>
+        <Typography variant='paragraph'>
+          Bạn chưa nhận được mã?
+        </Typography>
+        <Typography variant='paragraph' className='text-textBlue'>
+          Gửi lại
+        </Typography>
       </div>
       <Link to='/confirm-code' className='w-full'>
         <Button variant='filled' className='w-full bg-purple'>
@@ -35,4 +43,4 @@ const ForgotPassword = () => {
   )
 }
 
-export default ForgotPassword
+export default ConfirmCode
