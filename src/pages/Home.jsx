@@ -9,6 +9,7 @@ import jira from '../assets/jira.png';
 import sun from '../assets/sun.png';
 import fpt from '../assets/fpt.png';
 import { XMarkIcon, Bars3Icon } from '@heroicons/react/24/outline';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -66,9 +67,11 @@ const Home = () => {
         <Typography variant='h6' className='text-textBlue'>
           Control and analyze your KPI progress in the most efficient way possible
         </Typography>
-        <Button className='w-full h-12 text-lg bg-purple'>
-          Get started
-        </Button>
+        <Link to='/login'>
+          <Button className=' h-14 text-lg bg-purple'>
+            Get started
+          </Button>
+        </Link>
         <img src={kpi} />
       </main>
       <footer className="flex w-full flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 py-6 text-center md:justify-between bg-darkPurple">

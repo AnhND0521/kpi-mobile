@@ -17,7 +17,11 @@ module.exports = withMT({
       'textGray': '#5E5E5E',
       'textLightGray': '#8D8F9F',
     },
-    extend: {},
+    extend: {
+      fontFamily: { 
+        "inter": ['inter', 'sans-serif'] 
+      } 
+    },
   },
   plugins: [],
 })
