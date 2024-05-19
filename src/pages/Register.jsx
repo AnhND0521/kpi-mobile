@@ -17,13 +17,11 @@ const Register = () => {
         <Input label='Mật khẩu' />
         <Input label='Xác nhận mật khẩu' />
       </div>
-      <div className='w-full flex flex-col items-center gap-3'>
-        <Link to='/register' className='w-full'>
-          <Button variant='filled' className='w-full bg-purple'>
-            Đăng ký
-          </Button>
-        </Link>        
-      </div>
+      <Link to='/register' className='w-full'>
+        <Button variant='filled' className='w-full bg-purple'>
+          Đăng ký
+        </Button>
+      </Link>        
       <Typography variant='h4' className='font-inter font-black'>
         hoặc
       </Typography>
