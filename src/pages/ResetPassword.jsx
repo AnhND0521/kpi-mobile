@@ -3,30 +3,25 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { LockClosedIcon } from '@heroicons/react/24/solid'
 
-const ConfirmCode = () => {
+const ResetPassword = () => {
   return (
     <div className='flex flex-col items-center gap-6 p-12'>
       <LockClosedIcon className='w-16'/>
       <Typography variant='h3' className='font-inter font-black'>
-        Xác minh
+        Mật khẩu mới
       </Typography>
       <div className='w-full flex flex-col items-start'>
         <Typography variant='h6' className='font-inter text-textGray mb-2'>
-          Nhập mã xác minh đã được gửi đến email của bạn
+          Xác minh hoàn tất! Hãy đặt lại mật khẩu mới của bạn
         </Typography>
-        <Input label='XXX-XXX' />
+        <div className='w-full flex flex-col items-center gap-3'>
+          <Input label='Mật khẩu mới' />
+          <Input label='Xác nhận mật khẩu mới' />
+        </div>
       </div>
-      <div className='flex items-center justify-center gap-2'>
-        <Typography variant='paragraph'>
-          Bạn chưa nhận được mã?
-        </Typography>
-        <Typography variant='paragraph' className='text-textBlue'>
-          Gửi lại
-        </Typography>
-      </div>
-      <Link to='/reset-password' className='w-full'>
+      <Link to='/login' className='w-full'>
         <Button variant='filled' className='w-full bg-purple'>
-          Tiếp tục
+          Hoàn tất
         </Button>
       </Link>        
       <div className='flex items-center justify-center gap-2'>
@@ -43,4 +38,4 @@ const ConfirmCode = () => {
   )
 }
 
-export default ConfirmCode
+export default ResetPassword
