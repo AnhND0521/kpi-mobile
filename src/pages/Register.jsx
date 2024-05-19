@@ -5,28 +5,21 @@ import google from '../assets/google.png'
 import microsoft from '../assets/microsoft.png'
 import { Link } from 'react-router-dom'
 
-const Login = () => {
+const Register = () => {
   return (
     <div className='flex flex-col items-center gap-6 p-12'>
       <img src={logoblue} className='w-16' />
       <Typography variant='h3' className='font-inter font-black'>
-        Đăng nhập
+        Tạo tài khoản
       </Typography>
       <div className='w-full flex flex-col items-center gap-3'>
         <Input label='E-mail' />
         <Input label='Mật khẩu' />
+        <Input label='Xác nhận mật khẩu' />
       </div>
-      <Link to='/forgot-password'>
-        <Typography variant='paragraph' className='text-textBlue'>
-          Quên mật khẩu?
-        </Typography>
-      </Link>
       <div className='w-full flex flex-col items-center gap-3'>
-        <Button variant='filled' className='w-full bg-purple'>
-          Đăng nhập
-        </Button>
         <Link to='/register' className='w-full'>
-          <Button variant='outlined' className='w-full border-purple text-purple'>
+          <Button variant='filled' className='w-full bg-purple'>
             Đăng ký
           </Button>
         </Link>        
@@ -42,8 +35,18 @@ const Login = () => {
           <img src={microsoft} className='w-20' />
         </IconButton>
       </div>
+      <div className='flex items-center justify-center gap-2'>
+        <Typography variant='paragraph'>
+          Bạn đã có tài khoản?
+        </Typography>
+        <Link to='/login'>
+          <Typography variant='paragraph' className='text-textBlue'>
+            Đăng nhập
+          </Typography>
+        </Link>
+      </div>
     </div>
   )
 }
 
-export default Login
+export default Register
