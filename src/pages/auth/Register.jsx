@@ -21,7 +21,7 @@ const Register = () => {
           <Input label='Mật khẩu' />
           <Input label='Xác nhận mật khẩu' />
         </div>
-        <Link to='/register' className='w-full'>
+        <Link to='/dashboard' className='w-full'>
           <Button variant='filled' className='w-full bg-purple'>
             Đăng ký
           </Button>

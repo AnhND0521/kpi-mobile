@@ -11,7 +11,7 @@ import fpt from '../assets/fpt.png';
 import { XMarkIcon, Bars3Icon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
 
-const Home = () => {
+const LandingPage = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
  
   const openDrawer = () => setIsDrawerOpen(true);
@@ -68,7 +68,7 @@ const Home = () => {
           Control and analyze your KPI progress in the most efficient way possible
         </Typography>
         <Link to='/login'>
-          <Button className=' h-14 text-lg bg-purple'>
+          <Button className='h-14 text-lg bg-purple uppercase'>
             Get started
           </Button>
         </Link>
@@ -103,4 +103,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default LandingPage

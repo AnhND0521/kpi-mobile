@@ -22,9 +22,11 @@ const Login = () => {
         </Typography>
       </Link>
       <div className='w-full flex flex-col items-center gap-3'>
-        <Button variant='filled' className='w-full bg-purple'>
-          Đăng nhập
-        </Button>
+        <Link to='/dashboard' className='w-full'>
+          <Button variant='filled' className='w-full bg-purple'>
+            Đăng nhập
+          </Button>
+        </Link>
         <Link to='/register' className='w-full'>
           <Button variant='outlined' className='w-full border-purple text-purple'>
             Đăng ký
