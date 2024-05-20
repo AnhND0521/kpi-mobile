@@ -55,7 +55,7 @@ const CalendarHorizontal = () => {
           />
         </div>
         <hr className='my-4 bg-black'/>
-        <div className='w-full min-h-36 flex flex-col items-center gap-2'>
+        <div className='w-full min-h-16 flex flex-col items-center gap-2 px-4'>
           <Task 
             name='IT4110'
             kpi='Giảng dạy'

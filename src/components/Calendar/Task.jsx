@@ -1,11 +1,12 @@
+import { ChevronRightIcon } from '@heroicons/react/24/solid';
 import { Card, CardBody, Typography } from '@material-tailwind/react';
 import React from 'react'
 
 const Task = (props) => {
   const { name, kpi, startTime, endTime } = props;
   return (
-    <Card className='w-full min-h-16 bg-darkGray'>
-      <CardBody className='h-full flex items-center'>
+    <Card className='w-full min-h-16'>
+      <CardBody className='h-full flex items-center justify-between p-3'>
         <div className='flex flex-col items-center mr-4'>
           <Typography className='text-sm'>
             {startTime}
@@ -15,14 +16,18 @@ const Task = (props) => {
             {endTime}
           </Typography>
         </div>
-        <div className='flex flex-col items-start gap-2'>
+        <div className='w-full flex flex-col items-start gap-2'>
           <Typography variant='h6'>
             {name}
           </Typography>
-          <Typography className='text-sm'>
-            {kpi}
-          </Typography>
+          <div className='flex items-center'>
+            <div className='w-1.5 h-1.5 mr-2 rounded-full bg-purple'></div>
+            <Typography className='text-sm text-textGray'>
+              {kpi}
+            </Typography>
+          </div>
         </div>
+        <ChevronRightIcon className='w-8'/>
       </CardBody>
     </Card>
   )
