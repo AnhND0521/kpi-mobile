@@ -30,7 +30,7 @@ const CalendarHorizontal = () => {
   )
 
   return (
-    <Card className='px-2 py-3 flex flex-col items-start bg-gray overflow-hidden rounded-md'>
+    <Card className='px-3 pt-3 pb-6 flex flex-col items-start bg-gray overflow-hidden rounded-md'>
       <Typography className='text-sm mb-2'>
         {addOneDayToDate(daysInWeek[activeDay]).toUTCString().substring(0,16)}
       </Typography>
@@ -54,13 +54,19 @@ const CalendarHorizontal = () => {
             }}
           />
         </div>
-        <hr className='my-4 bg-black'/>
+        <hr className='my-2 bg-black'/>
         <div className='w-full min-h-16 flex flex-col items-center gap-2 px-4'>
           <Task 
             name='IT4110'
             kpi='Giảng dạy'
             startTime='8:30'
             endTime='11:45'
+          />
+          <Task 
+            name='Viết báo cáo'
+            kpi='Nghiên cứu'
+            startTime='12:30'
+            endTime='2:50'
           />
         </div>
       </CardBody>
