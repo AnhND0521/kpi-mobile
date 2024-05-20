@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <div className='fixed bottom-0 w-full h-16 flex grid grid-cols-4 bg-gray shadow-md'>
       <div
-        className={`flex flex-col items-center justify-center gap-1 w-full h-full p-2 ${activeTab === 0 && 'bg-secondary'}`}
+        className={`flex flex-col items-center justify-center gap-1 w-full h-full p-2 ${activeTab === 0 && 'bg-pink'}`}
         onClick={() => setActiveTab(0)}
       >
         {
@@ -35,7 +35,7 @@ const Navbar = () => {
         </Typography>
       </div>
       <div
-        className={`flex flex-col items-center justify-center gap-1 w-full h-full p-2 ${activeTab === 1 && 'bg-secondary'}`}
+        className={`flex flex-col items-center justify-center gap-1 w-full h-full p-2 ${activeTab === 1 && 'bg-pink'}`}
         onClick={() => setActiveTab(1)}
       >
         {
@@ -51,7 +51,7 @@ const Navbar = () => {
         </Typography>
       </div>
       <div
-        className={`flex flex-col items-center justify-center gap-1 w-full h-full p-2 ${activeTab === 2 && 'bg-secondary'}`}
+        className={`flex flex-col items-center justify-center gap-1 w-full h-full p-2 ${activeTab === 2 && 'bg-pink'}`}
         onClick={() => setActiveTab(2)}
       >
         {
@@ -67,7 +67,7 @@ const Navbar = () => {
         </Typography>
       </div>
       <div
-        className={`flex flex-col items-center justify-center gap-1 w-full h-full p-2 ${activeTab === 3 && 'bg-secondary'}`}
+        className={`flex flex-col items-center justify-center gap-1 w-full h-full p-2 ${activeTab === 3 && 'bg-pink'}`}
         onClick={() => setActiveTab(3)}
       >
         {
