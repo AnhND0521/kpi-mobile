@@ -16,7 +16,7 @@ const Task = (props) => {
             {endTime}
           </Typography>
         </div>
-        <div className='w-full flex flex-col items-start gap-2'>
+        <div className='w-full flex flex-col items-start gap-1'>
           <Typography variant='h6'>
             {name}
           </Typography>
