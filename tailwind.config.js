@@ -14,9 +14,9 @@ module.exports = withMT({
       textBlue: '#2F65E1',
       pink: '#F8E4FF',
       gray: '#F3EDFC',
+      darkGray: '#D9D9D9',
       textGray: '#5E5E5E',
       textLightGray: '#8D8F9F',
-      darkGray: '#D9D9D9',
     },
     extend: {
       fontFamily: { 

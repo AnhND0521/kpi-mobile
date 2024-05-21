@@ -4,7 +4,7 @@ import {
   startOfWeek
 } from 'date-fns'
 import { Card, CardBody, Typography } from '@material-tailwind/react';
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
+import { ChevronLeftIcon, ChevronRightIcon, ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
 import CalendarDay from './CalendarDay';
 import { addOneDayToDate } from '../../utils/dateShit';
 import Task from './Task';
@@ -36,7 +36,7 @@ const CalendarHorizontal = () => {
       </Typography>
       <CardBody className='p-0 w-full flex flex-col items-center'>
         <div className='w-full flex flex-row justify-between items-center gap-2'>
-          <ChevronLeftIcon 
+          <ArrowLeftIcon 
             className='cursor-pointer w-8' 
             onClick={() => {
               setWeeksFromCurrentDate(weeksFromCurrentDate - 1);
@@ -46,7 +46,7 @@ const CalendarHorizontal = () => {
             <div className='grid grid-cols-7 w-full h-full'>
               {calendarDays}
             </div>
-          <ChevronRightIcon 
+          <ArrowRightIcon 
             className='cursor-pointer w-8' 
             onClick={() => {
               setWeeksFromCurrentDate(weeksFromCurrentDate + 1);
@@ -66,7 +66,7 @@ const CalendarHorizontal = () => {
             name='Viết báo cáo'
             kpi='Nghiên cứu'
             startTime='12:30'
-            endTime='2:50'
+            endTime='14:50'
           />
         </div>
       </CardBody>

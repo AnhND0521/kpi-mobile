@@ -12,7 +12,7 @@ const Dashboard = () => {
   return (
     <div className='w-full'>
       <Header currentPage='Trang chủ' />
-      <main className='flex flex-col gap-4 mb-16 p-4 overflow-y-scroll'>
+      <main className='flex flex-col gap-4 my-16 p-4 overflow-y-scroll'>
         <Warning />
         <CalendarHorizontal
           weeksFromCurrentDate={1}
