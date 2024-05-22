@@ -3,7 +3,7 @@ import React from 'react'
 import KPIProgressChart from '../components/charts/KPIProgressChart';
 import { CalendarIcon, ChevronRightIcon, PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
 import { FunnelIcon } from '@heroicons/react/24/solid';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import CornerButton from '../components/CornerButton';
@@ -20,9 +20,11 @@ const KPIDetails = () => {
             {name}
           </Typography>
           <div>
-            <IconButton variant='outlined' className='border-purple w-8 h-8'>
-              <PencilIcon className='w-6 text-purple'/>
-            </IconButton>
+            <Link to='/kpi/1/edit' state={location.state}>
+              <IconButton variant='outlined' className='border-purple w-8 h-8'>
+                <PencilIcon className='w-6 text-purple'/>
+              </IconButton>
+            </Link>
             <IconButton variant='outlined' className='border-purple w-8 h-8 ml-2'>
               <TrashIcon className='w-6 text-purple'/>
             </IconButton>

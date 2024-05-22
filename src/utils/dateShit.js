@@ -8,7 +8,13 @@ const addOneDayToDate = (date) => {
   return date
 }
 
+const parseDate = (date) => {
+  const dmy = date.split('/');
+  return Date.parse(`${dmy[1]}/${dmy[0]}/${dmy[2]}`);
+}
+
 export {
   getWeekdayShort,
-  addOneDayToDate
+  addOneDayToDate,
+  parseDate,
 }

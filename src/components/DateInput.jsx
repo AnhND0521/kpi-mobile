@@ -3,9 +3,11 @@ import { Input, Popover, PopoverContent, PopoverHandler } from '@material-tailwi
 import { format } from 'date-fns'
 import React, { useState } from 'react'
 import { DayPicker } from 'react-day-picker'
+import { parseDate } from '../utils/dateShit'
 
-const DateInput = () => {
-  const [date, setDate] = useState();
+const DateInput = (props) => {
+  const { value } = props;
+  const [date, setDate] = useState(value ? parseDate(value) : null);
 
   return (
     <Popover placement="bottom">

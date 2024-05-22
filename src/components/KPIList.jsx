@@ -8,19 +8,19 @@ const KPIList = () => {
         name='Giảng dạy'
         total={60}
         finished={42}
-        due='31/06/2024'
+        due='30/06/2024'
       />
       <DashboardKPI 
         name='Nghiên cứu'
         total={60}
         finished={42}
-        due='31/06/2024'
+        due='30/06/2024'
       />
       <DashboardKPI 
         name='Phục vụ'
         total={60}
         finished={42}
-        due='31/06/2024'
+        due='30/06/2024'
       />
     </div>
   )

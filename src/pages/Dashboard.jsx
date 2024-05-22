@@ -1,7 +1,6 @@
 import React from 'react'
 import Header from '../components/Header'
 import Navbar from '../components/Navbar'
-import CalendarHorizontal from '../components/Calendar/CalendarHorizontal'
 import Warning from '../components/Warning'
 import WeeklyFinishedTasksChart from '../components/charts/WeeklyFinishedTasksChart'
 import { Card, Typography } from '@material-tailwind/react'

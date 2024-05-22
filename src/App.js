@@ -12,6 +12,7 @@ import Dashboard from './pages/Dashboard';
 import Statistics from './pages/Statistics';
 import AddKPI from './pages/AddKPI';
 import KPIDetails from './pages/KPIDetails';
+import EditKPI from './pages/EditKPI';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/statistics" element={<Statistics />} />
           <Route path="/add-kpi" element={<AddKPI />} />
           <Route path="/kpi/:id" element={<KPIDetails />} />
+          <Route path="/kpi/:id/edit" element={<EditKPI />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
