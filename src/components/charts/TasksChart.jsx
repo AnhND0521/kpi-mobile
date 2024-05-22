@@ -1,8 +1,9 @@
-import { Card } from '@material-tailwind/react'
+import { Card, Typography } from '@material-tailwind/react'
 import { PieChart } from '@mui/x-charts'
 import React, { useEffect, useRef, useState } from 'react'
 
-const TasksChart = () => {
+const TasksChart = (props) => {
+  const { finished, ongoing, overdue, total } = props;
   const chartCanvasRef = useRef(null);
   const [width, setWidth] = useState(0)
 
@@ -13,23 +14,41 @@ const TasksChart = () => {
   }, [chartCanvasRef]);
 
   return (
-    <Card className='w-full rounded-md overflow-hidden' ref={chartCanvasRef}>
+    <Card className='w-full pb-4 rounded-md overflow-hidden' ref={chartCanvasRef}>
       <PieChart
-        margin={{right: width/2 }}
+        margin={{
+          left: width/4,
+          top: -12,
+          bottom: 12
+        }}
         colors={['#70DA56', '#DAC056', '#DA5670']}
         series={[
           { 
             data: [
-              { id: 0, value: 10, label: 'Đã hoàn thành' },
-              { id: 1, value: 15, label: 'Cần làm' },
-              { id: 2, value: 20, label: 'Quá hạn' },
+              { id: 0, value: finished, label: `Đã hoàn thành\n(${finished})` },
+              { id: 1, value: ongoing, label: `Cần làm\n(${ongoing})` },
+              { id: 2, value: overdue, label: `Quá hạn\n(${overdue})` },
             ],
-            outerRadius: width/6
+            outerRadius: width/4
           },
         ]}
         width={width}
-        height={160}
+        height={276}
+        slotProps={{
+          legend: {
+            direction: 'row',
+            position: { vertical: 'bottom', horizontal: 'middle' },
+          },
+        }}
       />
+      <div className='flex flex-col items-center'>
+        <Typography className='font-inter text-xl font-bold'>
+          {total}
+        </Typography>
+        <Typography className='font-inter text-lg font-regular'>
+          công việc
+        </Typography>
+      </div>
     </Card>
   )
 }
