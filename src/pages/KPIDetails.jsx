@@ -74,22 +74,34 @@ const KPIDetails = () => {
         </Typography>
         <div className='flex flex-col items-center gap-3'>
           <Task
-            name='IT1134'
+            name={name}
+            due={due}
+            finished={finished}
+            total={total}
+            taskName='IT1134'
             start='8:25'
             end='11:45'
-            due='12/6/2024'
+            taskDue='12/6/2024'
           />
           <Task
-            name='IT4321'
+            name={name}
+            due={due}
+            finished={finished}
+            total={total}
+            taskName='IT4321'
             start='14:15'
             end='15:00'
-            due='13/6/2024'
+            taskDue='13/6/2024'
           />
           <Task
-            name='Soạn giáo án yasuo ap'
+            name={name}
+            due={due}
+            finished={finished}
+            total={total}
+            taskName='Soạn giáo án yasuo ap'
             start='20:30'
             end='22:00'
-            due='14/6/2024'
+            taskDue='14/6/2024'
           />
         </div>
         <Typography variant='h6' className='font-inter font-regular text-red self-start'>
@@ -97,10 +109,14 @@ const KPIDetails = () => {
         </Typography>
         <div className='flex flex-col items-center gap-3'>
           <Task
-            name='Chấm điểm CTDL-GT'
+            name={name}
+            due={due}
+            finished={finished}
+            total={total}
+            taskName='Chấm điểm CTDL-GT'
             start='9:25'
             end='11:45'
-            due='8/6/2024'
+            taskDue='8/6/2024'
           />
         </div>
         <Typography variant='h6' className='font-inter font-regular text-green self-start'>
@@ -108,17 +124,25 @@ const KPIDetails = () => {
         </Typography>
         <div className='flex flex-col items-center gap-3'>
           <Task
-            name='Trình bày đề tài trước Bộ'
+            name={name}
+            due={due}
+            finished={finished}
+            total={total}
+            taskName='Trình bày đề tài trước Bộ'
             start='14:30'
             end='17:00'
-            due='10/6/2024'
+            taskDue='10/6/2024'
             checked
           />
           <Task
-            name='Viết article'
+            name={name}
+            due={due}
+            finished={finished}
+            total={total}
+            taskName='Viết article'
             start='12:30'
             end='16:00'
-            due='9/6/2024'
+            taskDue='9/6/2024'
             checked
           />
         </div>

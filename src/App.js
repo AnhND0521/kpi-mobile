@@ -14,6 +14,7 @@ import AddKPI from './pages/AddKPI';
 import Notifications from './pages/Notifications';
 import KPIDetails from './pages/KPIDetails';
 import EditKPI from './pages/EditKPI';
+import TaskDetails from './pages/TaskDetails';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/kpi/:id" element={<KPIDetails />} />
           <Route path="/kpi/:id/edit" element={<EditKPI />} />
+          <Route path="/kpi/:id/:taskid" element={<TaskDetails />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
