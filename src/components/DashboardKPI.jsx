@@ -2,9 +2,10 @@ import { CalendarIcon } from '@heroicons/react/24/outline';
 import { Button, Card, CardBody, Typography } from '@material-tailwind/react';
 import React from 'react'
 import KPIProgressChart from './charts/KPIProgressChart';
+import { Link } from 'react-router-dom';
 
 const DashboardKPI = (props) => {
-  const { name, totalTasks, completedTasks, dueDate } = props;
+  const { name, total, finished, due } = props;
   return (
     <Card className='w-full rounded-md overflow-hidden'>
       <CardBody className='flex justify-between bg-gray'>
@@ -14,7 +15,7 @@ const DashboardKPI = (props) => {
           </Typography>
           <div className='flex gap-1'>
             <Typography className='font-inter font-bold text-sm'>
-              {`${completedTasks}/${totalTasks}`}
+              {`${finished}/${total}`}
             </Typography>
             <Typography className='font-inter font-regular text-sm'>
               công việc đã hoàn tất
@@ -23,16 +24,18 @@ const DashboardKPI = (props) => {
           <div className='flex items-center gap-2'>
             <CalendarIcon className='w-4'/>
             <Typography className='font-inter font-bold text-sm'>
-              Hạn {dueDate}
+              Hạn {due}
             </Typography>
           </div>
-          <Button variant='filled' className='bg-purple'>
-            Chi tiết
-          </Button>
+          <Link to='/kpi/1' state={props}>
+            <Button variant='filled' className='bg-purple'>
+              Chi tiết
+            </Button>
+          </Link>
         </div>
         <KPIProgressChart
-          completedTasks={completedTasks}
-          totalTasks={totalTasks}
+          finished={finished}
+          total={total}
         />
       </CardBody>
     </Card>

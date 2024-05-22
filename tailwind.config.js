@@ -17,6 +17,9 @@ module.exports = withMT({
       darkGray: '#D9D9D9',
       textGray: '#5E5E5E',
       textLightGray: '#8D8F9F',
+      red: "#FF6B6B",
+      yellow: "#FFD93D",
+      green: "#6BCB77",
     },
     extend: {
       fontFamily: { 

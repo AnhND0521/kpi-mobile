@@ -21,7 +21,7 @@ const TasksChart = (props) => {
           top: -12,
           bottom: 12
         }}
-        colors={['#70DA56', '#DAC056', '#DA5670']}
+        colors={["#6BCB77", "#FFD93D", "#FF6B6B"]}
         series={[
           { 
             data: [
