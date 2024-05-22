@@ -18,9 +18,12 @@ const LandingPage = () => {
   const closeDrawer = () => setIsDrawerOpen(false);
 
   return (
-    <div className='w-full h-screen'>
+    <div className='fixed w-full h-screen'>
       <header className='flex items-center justify-between w-full h-16 px-3 py-3 bg-purple'>
         <img src={logo} className='h-full ml-3' />
+        <Typography variant='h5' color='white' className='font-inter'>
+          KPI Master
+        </Typography>
         <IconButton variant="text" size="lg" onClick={isDrawerOpen ? closeDrawer : openDrawer}>
           <Bars3Icon className="h-8 w-8 stroke-2" color='white'/>
         </IconButton>
@@ -60,21 +63,21 @@ const LandingPage = () => {
           </Card>
         </Drawer>
       </header>
-      <main className='flex flex-col items-center gap-8 h-full p-12 bg-gradient-to-b from-white to-blue'>
-        <Typography variant='h3' className='text-textBlue'>
+      <main className='flex flex-col items-center gap-8 h-[50rem] px-12 py-16 bg-gradient-to-b from-white to-blue'>
+        <Typography variant='h3' className='text-textBlue text-left'>
           Make your life easier by actively tracking your plans
         </Typography>
-        <Typography variant='h6' className='text-textBlue'>
+        <Typography variant='h6' className='text-textBlue text-left'>
           Control and analyze your KPI progress in the most efficient way possible
         </Typography>
+        <img src={kpi} />
         <Link to='/login'>
           <Button className='h-14 text-lg bg-purple uppercase'>
             Get started
           </Button>
         </Link>
-        <img src={kpi} />
       </main>
-      <footer className="flex w-full flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 py-6 text-center md:justify-between bg-darkPurple">
+      <footer className="fixed bottom-0 flex w-full flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 py-6 text-center md:justify-between bg-darkPurple">
         <Typography color="white" className="font-normal">
           Sync with external systems
         </Typography>

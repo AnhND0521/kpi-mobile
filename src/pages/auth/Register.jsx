@@ -11,9 +11,9 @@ const Register = () => {
   return (
     <>    
       <BackButton to='/login' color='black' />
-      <div className='flex flex-col items-center gap-6 p-12'>
+      <div className='flex flex-col items-center gap-6 p-12 mt-14'>
         <img src={logoblue} className='w-16' />
-        <Typography variant='h3' className='font-inter font-black'>
+        <Typography variant='h3' className='font-inter font-black font-semibold'>
           Tạo tài khoản
         </Typography>
         <div className='w-full flex flex-col items-center gap-3'>

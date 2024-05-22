@@ -11,39 +11,45 @@ const AddKPI = () => {
     <div className='w-full'>
       <Header currentPage='Thêm KPI' backDestination='/dashboard' />
       <main className='flex flex-col gap-4 my-16 p-4 overflow-y-scroll'>
-        <Typography className='font-inter font-bold text-lg self-start'>
+        <Typography className='font-inter font-semibold text-lg self-start'>
           Thông tin KPI
         </Typography>
-        <div className='flex flex-col gap-2 items-center'>
+        <div className='flex flex-col gap-4 items-center'>
           <Input label='Tên KPI' required/>
           <Input label='Mô tả'/>
           <DateInput />
-          <Select label='Lặp lại'>
-            <Option>Có</Option>
-            <Option>Không</Option>
+          <Select value={0} label='Lặp lại'>
+            <Option value={0}>Không lặp lại</Option>
+            <Option value={1}>Hàng ngày</Option>
+            <Option value={2}>Hàng tuần</Option>
+            <Option value={3}>Hàng tháng</Option>
+            <Option value={4}>Hàng năm</Option>
           </Select>
-          <Select label='Nhắc nhở'>
-            <Option>Có</Option>
-            <Option>Không</Option>
+          <Select value={0} label='Nhắc nhở'>
+            <Option value={0}>Không nhắc nhở</Option>
+            <Option value={1}>Trước 5 phút</Option>
+            <Option value={2}>Trước 30 phút</Option>
+            <Option value={3}>Trước 1 ngày</Option>
+            <Option value={4}>Trước 3 ngày</Option>
           </Select>
         </div>
-        <div className='grid grid-cols-3 grid-rows-4'>
+        <div className='grid grid-cols-3 grid-rows-4 gap-y-1.5'>
           <div className='col-span-3 flex items-center'>
             <div className='flex justify-start w-2/3'>
-              <Typography className='font-inter font-bold text-md'>
-                Yếu tố đánh giá
+              <Typography className='font-inter font-semibold text-md'>
+                Chỉ tiêu đánh giá
               </Typography>
             </div>
             <div className='flex justify-start w-1/3'>
-              <Typography className='font-inter font-bold text-md'>
+              <Typography className='font-inter font-semibold text-md'>
                 Trọng số
               </Typography>
             </div>
           </div>
           <div className='col-span-3 flex items-center'>
             <div className='flex items-center gap-2 w-2/3'>
-              <input type='checkbox' className='w-6 h-6 accent-purple rounded-md' />
-              <div className='flex flex-col gap-1 items-start'>
+              <input type='checkbox' className='w-6 h-6 accent-purple rounded-md' checked/>
+              <div className='flex flex-col items-start'>
                 <Typography className='font-inter'>
                   Số lượng
                 </Typography>
@@ -53,7 +59,7 @@ const AddKPI = () => {
               </div>
             </div>
             <div className='flex justify-start gap-1 items-center w-1/3'>
-              <input type="text" className='w-12 h-8 px-2 border border-darkGray rounded-md' />
+              <input type="number" value={50} className='w-12 h-8 px-2 border border-darkGray rounded-md' />
               <Typography className='font-inter font-regular text-lg'>
                 %
               </Typography>
@@ -61,8 +67,8 @@ const AddKPI = () => {
           </div>
           <div className='col-span-3 flex items-center'>
             <div className='flex items-center gap-2 w-2/3'>
-              <input type='checkbox' className='w-6 h-6 accent-purple rounded-md' />
-              <div className='flex flex-col gap-1 items-start'>
+              <input type='checkbox' className='w-6 h-6 accent-purple rounded-md' checked/>
+              <div className='flex flex-col items-start'>
                 <Typography className='font-inter'>
                   Chất lượng
                 </Typography>
@@ -72,7 +78,7 @@ const AddKPI = () => {
               </div>
             </div>
             <div className='flex justify-start gap-1 items-center w-1/3'>
-              <input type="text" className='w-12 h-8 px-2 border border-darkGray rounded-md' />
+              <input type="number" value={25} className='w-12 h-8 px-2 border border-darkGray rounded-md' />
               <Typography className='font-inter font-regular text-lg'>
                 %
               </Typography>
@@ -80,8 +86,8 @@ const AddKPI = () => {
           </div>
           <div className='col-span-3 flex items-center'>
             <div className='flex items-center gap-2 w-2/3'>
-              <input type='checkbox' className='w-6 h-6 accent-purple rounded-md' />
-              <div className='flex flex-col gap-1 items-start'>
+              <input type='checkbox' className='w-6 h-6 accent-purple rounded-md' checked/>
+              <div className='flex flex-col items-start'>
                 <Typography className='font-inter'>
                   Thời gian
                 </Typography>
@@ -91,7 +97,7 @@ const AddKPI = () => {
               </div>
             </div>
             <div className='flex justify-start gap-1 items-center w-1/3'>
-              <input type="text" className='w-12 h-8 px-2 border border-darkGray rounded-md' />
+              <input type="number" value={25} className='w-12 h-8 px-2 border border-darkGray rounded-md' />
               <Typography className='font-inter font-regular text-lg'>
                 %
               </Typography>
