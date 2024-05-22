@@ -9,6 +9,7 @@ import { ChevronRightIcon } from '@heroicons/react/24/outline'
 import TasksChart from '../components/charts/TasksChart'
 import KPIList from '../components/KPIList'
 import { Link } from 'react-router-dom'
+import AddButton from '../components/AddButton'
 
 const Dashboard = () => {
   return (
@@ -43,6 +44,7 @@ const Dashboard = () => {
           </Typography>
         </div>
         <KPIList />
+        <AddButton />
       </main>
       <Navbar />
     </div>
