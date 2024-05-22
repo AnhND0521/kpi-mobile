@@ -1,10 +1,9 @@
-import React, { act, useState } from 'react';
+import React, { useState } from 'react';
 import {
-  endOfWeek,
   startOfWeek
 } from 'date-fns'
 import { Card, CardBody, Typography } from '@material-tailwind/react';
-import { ChevronLeftIcon, ChevronRightIcon, ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
+import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
 import CalendarDay from './CalendarDay';
 import { addOneDayToDate } from '../../utils/dateShit';
 import Task from './Task';
@@ -23,7 +22,7 @@ const CalendarHorizontal = () => {
     <CalendarDay 
       date={day.getDate()} 
       weekday={day.getDay()}
-      active={day.getDay() == activeDay}
+      active={day.getDay() === activeDay}
       setActiveDay={setActiveDay}
       hasTask={[1, 2, 4].includes(day.getDay())}
     />

@@ -1,12 +1,13 @@
 import React from 'react'
 import Header from '../components/Header'
 import Navbar from '../components/Navbar'
-import CalendarHorizontal from '../components/Calendar/CalendarHorizontal'
+import CalendarHorizontal from '../components/calendar/CalendarHorizontal'
 import Warning from '../components/Warning'
-import WeeklyFinishedTasksChart from '../components/WeeklyFinishedTasksChart'
+import WeeklyFinishedTasksChart from '../components/charts/WeeklyFinishedTasksChart'
 import { Card, Typography } from '@material-tailwind/react'
 import { ChevronRightIcon } from '@heroicons/react/24/outline'
-import TasksChart from '../components/TasksChart'
+import TasksChart from '../components/charts/TasksChart'
+import KPIList from '../components/KPIList'
 
 const Dashboard = () => {
   return (
@@ -38,6 +39,17 @@ const Dashboard = () => {
           </Typography>
           <TasksChart />
         </Card>
+
+        <div className='w-full flex items-center justify-between'>
+          <Typography variant='h5' className='font-inter text-md font-bold'>
+            KPI của bạn
+          </Typography>
+          <Typography variant='h6' className='flex font-inter text-md font-regular text-purple'>
+            Chi tiết
+            <ChevronRightIcon className='w-4' />
+          </Typography>
+        </div>
+        <KPIList />
       </main>
       <Navbar />
     </div>
