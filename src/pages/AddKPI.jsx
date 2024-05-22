@@ -5,12 +5,14 @@ import { Link } from 'react-router-dom'
 import CornerButton from '../components/CornerButton'
 import { Checkbox, Input, Option, Select, Typography } from '@material-tailwind/react'
 import DateInput from '../components/DateInput'
+import step1 from '../assets/add-kpi-step-1.png'
 
 const AddKPI = () => {
   return (
     <div className='w-full'>
       <Header currentPage='Thêm KPI' backDestination='/dashboard' />
       <main className='flex flex-col gap-4 my-16 p-4 overflow-y-scroll'>
+        <img src={step1} className='my-4'/>
         <Typography className='font-inter font-semibold text-lg self-start'>
           Thông tin KPI
         </Typography>

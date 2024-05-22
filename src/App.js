@@ -11,6 +11,7 @@ import ResetPassword from './pages/auth/ResetPassword';
 import Dashboard from './pages/Dashboard';
 import Statistics from './pages/Statistics';
 import AddKPI from './pages/AddKPI';
+import Notifications from './pages/Notifications';
 import KPIDetails from './pages/KPIDetails';
 import EditKPI from './pages/EditKPI';
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/statistics" element={<Statistics />} />
           <Route path="/add-kpi" element={<AddKPI />} />
+          <Route path="/notifications" element={<Notifications />} />
           <Route path="/kpi/:id" element={<KPIDetails />} />
           <Route path="/kpi/:id/edit" element={<EditKPI />} />
           <Route path="*" element={<NotFound />} />
