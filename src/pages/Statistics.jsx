@@ -8,7 +8,7 @@ import UpcomingTasksChart from '../components/charts/UpcomingTasksChart'
 const Statistics = () => {
   return (
     <div className='w-full'>
-      <Header currentPage='Thống kê' />
+      <Header currentPage='Thống kê' backDestination='/dashboard' />
       <main className='flex flex-col gap-4 my-16 p-4 overflow-y-scroll'>
         <Card className='flex flex-col items-center gap-4 p-4 bg-gray overflow-hidden rounded-md'>
           <Typography variant='h5' className='font-inter text-md'>
