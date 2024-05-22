@@ -8,16 +8,16 @@ const DashboardKPI = (props) => {
   const { name, total, finished, due } = props;
   return (
     <Card className='w-full rounded-md overflow-hidden'>
-      <CardBody className='flex justify-between bg-gray'>
-        <div className='flex flex-col items-start gap-2'>
-          <Typography variant='h4' className='font-inter font-regular'>
+      <CardBody className='flex justify-between bg-gray p-3'>
+        <div className='flex flex-col items-start gap-3'>
+          <Typography variant='h4' className='font-inter font-medium text-xl'>
             {name}
           </Typography>
           <div className='flex gap-1'>
             <Typography className='font-inter font-bold text-sm'>
               {`${finished}/${total}`}
             </Typography>
-            <Typography className='font-inter font-regular text-sm'>
+            <Typography className='font-inter font-normal text-sm'>
               công việc đã hoàn tất
             </Typography>
           </div>

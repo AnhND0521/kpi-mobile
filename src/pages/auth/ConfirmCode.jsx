@@ -8,22 +8,22 @@ const ConfirmCode = () => {
   return (
     <>
       <BackButton to='/forgot-password' color='black' />
-      <div className='flex flex-col items-center gap-6 p-12'>
+      <div className='flex flex-col items-center gap-6 p-12 mt-14'>
         <LockClosedIcon className='w-16'/>
-        <Typography variant='h3' className='font-inter font-black'>
+        <Typography variant='h3' className='font-inter font-black font-semibold'>
           Xác minh
         </Typography>
         <div className='w-full flex flex-col items-start'>
-          <Typography variant='h6' className='font-inter mb-2'>
-            Nhập mã xác minh đã được gửi đến email của bạn
+          <Typography variant='h6' className='font-inter mb-2 text-left'>
+            Nhập mã xác minh đã được gửi đến email của bạn:
           </Typography>
           <Input label='XXX-XXX' />
         </div>
-        <div className='flex items-center justify-center gap-2'>
-          <Typography variant='paragraph'>
+        <div className='flex w-full items-center justify-start gap-2'>
+          <Typography variant='paragraph' className='font-medium'>
             Bạn chưa nhận được mã?
           </Typography>
-          <Typography variant='paragraph' className='text-textBlue'>
+          <Typography variant='paragraph' className='text-textBlue font-medium'>
             Gửi lại
           </Typography>
         </div>
@@ -32,7 +32,7 @@ const ConfirmCode = () => {
             Tiếp tục
           </Button>
         </Link>        
-        <div className='flex items-center justify-center gap-2'>
+        <div className='flex w-full items-start justify-start gap-2'>
           <Typography variant='paragraph'>
             Bạn đã có tài khoản?
           </Typography>

@@ -7,13 +7,13 @@ import { Link } from 'react-router-dom'
 
 const Login = () => {
   return (
-    <div className='flex flex-col items-center gap-6 p-12'>
+    <div className='flex flex-col items-center mt-14 gap-6 p-12'>
       <img src={logoblue} className='w-16' />
-      <Typography variant='h3' className='font-inter font-black'>
+      <Typography variant='h3' className='font-inter font-black font-semibold'>
         Đăng nhập
       </Typography>
       <div className='w-full flex flex-col items-center gap-3'>
-        <Input label='E-mail' />
+        <Input label='Email' />
         <Input label='Mật khẩu' />
       </div>
       <Link to='/forgot-password'>
