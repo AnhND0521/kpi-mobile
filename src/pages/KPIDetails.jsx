@@ -7,6 +7,7 @@ import { Link, useLocation } from 'react-router-dom';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import CornerButton from '../components/CornerButton';
+import Task from '../components/Task';
 
 const KPIDetails = () => {
   const location = useLocation();
@@ -69,14 +70,58 @@ const KPIDetails = () => {
           </div>
         </div>
         <Typography variant='h6' className='font-inter font-regular self-start'>
-          Công việc sắp tới(0)
+          Công việc sắp tới(3)
         </Typography>
+        <div className='flex flex-col items-center gap-3'>
+          <Task
+            name='IT1134'
+            start='8:25'
+            end='11:45'
+            due='12/6/2024'
+          />
+          <Task
+            name='IT4321'
+            start='14:15'
+            end='15:00'
+            due='13/6/2024'
+          />
+          <Task
+            name='Soạn giáo án yasuo ap'
+            start='20:30'
+            end='22:00'
+            due='14/6/2024'
+          />
+        </div>
         <Typography variant='h6' className='font-inter font-regular text-red self-start'>
-          Công việc quá hạn(0)
+          Công việc quá hạn(1)
         </Typography>
+        <div className='flex flex-col items-center gap-3'>
+          <Task
+            name='Chấm điểm CTDL-GT'
+            start='9:25'
+            end='11:45'
+            due='8/6/2024'
+          />
+        </div>
         <Typography variant='h6' className='font-inter font-regular text-green self-start'>
-          Công việc đã hoàn thành(0)
+          Công việc đã hoàn thành(2)
         </Typography>
+        <div className='flex flex-col items-center gap-3'>
+          <Task
+            name='Trình bày đề tài trước Bộ'
+            start='14:30'
+            end='17:00'
+            due='10/6/2024'
+            checked
+          />
+          <Task
+            name='Viết article'
+            start='12:30'
+            end='16:00'
+            due='9/6/2024'
+            checked
+          />
+        </div>
       </main>
       <CornerButton icon='add' />
       <Navbar />
