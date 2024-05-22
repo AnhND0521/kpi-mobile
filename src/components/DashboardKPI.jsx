@@ -14,7 +14,7 @@ const DashboardKPI = (props) => {
             {name}
           </Typography>
           <div className='flex gap-1'>
-            <Typography className='font-inter font-bold text-sm'>
+            <Typography className='font-inter font-medium text-sm'>
               {`${finished}/${total}`}
             </Typography>
             <Typography className='font-inter font-normal text-sm'>
@@ -23,7 +23,7 @@ const DashboardKPI = (props) => {
           </div>
           <div className='flex items-center gap-2'>
             <CalendarIcon className='w-4'/>
-            <Typography className='font-inter font-bold text-sm'>
+            <Typography className='font-inter font-medium text-sm'>
               Hạn {due}
             </Typography>
           </div>

@@ -64,7 +64,7 @@ const Notifications = () => {
                 </div>
                 <div className="flex flex-col gap-4 mt-4">
                 { notifications.map(n => (
-                    <Card className={`bg-cyan-50${n.read ? '/50' : ''} flex flex-col items-start`}>
+                    <Card className={`${n.read ? 'bg-[#E8DBFC]/[.3]' : 'bg-[#E8DBFC]/[.5]'} flex flex-col items-start`}>
                         <div className={`absolute top-3 left-0 w-0.5 h-[4.8rem] bg-${n.type === 0 ? 'orange' : 'red'}-500`}></div>
                         <CardBody className="p-4">
                             <div className="flex justify-between mb-3">
