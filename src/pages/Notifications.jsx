@@ -84,7 +84,7 @@ const Notifications = () => {
                 ))}
                 </div>
             </main>
-            <Navbar />
+            <Navbar active={2} />
         </div>
     );
 }

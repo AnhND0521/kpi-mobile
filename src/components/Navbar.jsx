@@ -14,8 +14,8 @@ import {
 import { Typography } from '@material-tailwind/react';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
-  const [activeTab, setActiveTab] = useState(0);
+const Navbar = (props) => {
+  const [activeTab, setActiveTab] = useState(props.active ? props.active : 0);
 
   return (
     <div className='fixed bottom-0 w-full h-16 flex grid grid-cols-4 bg-gray shadow-md'>
