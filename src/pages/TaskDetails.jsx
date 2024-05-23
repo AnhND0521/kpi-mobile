@@ -9,7 +9,7 @@ import { CheckBadgeIcon } from '@heroicons/react/24/solid';
 
 const TaskDetails = () => {
   const location = useLocation();
-  const { name, due, finished, total, taskName, start, end, taskDue, check } = location.state;
+  const { name, due, finished, total, taskName, start, end, taskDue, checked } = location.state;
   const [rated, setRated] = useState(0);
 
   return (
@@ -21,7 +21,7 @@ const TaskDetails = () => {
             {taskName}
           </Typography>
           <div>
-            <Link to='/kpi/1/edit' state={location.state}>
+            <Link to='/kpi/1/task/1/edit' state={location.state}>
               <IconButton variant='outlined' className='border-purple w-8 h-8'>
                 <PencilIcon className='w-6 text-purple'/>
               </IconButton>
@@ -72,39 +72,42 @@ const TaskDetails = () => {
             </Typography>
           </div>
         </div>
-        <Typography variant='h5' className='font-inter'>
-          Đánh giá
-        </Typography>
-        <Typography variant='h6' className='font-inter'>
-          Thời gian
-        </Typography>
-        <div className='grid grid-cols-2 grid-rows-2 gap-y-2 justify-items-start'>
-          <Typography className='font-inter text-sm'>
-            Thời hạn:
+        {checked && 
+        <>
+          <Typography variant='h5' className='font-inter'>
+            Đánh giá
           </Typography>
-          <Typography className='font-inter text-sm'>
-            {taskDue} {end}
+          <Typography variant='h6' className='font-inter'>
+            Thời gian
           </Typography>
-          <Typography className='font-inter text-sm'>
-            Hoàn thành:
+          <div className='grid grid-cols-2 grid-rows-2 gap-y-2 justify-items-start'>
+            <Typography className='font-inter text-sm'>
+              Thời hạn:
+            </Typography>
+            <Typography className='font-inter text-sm'>
+              {taskDue} {end}
+            </Typography>
+            <Typography className='font-inter text-sm'>
+              Hoàn thành:
+            </Typography>
+            <Typography className='font-inter text-sm'>
+              {taskDue} {end}
+            </Typography>
+          </div>
+          <div className='flex items-center gap-2'>
+            <CheckBadgeIcon className='w-4 text-green' />
+            <Typography className='font-inter text-sm'>
+              Bạn hoàn thành sớm trước hạn 25 phút
+            </Typography>
+          </div>
+          <Typography variant='h6' className='font-inter'>
+            Chất lượng
           </Typography>
-          <Typography className='font-inter text-sm'>
-            {taskDue} {end}
-          </Typography>
-        </div>
-        <div className='flex items-center gap-2'>
-          <CheckBadgeIcon className='w-4 text-green' />
-          <Typography className='font-inter text-sm'>
-            Bạn hoàn thành sớm trước hạn 25 phút
-          </Typography>
-        </div>
-        <Typography variant='h6' className='font-inter'>
-          Chất lượng
-        </Typography>
-        <div className="flex items-center gap-2 font-bold">
-          <Rating unratedColor="amber" ratedColor="amber" value={rated} onChange={(value) => setRated(value)} />
-          {rated}/5
-        </div>
+          <div className="flex items-center gap-2 font-bold">
+            <Rating unratedColor="amber" ratedColor="amber" value={rated} onChange={(value) => setRated(value)} />
+            {rated}/5
+          </div>
+        </>}
       </main>
       <Link to='/kpi/1' state={location.state}>
         <CornerButton icon='finish' />

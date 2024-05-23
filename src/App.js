@@ -19,6 +19,7 @@ import Settings from './pages/Settings';
 import Theme from './pages/Theme';
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import Feedback from './pages/Feedback'
+import EditTask from './pages/EditTask';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path="/kpi/:id" element={<KPIDetails />} />
           <Route path="/kpi/:id/edit" element={<EditKPI />} />
           <Route path="/kpi/:id/task/:taskid" element={<TaskDetails />} />
+          <Route path="/kpi/:id/task/:taskid/edit" element={<EditTask />} />
           <Route path="/settings" element={<Settings />}></Route>
           <Route path="/settings/theme" element={<Theme />} />
           <Route path="/settings/privacy" element={<PrivacyPolicy />} />
