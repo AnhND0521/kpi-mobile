@@ -71,22 +71,24 @@ const Navbar = (props) => {
           </Typography>
         </div>
       </Link>
-      <div
-        className={`flex flex-col items-center justify-center gap-1 w-full h-full p-2 ${activeTab === 3 && 'bg-pink'}`}
-        onClick={() => setActiveTab(3)}
-      >
-        {
-          activeTab === 3 ? 
-          <Cog6ToothIconActive  className='w-7 text-purple'/> : 
-          <Cog6ToothIcon  className='w-7 text-textGray'/>
-        }
-        <Typography 
-          variant='h6' 
-          className={`font-inter text-xs text-${activeTab === 3 ? 'purple' : 'textGray'}`}
+      <Link to={'/settings'}>
+        <div
+          className={`flex flex-col items-center justify-center gap-1 w-full h-full p-2 ${activeTab === 3 && 'bg-pink'}`}
+          onClick={() => setActiveTab(3)}
         >
-          Cài đặt
-        </Typography>
-      </div>
+          {
+            activeTab === 3 ? 
+            <Cog6ToothIconActive  className='w-7 text-purple'/> : 
+            <Cog6ToothIcon  className='w-7 text-textGray'/>
+          }
+          <Typography 
+            variant='h6' 
+            className={`font-inter text-xs text-${activeTab === 3 ? 'purple' : 'textGray'}`}
+          >
+            Cài đặt
+          </Typography>
+        </div>
+      </Link>
     </div>
   )
 }

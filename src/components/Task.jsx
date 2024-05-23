@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const Task = (props) => {
   const { name, due, finished, total, taskName, start, end, taskDue, checked } = props;
   return (
-    <Link to='/kpi/1/1' state={ props } className='w-full'>
+    <Link to='/kpi/1/task/1' state={ props } className='w-full'>
       <Card className='w-full rounded-md overflow-hidden'>
         <CardBody className='flex justify-between bg-gray p-3'>
           <div className='flex items-center gap-3'>
