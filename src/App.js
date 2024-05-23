@@ -18,6 +18,7 @@ import TaskDetails from './pages/TaskDetails';
 import Settings from './pages/Settings';
 import Theme from './pages/Theme';
 import PrivacyPolicy from './pages/PrivacyPolicy'
+import Feedback from './pages/Feedback'
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route path="/settings" element={<Settings />}></Route>
           <Route path="/settings/theme" element={<Theme />} />
           <Route path="/settings/privacy" element={<PrivacyPolicy />} />
+          <Route path="/settings/feedback" element={<Feedback />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
