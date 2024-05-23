@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const SettingsOption = (props) => {
     const { icon, optionName, control, to } = props;
     return (
-        <Link to={to}>
+        <Link to={to} className="w-full">
             <Card className="bg-[#E8DBFC]/[.3]">
                 <CardBody className="flex justify-start items-center p-2 gap-2">
                     {icon}
