@@ -36,9 +36,9 @@ const AddTask = () => {
 
   return (
     <div className='w-full'>
-      <Header currentPage='Thêm công việc' backDestination={`/add-kpi`} />
-      <main className='flex flex-col gap-4 mt-16 mb-32 p-4 overflow-y-scroll'>
-        <form onSubmit={handleSubmit}>
+      <Header currentPage='Thêm công việc' backDestination={`/kpi/${id}`} />
+      <main className='mt-16 mb-32 p-4 overflow-y-scroll'>
+        <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
           <Typography className='font-inter font-semibold text-lg self-start'>
             Thêm công việc
           </Typography>
