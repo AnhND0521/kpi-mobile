@@ -1,29 +1,4 @@
-import logo from './logo.svg';
-import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import LandingPage from './pages/LandingPage';
-import NotFound from './pages/NotFound';
-import Login from './pages/auth/Login';
-import Register from './pages/auth/Register';
-import ForgotPassword from './pages/auth/ForgotPassword';
-import ConfirmCode from './pages/auth/ConfirmCode';
-import ResetPassword from './pages/auth/ResetPassword';
-import Dashboard from './pages/Dashboard';
-import Statistics from './pages/Statistics';
-import AddKPI from './pages/AddKPI';
-import Notifications from './pages/Notifications';
-import KPIDetails from './pages/KPIDetails';
-import EditKPI from './pages/EditKPI';
-import TaskDetails from './pages/TaskDetails';
-import Settings from './pages/Settings';
-import Theme from './pages/Theme';
-import PrivacyPolicy from './pages/PrivacyPolicy'
-import Feedback from './pages/Feedback'
-import EditTask from './pages/EditTask';
-import { sortKpis } from './utils/dataUtils';
-
-function App() {
-  const data = [
+const data = [
     {
         id: '1',
         name: 'Giảng dạy',
@@ -306,33 +281,80 @@ function App() {
     localStorage.setItem("data", JSON.stringify(data));
   }
 
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route index element={<LandingPage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/confirm-code" element={<ConfirmCode />} />
-          <Route path="/reset-password" element={<ResetPassword />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/statistics" element={<Statistics />} />
-          <Route path="/add-kpi" element={<AddKPI />} />
-          <Route path="/notifications" element={<Notifications />} />
-          <Route path="/kpi/:id" element={<KPIDetails />} />
-          <Route path="/kpi/:id/edit" element={<EditKPI />} />
-          <Route path="/kpi/:id/task/:taskid" element={<TaskDetails />} />
-          <Route path="/kpi/:id/task/:taskid/edit" element={<EditTask />} />
-          <Route path="/settings" element={<Settings />}></Route>
-          <Route path="/settings/theme" element={<Theme />} />
-          <Route path="/settings/privacy" element={<PrivacyPolicy />} />
-          <Route path="/settings/feedback" element={<Feedback />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
-  );
+const kpis = JSON.parse(localStorage.getItem("data"));
+
+exports.sortTasks = (kpi) => {
+    kpi.tasks.sort((t1, t2) => {
+        if (t1.status - t2.status !== 0) return t1.status - t2.status;
+        return t1.date - t2.date;
+    });
 }
 
-export default App;
+exports.sortKpis = () => {
+    kpis.sort((k1, k2) => k1.due - k2.due);
+    kpis.forEach(kpi => this.sortTasks(kpi));
+}
+
+this.sortKpis();
+
+
+exports.findKpiById = (id) => {
+    const kpi = kpis.filter(k => k.id == id)[0];
+    this.sortTasks(kpi);
+    return kpi;
+}
+
+exports.getNumberOfFinishedTasks = (kpi) => {
+    return kpi.tasks.filter(t => t.status === 1).length;
+}
+
+exports.getCompletedPercentage = (kpi) => {
+    if (kpi.tasks.length === 0) return 0;
+    return Math.round(100 * this.getNumberOfFinishedTasks(kpi) / kpi.tasks.length);
+}
+
+exports.getCurrentKpis = () => {
+    return kpis.filter(kpi => new Date(kpi.due) >= new Date() && this.getCompletedPercentage(kpi) < 100 );
+}
+
+exports.getPastKpis = () => {
+    return kpis.filter(kpi => new Date(kpi.due) < new Date() || this.getCompletedPercentage(kpi) === 100);
+}
+
+exports.isValidKpi = (kpi) => {
+    return kpi.name.trim().length > 0 && kpi.due;
+}
+
+exports.getNextKpiId = () => {
+    if (kpis.length === 0) return '1';
+    const ids = kpis.map(k => +k.id);
+    console.log(ids);
+    return `${Math.max(...ids) + 1}`;
+}
+
+exports.getNextTaskId = (kpi) => {
+    if (kpi.tasks.length === 0) return `${kpi.id}.1`; 
+    const ids = kpi.tasks.map(k => +k.id.split('.')[1]);
+    console.log(ids);
+    return `${kpi.id}.${Math.max(...ids) + 1}`;
+}
+
+exports.saveKpi = (kpi) => {
+    kpi.id = this.getNextKpiId();
+    kpi.tasks.forEach((t,i) => {
+        t.id = `${kpi.id}.${i+1}`
+    }); 
+    kpis.push(kpi);
+    localStorage.removeItem("data");
+    localStorage.setItem("data", JSON.stringify(kpis));
+    return kpi;
+}
+
+exports.getAllTasks = () => {
+    return kpis.reduce((acc, kpi) => [...acc, ...kpi.tasks], []);
+}
+
+exports.save = (kpis) => {
+    localStorage.removeItem("data");
+    localStorage.setItem("data", JSON.stringify(kpis));
+}

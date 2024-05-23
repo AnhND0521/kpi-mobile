@@ -1,27 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import DashboardKPI from './DashboardKPI'
+import { getCurrentKpis, getNumberOfFinishedTasks } from '../utils/dataUtils';
 
 const KPIList = () => {
+  const kpis = getCurrentKpis();
+
   return (
     <div className='flex flex-col items-center gap-3 w-full'>
-      <DashboardKPI 
-        name='Giảng dạy'
-        total={60}
-        finished={42}
-        due='30/06/2024'
-      />
-      <DashboardKPI 
-        name='Nghiên cứu'
-        total={60}
-        finished={42}
-        due='30/06/2024'
-      />
-      <DashboardKPI 
-        name='Phục vụ'
-        total={60}
-        finished={42}
-        due='30/06/2024'
-      />
+      {
+        kpis.map(kpi => (
+          <DashboardKPI 
+            id={kpi.id}
+            name={kpi.name}
+            total={kpi.tasks.length}
+            finished={getNumberOfFinishedTasks(kpi)}
+            due={kpi.due}
+          />
+        ))
+      }
     </div>
   )
 }

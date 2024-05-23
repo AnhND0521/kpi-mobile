@@ -17,7 +17,7 @@ const KPIProgressChart = (props) => {
   return (
     <div className='flex items-center justify-center w-1/3' ref={chartCanvasRef}>
       <Typography variant='h3' className='absolute font-inter text-purple'>
-        {`${finished/total*100}%`}
+        {`${Math.round(finished/total*100)}%`}
       </Typography>
       <PieChart
         margin={{left: width/2 }}

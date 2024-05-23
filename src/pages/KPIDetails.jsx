@@ -1,27 +1,36 @@
 import { Button, Card, IconButton, Typography } from '@material-tailwind/react'
-import React from 'react'
+import React, { useState } from 'react'
 import KPIProgressChart from '../components/charts/KPIProgressChart';
 import { CalendarIcon, ChevronRightIcon, PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
 import { FunnelIcon } from '@heroicons/react/24/solid';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import CornerButton from '../components/CornerButton';
 import Task from '../components/Task';
+import { findKpiById, getNumberOfFinishedTasks } from '../utils/dataUtils';
+import moment from 'moment/moment';
 
 const KPIDetails = () => {
   const location = useLocation();
-  const { name, finished, total, due } = location.state;
+  // const { name, finished, total, due } = location.state;
+  const { id } = useParams();
+  console.log(id);
+
+  const kpi = findKpiById(id);
+  const total = kpi.tasks.length;
+  const finished = getNumberOfFinishedTasks(kpi);
+
   return (
     <div className='w-full'>
       <Header currentPage='Chi tiết KPI' backDestination='/dashboard' />
       <main className='flex flex-col gap-4 my-16 p-4 overflow-y-scroll'>
         <div className='w-full flex justify-between items-center'>
           <Typography variant='h4' className='font-inter font-regular font-medium'>
-            {name}
+            {kpi.name}
           </Typography>
           <div>
-            <Link to='/kpi/1/edit' state={location.state}>
+            <Link to={`/kpi/${id}/edit`} state={location.state}>
               <IconButton variant='outlined' className='border-purple w-8 h-8'>
                 <PencilIcon className='w-6 text-purple'/>
               </IconButton>
@@ -44,7 +53,7 @@ const KPIDetails = () => {
             <div className='flex items-center gap-2'>
               <CalendarIcon className='w-4'/>
               <Typography className='font-inter font-medium text-sm'>
-                Hạn {due}
+                Hạn {moment(kpi.due).format('DD/MM/YYYY')}
               </Typography>
             </div>
             <Button variant='filled' className='flex gap-2 items-center bg-purple py-2'>
@@ -73,78 +82,45 @@ const KPIDetails = () => {
           Công việc sắp tới (3)
         </Typography>
         <div className='flex flex-col items-center gap-3'>
-          <Task
-            name={name}
-            due={due}
-            finished={finished}
-            total={total}
-            taskName='IT1134'
-            start='8:25'
-            end='11:45'
-            taskDue='12/6/2024'
-          />
-          <Task
-            name={name}
-            due={due}
-            finished={finished}
-            total={total}
-            taskName='IT4321'
-            start='14:15'
-            end='15:00'
-            taskDue='13/6/2024'
-          />
-          <Task
-            name={name}
-            due={due}
-            finished={finished}
-            total={total}
-            taskName='Soạn giáo án yasuo ap'
-            start='20:30'
-            end='22:00'
-            taskDue='14/6/2024'
-          />
+          {kpi.tasks.filter(t => t.status !== 1 && new Date(t.date) >= new Date()).map(t => (
+            <Task
+              name={kpi.name}
+              due={t.date}
+              taskName={t.name}
+              start={t.start}
+              end={t.end}
+              taskDue={moment(t.date).format('DD/MM/YYYY')}
+            />))
+          }
         </div>
         <Typography variant='h6' className='font-inter font-regular font-medium text-red self-start'>
           Công việc quá hạn (1)
         </Typography>
-        <div className='flex flex-col items-center gap-3'>
-          <Task
-            name={name}
-            due={due}
-            finished={finished}
-            total={total}
-            taskName='Chấm điểm CTDL-GT'
-            start='9:25'
-            end='11:45'
-            taskDue='8/6/2024'
-          />
-        </div>
+        {kpi.tasks.filter(t => t.status !== 1 && new Date(t.date) < new Date()).map(t => (
+            <Task
+              name={kpi.name}
+              due={t.date}
+              taskName={t.name}
+              start={t.start}
+              end={t.end}
+              taskDue={moment(t.date).format('DD/MM/YYYY')}
+            />))
+          }
         <Typography variant='h6' className='font-inter font-regular font-medium text-green self-start'>
           Công việc đã hoàn thành (2)
         </Typography>
         <div className='flex flex-col items-center gap-3'>
-          <Task
-            name={name}
-            due={due}
-            finished={finished}
-            total={total}
-            taskName='Trình bày đề tài trước Bộ'
-            start='14:30'
-            end='17:00'
-            taskDue='10/6/2024'
-            checked
-          />
-          <Task
-            name={name}
-            due={due}
-            finished={finished}
-            total={total}
-            taskName='Viết article'
-            start='12:30'
-            end='16:00'
-            taskDue='9/6/2024'
-            checked
-          />
+        {kpi.tasks.filter(t => t.status === 1).map(t => (
+            <Task
+              name={kpi.name}
+              due={t.date}
+              checked={true}
+              taskName={t.name}
+              start={t.start}
+              end={t.end}
+              taskDue={moment(t.date).format('DD/MM/YYYY')}
+            />))
+          }
         </div>
       </main>
       <CornerButton icon='add' />
