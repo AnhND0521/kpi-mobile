@@ -23,6 +23,7 @@ import Help from './pages/Help'
 import EditTask from './pages/EditTask';
 import { sortKpis } from './utils/dataUtils';
 import KPIReport from './pages/KPIReport';
+import Schedule from './pages/Schedule';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/statistics" element={<Statistics />} />
           <Route path="/add-kpi" element={<AddKPI />} />
+          <Route path="/schedule" element={<Schedule />} />
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/kpi/:id" element={<KPIDetails />} />
           <Route path="/kpi/:id/report" element={<KPIReport />} />

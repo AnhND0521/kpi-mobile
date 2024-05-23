@@ -358,3 +358,16 @@ exports.save = (kpis) => {
     localStorage.removeItem("data");
     localStorage.setItem("data", JSON.stringify(kpis));
 }
+
+exports.getTasksByDate = (date) => {
+    
+    const res = [];
+    for (const kpi of data) {
+        for (const task of kpi.tasks) {
+            if (task.date.toDateString() == date.toDateString()) {
+                res.push({...task, kpi: kpi.id});
+            }
+        }
+    }
+    return res;
+}

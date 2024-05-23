@@ -7,6 +7,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
 import CalendarDay from './CalendarDay';
 import { addOneDayToDate } from '../../utils/dateShit';
 import Task from './Task';
+import { getTasksByDate } from '../../utils/dataUtils';
 
 const CalendarHorizontal = () => {
   const [weeksFromCurrentDate, setWeeksFromCurrentDate] = useState(0)
@@ -18,13 +19,27 @@ const CalendarHorizontal = () => {
     const day = new Date(start.getTime() + 86400000 * i);
     daysInWeek.push(day);
   }
+
+  const tasksActiveDay = getTasksByDate(daysInWeek[activeDay]);
+
   const calendarDays = daysInWeek.map(day => 
     <CalendarDay 
       date={day.getDate()} 
       weekday={day.getDay()}
       active={day.getDay() === activeDay}
       setActiveDay={setActiveDay}
-      hasTask={[1, 2, 4].includes(day.getDay())}
+      hasTask={getTasksByDate(day).length > 0}
+    />
+  )
+
+  const tasks = tasksActiveDay.map((task) => 
+    <Task
+      key={task.id}
+      id={task.id}
+      name={task.name}
+      kpi={task.kpi}
+      startTime={task.start}
+      endTime={task.end}
     />
   )
 
@@ -55,18 +70,7 @@ const CalendarHorizontal = () => {
         </div>
         <hr className='my-2 bg-black'/>
         <div className='w-full min-h-16 flex flex-col items-center gap-2 px-4'>
-          <Task 
-            name='IT4110'
-            kpi='Giảng dạy'
-            startTime='8:30'
-            endTime='11:45'
-          />
-          <Task 
-            name='Viết báo cáo'
-            kpi='Nghiên cứu'
-            startTime='12:30'
-            endTime='14:50'
-          />
+          {tasks}
         </div>
       </CardBody>
     </Card>
