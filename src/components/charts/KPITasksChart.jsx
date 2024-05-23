@@ -27,12 +27,12 @@ const KPITasksChart = (props) => {
               { id: 1, value: upcoming, label: `Cần làm\n(${upcoming})` },
               { id: 2, value: overdue, label: `Quá hạn\n(${overdue})` },
             ],
-            outerRadius: width/4,
-            innerRadius: width/4 - 30,
+            outerRadius: width/5,
+            innerRadius: width/5 - 30,
           },
         ]}
         width={width}
-        height={width/2}
+        height={2*width/5}
         slotProps={{
           legend: {
             direction: 'column',

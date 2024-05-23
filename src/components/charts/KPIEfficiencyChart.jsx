@@ -1,9 +1,8 @@
-import { Card } from '@material-tailwind/react';
-import { BarChart } from '@mui/x-charts';
+import { Card } from '@material-tailwind/react'
+import { BarChart } from '@mui/x-charts'
 import React, { useEffect, useRef, useState } from 'react'
 
-const UpcomingTasksChart = (props) => {
-  const { upcomingTasksData } = props;
+const KPIEfficiencyChart = () => {
   const chartCanvasRef = useRef(null);
   const [width, setWidth] = useState(0)
 
@@ -14,15 +13,15 @@ const UpcomingTasksChart = (props) => {
   }, [chartCanvasRef]);
 
   return (
-    <Card className='w-full pb-4 rounded-md overflow-hidden' ref={chartCanvasRef}>
+    <div className='w-full rounded-md overflow-hidden' ref={chartCanvasRef}>
       <BarChart
         xAxis={[{ scaleType: 'band', data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] }]}
-        series={[{ data: upcomingTasksData, color: '#7E56DA'}]}
+        series={[{ data: [2, 3, 1, 5, 3, 4, 1], color: '#7E56DA'}]}
         width={width}
-        height={256}
+        height={220}
       />
-    </Card>
+    </div>
   )
 }
 
-export default UpcomingTasksChart
+export default KPIEfficiencyChart
