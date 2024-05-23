@@ -3,6 +3,7 @@ import Header from "../../components/Header";
 import Navbar from "../../components/Navbar";
 import SettingsOption from "../../components/SettingsOption";
 import { Typography } from "@material-tailwind/react";
+import avatar from '../../assets/avatar.png';
 
 const Settings = () => {
 
@@ -11,10 +12,10 @@ const Settings = () => {
             <Header currentPage='Cài đặt' />
             <main className='flex flex-col gap-4 my-16 px-4 py-12 overflow-y-scroll'>
                 <div className="flex flex-col items-center gap-2 mb-5">
-                    <UserCircleIcon className="w-28"/>
-                    <div className="flex items-center justify-center gap-2">
+                    <img src={avatar} className="w-28 h-28 rounded-full"/>
+                    <div className="flex items-center justify-center gap-2 mt-2">
                         <Typography className="font-inter text-xl font-medium">
-                            Nguyễn Văn A
+                            Nguyễn Anh Long
                         </Typography>
                         <ChevronRightIcon className="w-6"/>
                     </div>

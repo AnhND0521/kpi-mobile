@@ -41,9 +41,9 @@ const AddKPITasks = (props) => {
             />
           </div>
           <Select value={priority} label='Ưu tiên' onChange={(val) => setPriority(val)}>
-            <Option value={0}>Thấp</Option>
-            <Option value={1}>Trung bình</Option>
-            <Option value={2}>Cao</Option>
+            <Option value={1}>Thấp</Option>
+            <Option value={2}>Trung bình</Option>
+            <Option value={3}>Cao</Option>
           </Select>
           <Select value={repeat} label='Lặp lại' onChange={(val) => setRepeat(val)}>
             <Option value={0}>Không lặp lại</Option>
