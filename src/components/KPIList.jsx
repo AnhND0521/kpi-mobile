@@ -10,11 +10,7 @@ const KPIList = (props) => {
       {
         kpis.map(kpi => (
           <DashboardKPI 
-            id={kpi.id}
-            name={kpi.name}
-            total={kpi.tasks.length}
-            finished={getNumberOfFinishedTasks(kpi)}
-            due={kpi.due}
+            kpi={kpi}
           />
         ))
       }

@@ -94,7 +94,7 @@ const TaskDetails = () => {
               Hoàn thành:
             </Typography>
             <Typography className='font-inter text-sm'>
-              {moment(task.date).format('DD/MM/YYYY')} {task.end}
+              {moment(task.completed).format('DD/MM/YYYY')} {moment(task.completed).format('hh:mm')}
             </Typography>
           </div>
           <div className='flex items-center gap-2'>

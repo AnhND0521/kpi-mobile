@@ -19,13 +19,13 @@ const EditTask = () => {
 
   return (
     <div className='w-full'>
-      <Header currentPage='Chỉnh sửa công việc' backDestination={`/kpi/${id}/task/${taskId}`} />
+      <Header currentPage='Chỉnh sửa nhiệm vụ' backDestination={`/kpi/${id}/task/${taskId}`} />
       <main className='flex flex-col gap-4 my-16 p-4 overflow-y-scroll'>
         <Typography className='font-inter font-semibold text-lg self-start'>
-          Chỉnh sửa công việc
+          Chỉnh sửa nhiệm vụ
         </Typography>
         <div className='flex flex-col gap-4 items-center'>
-          <Input label='Tên công việc' value={task.name} required />
+          <Input label='Tên nhiệm vụ' value={task.name} required />
           <DateInput value={task.date}/>
           <div className=" flex gap-2 w-full">
             <Input label='Bắt đầu' value={task.start} required />
