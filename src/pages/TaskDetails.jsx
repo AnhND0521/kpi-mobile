@@ -1,19 +1,29 @@
 import { IconButton, Rating, Typography } from '@material-tailwind/react'
 import React, { useState } from 'react'
 import { ArrowRightIcon, ArrowUturnLeftIcon, BellIcon, CalendarIcon, ClockIcon, FlagIcon, PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import CornerButton from '../components/CornerButton';
 import { CheckBadgeIcon } from '@heroicons/react/24/solid';
-import { findKpiById, findTaskById } from '../utils/dataUtils';
+import { deleteTask, findKpiById, findTaskById } from '../utils/dataUtils';
 import moment from 'moment/moment';
+import ConfirmDialog from '../components/ConfirmDialog';
 
 const TaskDetails = () => {
   const { id, taskId } = useParams();
   const kpi = findKpiById(id);
   const task = findTaskById(id, taskId);
   const [rated, setRated] = useState(0);
+
+  const [ openDialog, setOpenDialog ] = useState(false);
+
+  const navigate = useNavigate();
+  
+  const handleDelete = () => {
+    deleteTask(id, taskId);
+    navigate(`/kpi/${id}`);
+  }
 
   return (
     <div className='w-full'>
@@ -29,7 +39,7 @@ const TaskDetails = () => {
                 <PencilIcon className='w-6 text-white'/>
               </IconButton>
             </Link>
-            <IconButton variant='filled' className='bg-purple w-8 h-8 ml-2'>
+            <IconButton variant='filled' className='bg-purple w-8 h-8 ml-2' onClick={() => setOpenDialog(true)}>
               <TrashIcon className='w-6 text-white'/>
             </IconButton>
           </div>
@@ -116,6 +126,14 @@ const TaskDetails = () => {
         <CornerButton icon='finish' />
       </Link>
       <Navbar />
+
+      <ConfirmDialog 
+        message='Bạn có chắc muốn xóa công việc này?' 
+        open={openDialog} 
+        handleOpen={() => setOpenDialog(true)} 
+        handleCancel={() => setOpenDialog(false)}
+        handleConfirm={handleDelete}
+      />
     </div>
   )
 }

@@ -5,7 +5,7 @@ import { Link, useParams } from 'react-router-dom'
 import CornerButton from '../components/CornerButton'
 import { Checkbox, Input, Option, Select, Typography } from '@material-tailwind/react'
 import DateInput from '../components/DateInput'
-import { findKpiById, findTaskById, getNextTaskId } from '../utils/dataUtils.js'
+import { findKpiById, findTaskById, getNextTaskId, saveKpi } from '../utils/dataUtils.js'
 
 const AddTask = () => {
   const { id } = useParams();
@@ -31,6 +31,7 @@ const AddTask = () => {
       noti: 0
     }
     kpi.tasks.push(newTask);
+    saveKpi(kpi);
   }
 
   return (

@@ -13,7 +13,6 @@ import moment from 'moment/moment';
 import ConfirmDialog from '../components/ConfirmDialog';
 
 const KPIDetails = () => {
-  const location = useLocation();
   const { id } = useParams();
 
   const [kpi, setKpi] = useState(findKpiById(id));
@@ -123,18 +122,17 @@ const KPIDetails = () => {
         </div>
       </main>
       <Link to={`/kpi/${id}/add-task`}>
-        <CornerButton icon='add' />
+        <CornerButton icon='add' type='button'/>
       </Link>
       <Navbar />
-
-      
 
       <ConfirmDialog 
         message='Bạn có chắc muốn xóa KPI này?' 
         open={openDialog} 
         handleOpen={() => setOpenDialog(true)} 
         handleCancel={() => setOpenDialog(false)}
-        handleConfirm={handleDelete} />
+        handleConfirm={handleDelete} 
+      />
     </div>
   )
 }
