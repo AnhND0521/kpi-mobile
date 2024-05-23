@@ -41,15 +41,12 @@ const Settings = () => {
                 <SettingsOption
                     icon={<QuestionMarkCircleIcon className="w-8"/>}
                     optionName="Trợ giúp"
+                    to="/settings/help"
                 />
                 <SettingsOption
                     icon={<ChatBubbleOvalLeftIcon className="w-8"/>}
                     optionName="Feedback"
                     to="/settings/feedback"
-                />
-                <SettingsOption
-                    icon={<EnvelopeIcon className="w-8"/>}
-                    optionName="Liên hệ"
                 />
                 <SettingsOption
                     icon={<ArrowRightEndOnRectangleIcon className="w-8"/>}

@@ -20,6 +20,8 @@ const KPIDetails = () => {
   const kpi = findKpiById(id);
   const total = kpi.tasks.length;
   const finished = getNumberOfFinishedTasks(kpi);
+  const upcoming = kpi.tasks.filter(t => t.status !== 1 && new Date(t.date) >= new Date()).length;
+  const pastDue = kpi.tasks.filter(t => t.status !== 1 && new Date(t.date) < new Date()).length;
 
   return (
     <div className='w-full'>
@@ -81,7 +83,7 @@ const KPIDetails = () => {
           </div> */}
         </div>
         <Typography variant='h6' className='font-inter font-regular font-medium self-start'>
-          Công việc sắp tới (3)
+          Công việc sắp tới ({upcoming})
         </Typography>
         <div className='flex flex-col items-center gap-3'>
           {kpi.tasks.filter(t => t.status !== 1 && new Date(t.date) >= new Date()).map(t => (
@@ -96,7 +98,7 @@ const KPIDetails = () => {
           }
         </div>
         <Typography variant='h6' className='font-inter font-regular font-medium text-red self-start'>
-          Công việc quá hạn (1)
+          Công việc quá hạn ({pastDue})
         </Typography>
         {kpi.tasks.filter(t => t.status !== 1 && new Date(t.date) < new Date()).map(t => (
             <Task
@@ -109,7 +111,7 @@ const KPIDetails = () => {
             />))
           }
         <Typography variant='h6' className='font-inter font-regular font-medium text-green self-start'>
-          Công việc đã hoàn thành (2)
+          Công việc đã hoàn thành ({finished})
         </Typography>
         <div className='flex flex-col items-center gap-3'>
         {kpi.tasks.filter(t => t.status === 1).map(t => (
