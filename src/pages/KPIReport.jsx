@@ -5,6 +5,7 @@ import { CalendarIcon, ChevronRightIcon, PencilIcon, TrashIcon } from '@heroicon
 import { Link, useParams } from 'react-router-dom';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
+
 import { findKpiById, getNumberOfFinishedTasks } from '../utils/dataUtils';
 import moment from 'moment/moment';
 
@@ -17,9 +18,9 @@ const KPIReport = () => {
 
   return (
     <div className='w-full'>
-      <Header currentPage='Chi tiết KPI' backDestination='/dashboard' />
+      <Header currentPage='Chi tiết KPI' backDestination={`/kpi/${id}`} />
       <main className='flex flex-col gap-4 my-16 p-4 overflow-y-scroll'>
-        <div className='min-h-36 flex items-center justify-between'>
+        <div className='min-h-36 flex items-between justify-between'>
           <div className='flex flex-col items-start gap-3'>
             <Typography variant='h5' className='font-inter font-regular font-medium'>
               Báo cáo tiến triển
