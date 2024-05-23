@@ -1,9 +1,9 @@
 import { Card, CardBody, Input, Typography } from "@material-tailwind/react";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
+import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
 import { ArrowPathIcon, BellAlertIcon, ChartBarIcon, ClipboardDocumentIcon, CloudArrowDownIcon, EnvelopeIcon, MagnifyingGlassIcon, QuestionMarkCircleIcon, QueueListIcon } from "@heroicons/react/24/outline";
-import HelpItem from "../components/HelpItem";
-import SettingsOption from "../components/SettingsOption";
+import HelpItem from "../../components/HelpItem";
+import SettingsOption from "../../components/SettingsOption";
 
 const Help = () => {
     return (

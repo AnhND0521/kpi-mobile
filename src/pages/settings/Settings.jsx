@@ -1,7 +1,7 @@
 import { ArrowRightEndOnRectangleIcon, BellIcon, ChartBarSquareIcon, ChatBubbleOvalLeftIcon, ChevronRightIcon, EnvelopeIcon, PaintBrushIcon, QuestionMarkCircleIcon, ShieldCheckIcon, UserCircleIcon } from "@heroicons/react/24/outline";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
-import SettingsOption from "../components/SettingsOption";
+import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
+import SettingsOption from "../../components/SettingsOption";
 import { Typography } from "@material-tailwind/react";
 
 const Settings = () => {

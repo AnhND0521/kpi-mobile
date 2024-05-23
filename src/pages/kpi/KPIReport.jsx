@@ -1,14 +1,14 @@
 import { Button, Card, IconButton, Typography } from '@material-tailwind/react'
 import React, { useState } from 'react'
-import KPIProgressChart from '../components/charts/KPIProgressChart';
+import KPIProgressChart from '../../components/charts/KPIProgressChart';
 import { CalendarIcon, ChevronRightIcon, PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
 import { Link, useParams } from 'react-router-dom';
-import Header from '../components/Header';
-import Navbar from '../components/Navbar';
-import { findKpiById, getNumberOfFinishedTasks } from '../utils/dataUtils';
+import Header from '../../components/Header';
+import Navbar from '../../components/Navbar';
+import { findKpiById, getNumberOfFinishedTasks } from '../../utils/dataUtils';
 import moment from 'moment/moment';
-import KPITasksChart from '../components/charts/KPITasksChart';
-import KPIEfficiencyChart from '../components/charts/KPIEfficiencyChart';
+import KPITasksChart from '../../components/charts/KPITasksChart';
+import KPIEfficiencyChart from '../../components/charts/KPIEfficiencyChart';
 
 const KPIReport = () => {
   const { id } = useParams();

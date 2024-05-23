@@ -1,16 +1,16 @@
 import { Button, Card, IconButton, Typography } from '@material-tailwind/react'
 import React, { useState } from 'react'
-import KPIProgressChart from '../components/charts/KPIProgressChart';
+import KPIProgressChart from '../../components/charts/KPIProgressChart';
 import { CalendarIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
-import Header from '../components/Header';
-import Navbar from '../components/Navbar';
-import CornerButton from '../components/CornerButton';
-import Task from '../components/Task';
-import { deleteKpi, findKpiById, getNumberOfFinishedTasks, saveTask } from '../utils/dataUtils';
+import Header from '../../components/Header';
+import Navbar from '../../components/Navbar';
+import CornerButton from '../../components/CornerButton';
+import Task from '../../components/Task';
+import { deleteKpi, findKpiById, getNumberOfFinishedTasks, saveTask } from '../../utils/dataUtils';
 import moment from 'moment/moment';
-import ConfirmDialog from '../components/ConfirmDialog';
+import ConfirmDialog from '../../components/ConfirmDialog';
 
 const KPIDetails = () => {
   const { id } = useParams();

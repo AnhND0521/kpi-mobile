@@ -2,13 +2,13 @@ import { IconButton, Rating, Typography } from '@material-tailwind/react'
 import React, { useState } from 'react'
 import { ArrowRightIcon, ArrowUturnLeftIcon, BellIcon, CalendarIcon, ClockIcon, FlagIcon, PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import Header from '../components/Header';
-import Navbar from '../components/Navbar';
-import CornerButton from '../components/CornerButton';
+import Header from '../../components/Header';
+import Navbar from '../../components/Navbar';
+import CornerButton from '../../components/CornerButton';
 import { CheckBadgeIcon } from '@heroicons/react/24/solid';
-import { deleteTask, findKpiById, findTaskById } from '../utils/dataUtils';
+import { deleteTask, findKpiById, findTaskById } from '../../utils/dataUtils';
 import moment from 'moment/moment';
-import ConfirmDialog from '../components/ConfirmDialog';
+import ConfirmDialog from '../../components/ConfirmDialog';
 
 const TaskDetails = () => {
   const { id, taskId } = useParams();

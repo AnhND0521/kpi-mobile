@@ -10,21 +10,21 @@ import ConfirmCode from './pages/auth/ConfirmCode';
 import ResetPassword from './pages/auth/ResetPassword';
 import Dashboard from './pages/Dashboard';
 import Statistics from './pages/Statistics';
-import AddKPI from './pages/AddKPI';
+import AddKPI from './pages/kpi/AddKPI';
 import Notifications from './pages/Notifications';
-import KPIDetails from './pages/KPIDetails';
-import EditKPI from './pages/EditKPI';
-import TaskDetails from './pages/TaskDetails';
-import Settings from './pages/Settings';
-import Theme from './pages/Theme';
-import PrivacyPolicy from './pages/PrivacyPolicy'
-import Feedback from './pages/Feedback'
-import Help from './pages/Help'
-import EditTask from './pages/EditTask';
+import KPIDetails from './pages/kpi/KPIDetails';
+import EditKPI from './pages/kpi/EditKPI';
+import TaskDetails from './pages/task/TaskDetails';
+import Settings from './pages/settings/Settings';
+import Theme from './pages/settings/Theme';
+import PrivacyPolicy from './pages/settings/PrivacyPolicy'
+import Feedback from './pages/settings/Feedback'
+import Help from './pages/settings/Help'
+import EditTask from './pages/task/EditTask';
 import { sortKpis } from './utils/dataUtils';
-import KPIReport from './pages/KPIReport';
+import KPIReport from './pages/kpi/KPIReport';
 import Schedule from './pages/Schedule';
-import AddTask from './pages/AddTask';
+import AddTask from './pages/task/AddTask';
 
 function App() {
   return (

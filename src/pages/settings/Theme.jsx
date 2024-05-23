@@ -1,7 +1,7 @@
 import { Typography } from "@material-tailwind/react";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
-import ThemeColor from "../components/ThemeColor";
+import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
+import ThemeColor from "../../components/ThemeColor";
 import { useState } from "react";
 
 const Theme = () => {
