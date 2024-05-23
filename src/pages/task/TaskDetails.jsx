@@ -14,7 +14,7 @@ const TaskDetails = () => {
   const { id, taskId } = useParams();
   const kpi = findKpiById(id);
   const task = findTaskById(id, taskId);
-  const [rated, setRated] = useState(0);
+  const [rated, setRated] = useState(5);
 
   const [ openDialog, setOpenDialog ] = useState(false);
 
@@ -104,7 +104,7 @@ const TaskDetails = () => {
               Hoàn thành:
             </Typography>
             <Typography className='font-inter text-sm'>
-              {moment(task.completed).format('DD/MM/YYYY')} {moment(task.completed).format('hh:mm')}
+              {moment(task.completed).subtract(7, 'h').format('DD/MM/YYYY')} {moment(task.completed).subtract(7, 'h').format('HH:mm')}
             </Typography>
           </div>
           <div className='flex items-center gap-2'>

@@ -5,10 +5,11 @@ import { CalendarIcon, ChevronRightIcon, PencilIcon, TrashIcon } from '@heroicon
 import { Link, useParams } from 'react-router-dom';
 import Header from '../../components/Header';
 import Navbar from '../../components/Navbar';
-import { findKpiById, getNumberOfFinishedTasks } from '../../utils/dataUtils';
+import { calculateKpiScore, findKpiById, getNumberOfFinishedTasks } from '../../utils/dataUtils';
 import moment from 'moment/moment';
 import KPITasksChart from '../../components/charts/KPITasksChart';
 import KPIEfficiencyChart from '../../components/charts/KPIEfficiencyChart';
+import KPIProgressOverTimeChart from '../../components/charts/KPIProgressOverTimeChart';
 
 const KPIReport = () => {
   const { id } = useParams();
@@ -29,7 +30,7 @@ const KPIReport = () => {
           </Typography>
           <div className='w-full grid grid-cols-3 gap-4'>
             <Card className='w-full flex flex-col items-center p-4 rounded-md'>
-              <Typography variant='h4' className='font-inter font-semibold text-yellow'>
+              <Typography variant='h4' className='font-inter font-semibold text-purple'>
                 {upcoming}
               </Typography>
               <Typography className='leading-5'>
@@ -54,7 +55,7 @@ const KPIReport = () => {
             </Card>
           </div>
         </div>
-        <div className='min-h-36 flex items-between justify-between'>
+        <div className='min-h-36 flex items-between justify-between mt-3'>
           <div className='flex flex-col items-start gap-4'>
             <Typography variant='h5' className='font-inter font-regular font-medium'>
               Báo cáo tiến triển
@@ -71,15 +72,15 @@ const KPIReport = () => {
               </Typography>
             </div>
             <Typography className='font-inter font-regular text-sm'>
-              Tiếp tục đi lên!
+              Dự báo cần 7 ngày nữa để hoàn tất
             </Typography>
           </div>
           <KPIProgressChart
-            finished={finished}
-            total={total}
+            progress={calculateKpiScore(kpi)/100}
           />
         </div>
-        <div className='flex flex-col items-start gap-3'>
+        <KPIProgressOverTimeChart />
+        <div className='flex flex-col items-start gap-3 mt-3'>
           <Typography variant='h5' className='font-inter font-regular font-medium'>
             Biểu đồ tổng quan
           </Typography>
@@ -90,9 +91,9 @@ const KPIReport = () => {
             total={total}
           />
         </div>
-        <div className='flex flex-col items-start gap-3'>
+        <div className='flex flex-col items-start gap-3 mt-3'>
           <Typography variant='h5' className='font-inter font-regular font-medium'>
-            Hiệu suất công việc
+            Số hoạt động gần đây
           </Typography>
           <KPIEfficiencyChart />
         </div>
