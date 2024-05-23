@@ -37,22 +37,24 @@ const Navbar = (props) => {
           </Typography>
         </div>
       </Link>
-      <div
-        className={`flex flex-col items-center justify-center gap-1 w-full h-full p-2 ${activeTab === 1 && 'bg-pink'}`}
-        onClick={() => setActiveTab(1)}
-      >
-        {
-          activeTab === 1 ? 
-          <CalendarIconActive  className='w-7 text-purple'/> : 
-          <CalendarIcon  className='w-7 text-textGray'/>
-        }
-        <Typography 
-          variant='h6' 
-          className={`font-inter text-xs text-${activeTab === 1 ? 'purple' : 'textGray'}`}
+      <Link to={'/schedule'}>
+        <div
+          className={`flex flex-col items-center justify-center gap-1 w-full h-full p-2 ${activeTab === 1 && 'bg-pink'}`}
+          onClick={() => setActiveTab(1)}
         >
-          Lịch trình
-        </Typography>
-      </div>
+          {
+            activeTab === 1 ? 
+            <CalendarIconActive  className='w-7 text-purple'/> : 
+            <CalendarIcon  className='w-7 text-textGray'/>
+          }
+          <Typography 
+            variant='h6' 
+            className={`font-inter text-xs text-${activeTab === 1 ? 'purple' : 'textGray'}`}
+          >
+            Lịch trình
+          </Typography>
+        </div>
+      </Link>
       <Link to={'/notifications'}>
         <div
           className={`flex flex-col items-center justify-center gap-1 w-full h-full p-2 ${activeTab === 2 && 'bg-pink'}`}
