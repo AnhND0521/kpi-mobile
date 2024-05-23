@@ -55,7 +55,7 @@ const Dashboard = () => {
           </div>
         </div>
         <KPIList kpis={kpis} />
-        <Link to='/add-kpi'>
+        <Link to='/add-kpi?step=1'>
           <CornerButton icon='add' />
         </Link>
       </main>

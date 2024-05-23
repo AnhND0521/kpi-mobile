@@ -40,10 +40,10 @@ const AddTask = () => {
 
   return (
     <div className='w-full'>
-      <Header currentPage='Thêm nhiệm vụ' backDestination={`/add-kpi`} />
-      <main className='flex flex-col gap-4 mt-16 mb-32 p-4 overflow-y-scroll w-full'>
-        <form onSubmit={handleSubmit}>
-          <Typography className='text-left font-inter font-semibold text-lg self-start mb-4'>
+      <Header currentPage='Thêm nhiệm vụ' backDestination={`/kpi/${id}`} />
+      <main className='mt-16 mb-32 p-4 overflow-y-scroll'>
+        <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
+          <Typography className='font-inter font-semibold text-lg self-start'>
             Thêm nhiệm vụ
           </Typography>
           <div className='flex flex-col gap-4 items-center'>
@@ -73,9 +73,7 @@ const AddTask = () => {
               <Option value={4}>Trước 3 ngày</Option>
             </Select>
           </div>
-          {/* <Link to={`/kpi/${id}`}> */}
-            <CornerButton icon='finish' type='submit' />
-          {/* </Link> */}
+          <CornerButton icon='finish' type='submit' />
         </form>
       </main>
       <Navbar />
