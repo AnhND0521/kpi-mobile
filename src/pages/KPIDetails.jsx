@@ -15,7 +15,6 @@ import ConfirmDialog from '../components/ConfirmDialog';
 const KPIDetails = () => {
   const location = useLocation();
   const { id } = useParams();
-  console.log(id);
 
   const [kpi, setKpi] = useState(findKpiById(id));
   const total = kpi.tasks.length;
@@ -122,7 +121,9 @@ const KPIDetails = () => {
           }
         </div>
       </main>
-      <CornerButton icon='add' />
+      <Link to={`/kpi/${id}/add-task`}>
+        <CornerButton icon='add' />
+      </Link>
       <Navbar />
 
       

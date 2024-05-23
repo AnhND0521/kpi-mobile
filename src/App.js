@@ -24,6 +24,7 @@ import EditTask from './pages/EditTask';
 import { sortKpis } from './utils/dataUtils';
 import KPIReport from './pages/KPIReport';
 import Schedule from './pages/Schedule';
+import AddTask from './pages/AddTask';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           <Route path="/kpi/:id" element={<KPIDetails />} />
           <Route path="/kpi/:id/report" element={<KPIReport />} />
           <Route path="/kpi/:id/edit" element={<EditKPI />} />
+          <Route path="/kpi/:id/add-task" element={<AddTask />} />
           <Route path="/kpi/:id/task/:taskId" element={<TaskDetails />} />
           <Route path="/kpi/:id/task/:taskId/edit" element={<EditTask />} />
           <Route path="/settings" element={<Settings />}></Route>
