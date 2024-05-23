@@ -36,7 +36,7 @@ const Dashboard = () => {
         </div>
         <Card className='flex flex-col items-center gap-4 p-4 bg-gray overflow-hidden rounded-md'>
           <Typography variant='h5' className='font-inter text-md font-medium'>
-            Số công việc hoàn thành tuần qua
+            Số nhiệm vụ hoàn thành tuần qua
           </Typography>
           <WeeklyFinishedTasksChart />
         </Card>

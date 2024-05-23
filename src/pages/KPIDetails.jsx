@@ -58,7 +58,7 @@ const KPIDetails = () => {
                 {`${finished}/${total}`}
               </Typography>
               <Typography className='font-inter font-regular text-sm'>
-                công việc đã hoàn tất
+                nhiệm vụ đã hoàn tất
               </Typography>
             </div>
             <div className='flex items-center gap-2'>
@@ -82,7 +82,7 @@ const KPIDetails = () => {
         <hr className='border border-darkGray' />
         <div className='w-full flex justify-between items-center'>
           <Typography variant='h5' className='font-inter font-regular font-medium'>
-            Danh sách công việc
+            Danh sách nhiệm vụ
           </Typography>
           {/* <div className='flex items-center gap-2'>
             <FunnelIcon className='w-6'/>
@@ -92,7 +92,7 @@ const KPIDetails = () => {
           </div> */}
         </div>
         <Typography variant='h6' className='font-inter font-regular font-medium self-start'>
-          Công việc sắp tới ({upcoming})
+          Nhiệm vụ sắp tới ({upcoming})
         </Typography>
         <div className='flex flex-col items-center gap-3'>
           {kpi.tasks.filter(t => t.status !== 1 && new Date(t.date) >= new Date()).map(t => (
@@ -103,7 +103,7 @@ const KPIDetails = () => {
           }
         </div>
         <Typography variant='h6' className='font-inter font-regular font-medium text-red self-start'>
-          Công việc quá hạn ({pastDue})
+          Nhiệm vụ quá hạn ({pastDue})
         </Typography>
         {kpi.tasks.filter(t => t.status !== 1 && new Date(t.date) < new Date()).map(t => (
             <Task
@@ -112,7 +112,7 @@ const KPIDetails = () => {
             />))
           }
         <Typography variant='h6' className='font-inter font-regular font-medium text-green self-start'>
-          Công việc đã hoàn thành ({finished})
+          Nhiệm vụ đã hoàn thành ({finished})
         </Typography>
         <div className='flex flex-col items-center gap-3'>
         {kpi.tasks.filter(t => t.status === 1).map(t => (

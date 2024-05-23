@@ -25,7 +25,7 @@ const KPIReport = () => {
       <main className='flex flex-col gap-4 my-16 p-4 overflow-y-scroll'>
         <div className='flex flex-col items-start gap-3'>
           <Typography variant='h5' className='font-inter font-regular font-medium'>
-            Tổng cộng công việc
+            Tổng quan nhiệm vụ
           </Typography>
           <div className='w-full grid grid-cols-3 gap-4'>
             <Card className='w-full flex flex-col items-center p-4 rounded-md'>
@@ -67,7 +67,7 @@ const KPIReport = () => {
                 {`${finished}/${total}`}
               </Typography>
               <Typography className='font-inter font-regular text-sm'>
-                công việc đã hoàn tất
+                nhiệm vụ đã hoàn tất
               </Typography>
             </div>
             <Typography className='font-inter font-regular text-sm'>

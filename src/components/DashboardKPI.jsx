@@ -4,39 +4,43 @@ import React from 'react'
 import KPIProgressChart from './charts/KPIProgressChart';
 import { Link } from 'react-router-dom';
 import moment from 'moment/moment';
+import { calculateKpiScore } from '../utils/dataUtils';
 
 const DashboardKPI = (props) => {
-  const { id, name, total, finished, due } = props;
+  const { kpi } = props;
+  const score = calculateKpiScore(kpi);
+  const total = kpi.tasks.length;
+  const finished = kpi.tasks.filter(t => t.status === 1).length;
+
   return (
     <Card className='w-full rounded-md overflow-hidden'>
       <CardBody className='flex justify-between bg-gray p-3'>
         <div className='flex flex-col items-start gap-3'>
           <Typography variant='h4' className='font-inter font-medium text-xl'>
-            {name}
+            {kpi.name}
           </Typography>
           <div className='flex gap-1'>
             <Typography className='font-inter font-medium text-sm'>
               {`${finished}/${total}`}
             </Typography>
             <Typography className='font-inter font-normal text-sm'>
-              công việc đã hoàn tất
+              nhiệm vụ đã hoàn tất
             </Typography>
           </div>
           <div className='flex items-center gap-2'>
             <CalendarIcon className='w-4'/>
             <Typography className='font-inter font-medium text-sm'>
-              Hạn {moment(due).format('DD/MM/YYYY')}
+              Hạn {moment(kpi.due).format('DD/MM/YYYY')}
             </Typography>
           </div>
-          <Link to={`/kpi/${id}`} state={props}>
+          <Link to={`/kpi/${kpi.id}`} state={props}>
             <Button variant='filled' className='bg-purple'>
               Chi tiết
             </Button>
           </Link>
         </div>
         <KPIProgressChart
-          finished={finished}
-          total={total}
+          progress={score/100}
         />
       </CardBody>
     </Card>

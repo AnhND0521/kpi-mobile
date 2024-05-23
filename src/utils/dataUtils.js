@@ -19,7 +19,9 @@ const data = [
                 end: "11:45",
                 status: 2,
                 repeat: 0,
-                noti: 1
+                noti: 1,
+                priority: 2,
+                quality: 5
             },
             {
                 id: '1.2',
@@ -29,7 +31,10 @@ const data = [
                 end: "14:00",
                 status: 1,
                 repeat: 0,
-                noti: 1
+                noti: 1,
+                priority: 2,
+                quality: 5,
+                completed: new Date("2024-05-13T13:59:00.000Z")
             },
             {
                 id: '1.3',
@@ -39,7 +44,10 @@ const data = [
                 end: "17:30",
                 status: 1,
                 repeat: 0,
-                noti: 1
+                noti: 1,
+                priority: 2,
+                quality: 5,
+                completed: new Date("2024-05-14T16:45:00.000Z")
             },
             {
                 id: '1.4',
@@ -49,7 +57,9 @@ const data = [
                 end: "19:00",
                 status: 2,
                 repeat: 0,
-                noti: 2
+                noti: 2,
+                priority: 2,
+                quality: 5
             },
             {
                 id: '1.5',
@@ -59,7 +69,10 @@ const data = [
                 end: "14:00",
                 status: 1,
                 repeat: 0,
-                noti: 1
+                noti: 1,
+                priority: 2,
+                quality: 5,
+                completed: new Date("2024-05-20T13:59:00.000Z")
             },
             {
                 id: '1.6',
@@ -69,7 +82,9 @@ const data = [
                 end: "11:45",
                 status: 0,
                 repeat: 0,
-                noti: 0
+                noti: 0,
+                priority: 2,
+                quality: 5
             },
             {
                 id: '1.7',
@@ -79,7 +94,9 @@ const data = [
                 end: "15:50",
                 status: 0,
                 repeat: 0,
-                noti: 0
+                noti: 0,
+                priority: 2,
+                quality: 5
             },
             {
                 id: '1.8',
@@ -89,7 +106,10 @@ const data = [
                 end: "15:00",
                 status: 1,
                 repeat: 0,
-                noti: 0
+                noti: 0,
+                priority: 2,
+                quality: 5,
+                completed: new Date("2024-05-24T15:59:00.000Z")
             },
             {
                 id: '1.9',
@@ -99,7 +119,9 @@ const data = [
                 end: "12:30",
                 status: 0,
                 repeat: 0,
-                noti: 0
+                noti: 0,
+                priority: 2,
+                quality: 5
             },
             {
                 id: '1.10',
@@ -109,7 +131,9 @@ const data = [
                 end: "16:30",
                 status: 0,
                 repeat: 0,
-                noti: 0
+                noti: 0,
+                priority: 2,
+                quality: 5
             },
             {
                 id: '1.11',
@@ -119,7 +143,9 @@ const data = [
                 end: "11:30",
                 status: 0,
                 repeat: 0,
-                noti: 0
+                noti: 0,
+                priority: 2,
+                quality: 5
             }
         ]   
     },
@@ -143,7 +169,10 @@ const data = [
                 end: "11:45",
                 status: 1,
                 repeat: 0,
-                noti: 0
+                noti: 0,
+                priority: 2,
+                quality: 5,
+                completed: new Date("2024-05-16T11:40:00.000Z")
             },
             {
                 id: '2.2',
@@ -153,7 +182,9 @@ const data = [
                 end: "15:50",
                 status: 2,
                 repeat: 0,
-                noti: 0
+                noti: 0,
+                priority: 2,
+                quality: 5
             },
             {
                 id: '2.3',
@@ -163,7 +194,10 @@ const data = [
                 end: "10:05",
                 status: 1,
                 repeat: 0,
-                noti: 0
+                noti: 0,
+                priority: 2,
+                quality: 5,
+                completed: new Date("2024-05-22T10:20:00.000Z")
             },
             {
                 id: '2.4',
@@ -173,7 +207,10 @@ const data = [
                 end: "17:30",
                 status: 1,
                 repeat: 0,
-                noti: 0
+                noti: 0,
+                priority: 2,
+                quality: 5,
+                completed: new Date("2024-05-14T17:30:00.000Z")
             },
             {
                 id: '2.5',
@@ -183,7 +220,9 @@ const data = [
                 end: "17:30",
                 status: 0,
                 repeat: 0,
-                noti: 0
+                noti: 0,
+                priority: 2,
+                quality: 5
             },
             {
                 id: '2.6',
@@ -193,7 +232,9 @@ const data = [
                 end: "9:30",
                 status: 0,
                 repeat: 0,
-                noti: 0
+                noti: 0,
+                priority: 2,
+                quality: 5
             },
             {
                 id: '2.7',
@@ -203,7 +244,10 @@ const data = [
                 end: "9:15",
                 status: 1,
                 repeat: 0,
-                noti: 0
+                noti: 0,
+                priority: 2,
+                quality: 5,
+                completed: new Date("2024-06-03T09:00:00.000Z")
             },
             {
                 id: '2.8',
@@ -213,7 +257,10 @@ const data = [
                 end: "16:30",
                 status: 1,
                 repeat: 0,
-                noti: 0
+                noti: 0,
+                priority: 2,
+                quality: 5,
+                completed: new Date("2024-06-07T16:00:00.000Z")
             }
         ]   
     },
@@ -237,7 +284,10 @@ const data = [
                 end: "16:30",
                 status: 1,
                 repeat: 0,
-                noti: 0
+                noti: 0,
+                priority: 2,
+                quality: 5,
+                completed: new Date("2024-05-14T16:15:00.000Z")
             },
             {
                 id: '3.2',
@@ -247,7 +297,9 @@ const data = [
                 end: "10:00",
                 status: 2,
                 repeat: 0,
-                noti: 0
+                noti: 0,
+                priority: 2,
+                quality: 5
             },
             {
                 id: '3.3',
@@ -257,7 +309,10 @@ const data = [
                 end: "16:00",
                 status: 1,
                 repeat: 0,
-                noti: 0
+                noti: 0,
+                priority: 2,
+                quality: 5,
+                completed: new Date("2024-05-25T15:59:00.000Z")
             },
             {
                 id: '3.4',
@@ -267,7 +322,10 @@ const data = [
                 end: "17:30",
                 status: 1,
                 repeat: 0,
-                noti: 0
+                noti: 0,
+                priority: 2,
+                quality: 5,
+                completed: new Date("2024-06-01T17:35:00.000Z")
             },
             {
                 id: '3.5',
@@ -277,7 +335,9 @@ const data = [
                 end: "15:30",
                 status: 0,
                 repeat: 0,
-                noti: 0
+                noti: 0,
+                priority: 2,
+                quality: 5
             },
             {
                 id: '3.6',
@@ -287,7 +347,9 @@ const data = [
                 end: "14:30",
                 status: 0,
                 repeat: 0,
-                noti: 0
+                noti: 0,
+                priority: 2,
+                quality: 5
             }
         ]
     }
@@ -456,4 +518,24 @@ exports.deleteTask = (kpiId, taskId) => {
 exports.findTaskById = (kpiId, taskId) => {
     const kpi = this.findKpiById(kpiId);
     return kpi.tasks.filter(t => t.id === taskId)[0];
+}
+
+exports.calculateKpiScore = (kpi) => {
+    let quantityWeight = +kpi.weights.quantity;
+    let qualityWeight = +kpi.weights.quality;
+    let timeWeight = +kpi.weights.time;
+
+    let score = 0;
+    for (let task of kpi.tasks) {
+        if (task.status !== 1) continue;
+        const quantityScore = 100;
+        const qualityScore = 20 * task.quality;
+
+        const timeScore = 100 + (new Date(task.date.slice(0,10) + 'T' + (task.end.length < 5 ? '0' + task.end : task.end) + ':00.000Z').getTime() - new Date(task.completed).getTime()) / (24*3600*1000) * 10;
+        console.log(task.name, timeScore);
+        score += task.priority * (quantityWeight * quantityScore + qualityWeight * qualityScore + timeWeight * timeScore) / (quantityWeight + qualityWeight + timeWeight);
+    }
+
+    score /= kpi.tasks.reduce((acc, val) => acc += val.priority, 0);
+    return score;
 }
