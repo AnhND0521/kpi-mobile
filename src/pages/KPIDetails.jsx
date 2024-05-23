@@ -8,7 +8,7 @@ import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import CornerButton from '../components/CornerButton';
 import Task from '../components/Task';
-import { deleteKpi, findKpiById, getNumberOfFinishedTasks, saveTask } from '../utils/dataUtils';
+import { calculateKpiScore, deleteKpi, findKpiById, getNumberOfFinishedTasks, saveTask } from '../utils/dataUtils';
 import moment from 'moment/moment';
 import ConfirmDialog from '../components/ConfirmDialog';
 
@@ -75,8 +75,7 @@ const KPIDetails = () => {
             </Link>
           </div>
           <KPIProgressChart
-            finished={finished}
-            total={total}
+            progress={calculateKpiScore(kpi)/100}
           />
         </div>
         <hr className='border border-darkGray' />

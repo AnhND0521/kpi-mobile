@@ -5,7 +5,7 @@ import { CalendarIcon, ChevronRightIcon, PencilIcon, TrashIcon } from '@heroicon
 import { Link, useParams } from 'react-router-dom';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
-import { findKpiById, getNumberOfFinishedTasks } from '../utils/dataUtils';
+import { calculateKpiScore, findKpiById, getNumberOfFinishedTasks } from '../utils/dataUtils';
 import moment from 'moment/moment';
 import KPITasksChart from '../components/charts/KPITasksChart';
 import KPIEfficiencyChart from '../components/charts/KPIEfficiencyChart';
@@ -75,8 +75,7 @@ const KPIReport = () => {
             </Typography>
           </div>
           <KPIProgressChart
-            finished={finished}
-            total={total}
+            progress={calculateKpiScore(kpi)/100}
           />
         </div>
         <div className='flex flex-col items-start gap-3'>

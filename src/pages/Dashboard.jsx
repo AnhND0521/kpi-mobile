@@ -9,6 +9,7 @@ import KPIList from '../components/KPIList'
 import { Link } from 'react-router-dom'
 import CornerButton from '../components/CornerButton'
 import { getCurrentKpis, loadData } from '../utils/dataUtils'
+import OverallProgressChart from '../components/charts/OverallProgressChart'
 
 const Dashboard = () => {
   const [kpis, setKpis] = useState(getCurrentKpis());
@@ -35,10 +36,10 @@ const Dashboard = () => {
           </Link>
         </div>
         <Card className='flex flex-col items-center gap-4 p-4 bg-gray overflow-hidden rounded-md'>
-          <Typography variant='h5' className='font-inter text-md font-medium'>
-            Số nhiệm vụ hoàn thành tuần qua
+          <Typography variant='h5' className='font-inter text-md'>
+            Tổng quan tiến độ
           </Typography>
-          <WeeklyFinishedTasksChart />
+          <OverallProgressChart />
         </Card>
         <div className='w-full flex items-center justify-between mt-3'>
           <Typography variant='h5' className='font-inter text-lg font-semibold'>
