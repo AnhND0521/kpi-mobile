@@ -5,10 +5,10 @@ import { CalendarIcon, ChevronRightIcon, PencilIcon, TrashIcon } from '@heroicon
 import { Link, useParams } from 'react-router-dom';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
-
 import { findKpiById, getNumberOfFinishedTasks } from '../utils/dataUtils';
 import moment from 'moment/moment';
 import KPITasksChart from '../components/charts/KPITasksChart';
+import KPIEfficiencyChart from '../components/charts/KPIEfficiencyChart';
 
 const KPIReport = () => {
   const { id } = useParams();
@@ -94,6 +94,7 @@ const KPIReport = () => {
           <Typography variant='h5' className='font-inter font-regular font-medium'>
             Hiệu suất công việc
           </Typography>
+          <KPIEfficiencyChart />
         </div>
       </main>
       <Navbar />

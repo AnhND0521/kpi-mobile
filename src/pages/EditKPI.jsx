@@ -1,17 +1,16 @@
 import React, { useState } from 'react'
 import Header from '../components/Header'
 import Navbar from '../components/Navbar'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import CornerButton from '../components/CornerButton'
-import { Checkbox, Input, Option, Select, Typography } from '@material-tailwind/react'
+import { Input, Option, Select, Typography } from '@material-tailwind/react'
 import DateInput from '../components/DateInput'
 import moment from 'moment/moment'
-import { deleteKpi, saveKpi } from '../utils/dataUtils'
-import ConfirmDialog from '../components/ConfirmDialog'
+import { findKpiById, saveKpi } from '../utils/dataUtils'
 
 const EditKPI = () => {
-  const location = useLocation();
-  const { kpi } = location.state;
+  const { id } = useParams();
+  const kpi = findKpiById(id);
 
   const handleSubmit = () => {
     kpi.name = name;
@@ -52,7 +51,7 @@ const EditKPI = () => {
 
   return (
     <div className='w-full'>
-      <Header currentPage='Chỉnh sửa KPI' backDestination='/kpi/1' state={location.state} />
+      <Header currentPage='Chỉnh sửa KPI' backDestination='/kpi/1' />
       <main className='flex flex-col gap-4 my-16 p-4 overflow-y-scroll'>
         <Typography className='font-inter font-semibold text-lg self-start'>
           Chỉnh sửa KPI
@@ -147,7 +146,7 @@ const EditKPI = () => {
             </div>
           </div>
         </div>
-        <Link to='/kpi/1' state={location.state}>
+        <Link to={`/kpi/${id}`}>
           <CornerButton icon='finish' handleClick={handleSubmit} />
         </Link>
       </main>

@@ -322,8 +322,10 @@ this.sortKpis();
 
 
 exports.findKpiById = (id) => {
+    console.log(id);
     const kpi = kpis.filter(k => k.id == id)[0];
     this.sortTasks(kpi);
+    console.log(kpi);
     return kpi;
 }
 
@@ -404,7 +406,6 @@ exports.save = (kpis) => {
 }
 
 exports.getTasksByDate = (date) => {
-    
     const res = [];
     for (const kpi of data) {
         for (const task of kpi.tasks) {
@@ -453,6 +454,6 @@ exports.deleteTask = (kpiId, taskId) => {
 }
 
 exports.findTaskById = (kpiId, taskId) => {
-    const kpi = kpis.filter(k => k.id === kpiId)[0];
+    const kpi = this.findKpiById(kpiId);
     return kpi.tasks.filter(t => t.id === taskId)[0];
 }

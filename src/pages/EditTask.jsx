@@ -1,31 +1,35 @@
 import React, { useState } from 'react'
 import Header from '../components/Header'
 import Navbar from '../components/Navbar'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import CornerButton from '../components/CornerButton'
 import { Checkbox, Input, Option, Select, Typography } from '@material-tailwind/react'
 import DateInput from '../components/DateInput'
+import { findKpiById, findTaskById } from '../utils/dataUtils.js'
 
 const EditTask = () => {
-  const location = useLocation();
-  const { name, due, finished, total, taskName, start, end, taskDue, check } = location.state;
+  const { id, taskId } = useParams();
+  console.log(id, taskId);
+  const kpi = findKpiById(id);
+  const task = findTaskById(id, taskId);
+  console.log(kpi, task);
   const [priority, setPriority] = useState(1);
   const [repeat, setRepeat] = useState(2);
   const [reminder, setReminder] = useState(3);
 
   return (
     <div className='w-full'>
-      <Header currentPage='Chỉnh sửa Công việc' backDestination='/kpi/1/task/1' state={location.state} />
+      <Header currentPage='Chỉnh sửa công việc' backDestination={`/kpi/${id}/task/${taskId}`} />
       <main className='flex flex-col gap-4 my-16 p-4 overflow-y-scroll'>
         <Typography className='font-inter font-semibold text-lg self-start'>
-          Chỉnh sửa Công việc
+          Chỉnh sửa công việc
         </Typography>
         <div className='flex flex-col gap-4 items-center'>
-          <Input label='Tên công việc' value={name} required />
-          <DateInput label='Ngày' value={taskDue}/>
+          <Input label='Tên công việc' value={task.name} required />
+          <DateInput value={task.date}/>
           <div className=" flex gap-2 w-full">
-            <Input label='Bắt đầu' value={start} required />
-            <Input label='Kết thúc' value={end} required />
+            <Input label='Bắt đầu' value={task.start} required />
+            <Input label='Kết thúc' value={task.end} required />
           </div>
           <Select value={priority} label='Ưu tiên' onChange={(val) => setPriority(val)}>
             <Option value={0}>Thấp</Option>
@@ -47,7 +51,7 @@ const EditTask = () => {
             <Option value={4}>Trước 3 ngày</Option>
           </Select>
         </div>
-        <Link to='/kpi/1/task/1' state={location.state}>
+        <Link to={`/kpi/${id}/task/${taskId}`}>
           <CornerButton icon='finish' />
         </Link>
       </main>

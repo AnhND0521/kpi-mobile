@@ -1,7 +1,7 @@
 import { IconButton, Rating, Typography } from '@material-tailwind/react'
 import React, { useState } from 'react'
 import { ArrowRightIcon, ArrowUturnLeftIcon, BellIcon, CalendarIcon, ClockIcon, FlagIcon, PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import CornerButton from '../components/CornerButton';
@@ -10,9 +10,9 @@ import { findKpiById, findTaskById } from '../utils/dataUtils';
 import moment from 'moment/moment';
 
 const TaskDetails = () => {
-  const { id, taskid } = useParams();
+  const { id, taskId } = useParams();
   const kpi = findKpiById(id);
-  const task = findTaskById(id, taskid);
+  const task = findTaskById(id, taskId);
   const [rated, setRated] = useState(0);
 
   return (
@@ -24,13 +24,13 @@ const TaskDetails = () => {
             {task.name}
           </Typography>
           <div>
-            <Link to={`/kpi/${id}/task/${taskid}/edit`}>
-              <IconButton variant='outlined' className='border-purple w-8 h-8'>
-                <PencilIcon className='w-6 text-purple'/>
+            <Link to={`/kpi/${id}/task/${taskId}/edit`}>
+              <IconButton variant='filled' className='bg-purple w-8 h-8'>
+                <PencilIcon className='w-6 text-white'/>
               </IconButton>
             </Link>
-            <IconButton variant='outlined' className='border-purple w-8 h-8 ml-2'>
-              <TrashIcon className='w-6 text-purple'/>
+            <IconButton variant='filled' className='bg-purple w-8 h-8 ml-2'>
+              <TrashIcon className='w-6 text-white'/>
             </IconButton>
           </div>
         </div>

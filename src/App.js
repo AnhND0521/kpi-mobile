@@ -44,8 +44,8 @@ function App() {
           <Route path="/kpi/:id" element={<KPIDetails />} />
           <Route path="/kpi/:id/report" element={<KPIReport />} />
           <Route path="/kpi/:id/edit" element={<EditKPI />} />
-          <Route path="/kpi/:id/task/:taskid" element={<TaskDetails />} />
-          <Route path="/kpi/:id/task/:taskid/edit" element={<EditTask />} />
+          <Route path="/kpi/:id/task/:taskId" element={<TaskDetails />} />
+          <Route path="/kpi/:id/task/:taskId/edit" element={<EditTask />} />
           <Route path="/settings" element={<Settings />}></Route>
           <Route path="/settings/theme" element={<Theme />} />
           <Route path="/settings/privacy" element={<PrivacyPolicy />} />
