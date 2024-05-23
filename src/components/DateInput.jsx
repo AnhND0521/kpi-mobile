@@ -7,6 +7,7 @@ import { parseDate } from '../utils/dateShit'
 
 const DateInput = (props) => {
   const { value } = props;
+  console.log(value);
   const [date, setDate] = useState(value ? value : null);
 
   return (

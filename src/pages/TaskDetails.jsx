@@ -7,24 +7,25 @@ import Navbar from '../components/Navbar';
 import CornerButton from '../components/CornerButton';
 import { CheckBadgeIcon } from '@heroicons/react/24/solid';
 import { findKpiById, findTaskById } from '../utils/dataUtils';
+import moment from 'moment'
 
 const TaskDetails = () => {
   const { id, taskId } = useParams();
   const kpi = findKpiById(id);
   const task = findTaskById(taskId);
-  console.log({ id, taskId });
+
   const [rated, setRated] = useState(0);
 
   return (
     <div className='w-full'>
-      <Header currentPage='Chi tiết công việc' backDestination='/kpi/1'/>
+      <Header currentPage='Chi tiết công việc' backDestination={`/kpi/${id}`}/>
       <main className='flex flex-col items-start gap-4 my-16 p-4 overflow-y-scroll'>
         <div className='w-full flex justify-between items-center'>
           <Typography variant='h4' className='font-inter font-regular'>
             {task.name}
           </Typography>
           <div>
-            <Link to={`/kpi/${id}/task/${taskId}edit`}>
+            <Link to={`/kpi/${id}/task/${taskId}/edit`}>
               <IconButton variant='filled' className='bg-purple w-8 h-8'>
                 <PencilIcon className='w-6 text-white'/>
               </IconButton>
@@ -47,7 +48,7 @@ const TaskDetails = () => {
           <div className='flex items-center gap-2'>
             <CalendarIcon className='w-6' />
             <Typography className='font-inter font-regular'>
-              {task.date}
+              {moment(task.date).format('DD/MM/YYYY')}
             </Typography>
           </div>
           <div className='flex items-center gap-2'>
@@ -75,7 +76,7 @@ const TaskDetails = () => {
             </Typography>
           </div>
         </div>
-        {task.status && 
+        {task.status === 1 && 
         <>
           <Typography variant='h5' className='font-inter'>
             Đánh giá
