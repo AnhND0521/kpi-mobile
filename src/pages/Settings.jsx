@@ -27,6 +27,7 @@ const Settings = () => {
                 <SettingsOption
                     icon={<PaintBrushIcon className="w-8"/>}
                     optionName="Theme"
+                    to="/settings/theme"
                 />
                 <SettingsOption
                     icon={<ShieldCheckIcon className="w-8"/>}
