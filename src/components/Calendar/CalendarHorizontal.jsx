@@ -69,8 +69,12 @@ const CalendarHorizontal = () => {
           />
         </div>
         <hr className='my-2 bg-black'/>
-        <div className='w-full min-h-16 flex flex-col items-center gap-2 px-4'>
-          {tasks}
+        <div className='w-full min-h-16 flex flex-col items-center justify-center gap-2 px-4'>
+          {tasks.length > 0 ? tasks : 
+            <Typography variant='h6' className='font-inter font-regular text-textGray'>
+              Không có lịch
+            </Typography>
+          }
         </div>
       </CardBody>
     </Card>
