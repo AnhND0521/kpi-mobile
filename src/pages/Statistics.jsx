@@ -13,13 +13,13 @@ const Statistics = () => {
       <Header currentPage='Thống kê' backDestination='/dashboard' />
       <main className='flex flex-col gap-4 my-16 p-4 overflow-y-scroll'>
         <Card className='flex flex-col items-center gap-4 p-4 bg-gray overflow-hidden rounded-md'>
-          <Typography variant='h5' className='font-inter text-md'>
+          <Typography variant='h5' className='font-inter text-md font-medium'>
             Tổng quan tiến độ
           </Typography>
           <OverallProgressChart />
         </Card>
         <Card className='flex flex-col items-center gap-4 p-4 bg-gray overflow-hidden rounded-md'>
-          <Typography variant='h5' className='font-inter text-md'>
+          <Typography variant='h5' className='font-inter text-md font-medium'>
             Số lượng nhiệm vụ
           </Typography>
           <TasksChart
@@ -36,7 +36,7 @@ const Statistics = () => {
           <WeeklyFinishedTasksChart />
         </Card>
         <Card className='flex flex-col items-center gap-4 p-4 bg-gray overflow-hidden rounded-md'>
-          <Typography variant='h5' className='font-inter text-md'>
+          <Typography variant='h5' className='font-inter text-md font-medium'>
             Lượng nhiệm vụ sắp tới
           </Typography>
           <UpcomingTasksChart

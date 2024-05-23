@@ -2,7 +2,7 @@ import { Card } from '@material-tailwind/react'
 import { LineChart } from '@mui/x-charts'
 import React, { useEffect, useRef, useState } from 'react'
 
-const OverallProgressChart = () => {
+const KPIProgressOverTimeChart = () => {
   const chartCanvasRef = useRef(null);
   const [width, setWidth] = useState(0)
 
@@ -20,19 +20,8 @@ const OverallProgressChart = () => {
         series={[
           {
             data: [10, 14, 20, 23, 30, 33, 37],
-            color: '#7E56DA',
-            label: 'Giảng dạy'
-          },
-          {
-            data: [24, 28, 36, 40, 52, 59, 63],
-            color: 'green',
-            label: 'Nghiên cứu'
-          },          
-          {
-            data: [20, 24, 30, 39, 42, 47, 50],
-            color: 'red',
-            label: 'Phục vụ'
-          },
+            color: '#7E56DA'
+          }
         ]}
         width={width}
         height={220}
@@ -41,4 +30,4 @@ const OverallProgressChart = () => {
   )
 }
 
-export default OverallProgressChart
+export default KPIProgressOverTimeChart

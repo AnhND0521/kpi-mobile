@@ -13,6 +13,7 @@ const Task = (props) => {
   const handleChange = () => {
     if (task.status !== 1) {
       task.status = 1;
+      task.completed = new Date();
     } else {
       if (new Date(task.date) < new Date()) task.status = 2;
       else task.status = 0;
