@@ -4,10 +4,11 @@ import { format } from 'date-fns'
 import React, { useState } from 'react'
 import { DayPicker } from 'react-day-picker'
 import { parseDate } from '../utils/dateShit'
+import moment from 'moment/moment'
 
 const DateInput = (props) => {
-  const { value } = props;
-  const [date, setDate] = useState(value ? parseDate(value) : null);
+  const { value, handleChange } = props;
+  // const [date, setDate] = useState(value ? parseDate(value) : null);
 
   return (
     <Popover placement="bottom">
@@ -15,7 +16,7 @@ const DateInput = (props) => {
         <Input
           label="Thời hạn"
           onChange={() => null}
-          value={date ? format(date, "PPP") : ""}
+          value={value ? moment(value).format('DD/MM/YYYY') : ""}
           icon={<CalendarIcon className='w-4' />}
           required
         />
@@ -23,8 +24,8 @@ const DateInput = (props) => {
       <PopoverContent>
         <DayPicker
           mode="single"
-          selected={date}
-          onSelect={setDate}
+          selected={value}
+          onSelect={handleChange}
           showOutsideDays
           className="border-0"
           classNames={{

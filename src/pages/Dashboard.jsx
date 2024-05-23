@@ -1,16 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../components/Header'
 import Navbar from '../components/Navbar'
 import Warning from '../components/Warning'
 import WeeklyFinishedTasksChart from '../components/charts/WeeklyFinishedTasksChart'
 import { Card, Typography } from '@material-tailwind/react'
-import { ChevronRightIcon } from '@heroicons/react/24/outline'
+import { ArrowPathIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 import TasksChart from '../components/charts/TasksChart'
 import KPIList from '../components/KPIList'
 import { Link } from 'react-router-dom'
 import CornerButton from '../components/CornerButton'
+import { getCurrentKpis, loadData } from '../utils/dataUtils'
 
 const Dashboard = () => {
+  const [kpis, setKpis] = useState(getCurrentKpis());
+
+  const handleSync = () => {
+    loadData();
+    setKpis(getCurrentKpis());
+  }
+
   return (
     <div className='w-full pb-16'>
       <Header currentPage='Trang chủ' />
@@ -41,8 +49,12 @@ const Dashboard = () => {
             Chi tiết
             <ChevronRightIcon className='w-4' />
           </Typography> */}
+          <div className='flex items-center gap-2' onClick={handleSync}>
+            <ArrowPathIcon className='w-6'/>
+            <Typography className='text-sm font-normal font-regular font-inter'>Đồng bộ</Typography>
+          </div>
         </div>
-        <KPIList />
+        <KPIList kpis={kpis} />
         <Link to='/add-kpi'>
           <CornerButton icon='add' />
         </Link>

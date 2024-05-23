@@ -5,6 +5,11 @@ const data = [
         description: '',
         due: new Date("2024-06-18"),
         repeat: 0,
+        weights: {
+            quantity: 50,
+            quality: 25,
+            time: 25
+        },
         tasks: [
             {
                 id: '1.1',
@@ -124,6 +129,11 @@ const data = [
         description: '',
         due: new Date("2024-06-18"),
         repeat: 0,
+        weights: {
+            quantity: 50,
+            quality: 25,
+            time: 25
+        },
         tasks: [
             {
                 id: '2.1',
@@ -213,6 +223,11 @@ const data = [
         description: '',
         due: new Date("2024-06-18"),
         repeat: 0,
+        weights: {
+            quantity: 50,
+            quality: 25,
+            time: 25
+        },
         tasks: [
             {
                 id: '3.1',
@@ -281,7 +296,15 @@ const data = [
     localStorage.setItem("data", JSON.stringify(data));
   }
 
-const kpis = JSON.parse(localStorage.getItem("data"));
+let kpis;
+
+exports.loadData = () => {
+    localStorage.removeItem("data");
+    localStorage.setItem("data", JSON.stringify(data));
+    kpis = JSON.parse(localStorage.getItem("data"));
+}
+
+this.loadData();
 
 exports.sortTasks = (kpi) => {
     kpi.tasks.sort((t1, t2) => {
@@ -340,14 +363,35 @@ exports.getNextTaskId = (kpi) => {
 }
 
 exports.saveKpi = (kpi) => {
-    kpi.id = this.getNextKpiId();
-    kpi.tasks.forEach((t,i) => {
-        t.id = `${kpi.id}.${i+1}`
-    }); 
-    kpis.push(kpi);
+    if (!kpi.id) {
+        kpi.id = this.getNextKpiId();
+        kpi.tasks.forEach((t,i) => {
+            t.id = `${kpi.id}.${i+1}`
+        }); 
+        kpis.push(kpi);
+    } else {
+        for (let i=0; i<kpis.length; i++) {
+            if (kpis[i].id === kpi.id) {
+                kpis[i] = kpi;
+                break;
+            }
+        }
+    }
+
     localStorage.removeItem("data");
     localStorage.setItem("data", JSON.stringify(kpis));
     return kpi;
+}
+
+exports.deleteKpi = (id) => {
+    for (let i=0; i<kpis.length; i++) {
+        if (kpis[i].id === id) {
+            kpis.splice(i, 1);
+            localStorage.removeItem("data");
+            localStorage.setItem("data", JSON.stringify(kpis));
+            return;
+        }
+    }
 }
 
 exports.getAllTasks = () => {

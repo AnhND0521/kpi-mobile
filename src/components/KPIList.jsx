@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import DashboardKPI from './DashboardKPI'
-import { getCurrentKpis, getNumberOfFinishedTasks } from '../utils/dataUtils';
+import { getNumberOfFinishedTasks } from '../utils/dataUtils';
 
-const KPIList = () => {
-  const kpis = getCurrentKpis();
+const KPIList = (props) => {
+  const { kpis } = props;
 
   return (
     <div className='flex flex-col items-center gap-5 w-full'>

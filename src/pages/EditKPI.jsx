@@ -1,14 +1,55 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../components/Header'
 import Navbar from '../components/Navbar'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import CornerButton from '../components/CornerButton'
 import { Checkbox, Input, Option, Select, Typography } from '@material-tailwind/react'
 import DateInput from '../components/DateInput'
+import moment from 'moment/moment'
+import { deleteKpi, saveKpi } from '../utils/dataUtils'
+import ConfirmDialog from '../components/ConfirmDialog'
 
 const EditKPI = () => {
   const location = useLocation();
-  const { name, finished, total, due } = location.state;
+  const { kpi } = location.state;
+
+  const handleSubmit = () => {
+    kpi.name = name;
+    kpi.description = description;
+    kpi.due = due;
+    kpi.repeat = repeat;
+    kpi.weights.quantity = quantity;
+    kpi.weights.quality = quality;
+    kpi.weights.time = time;
+    console.log(kpi);
+    saveKpi(kpi);
+  }
+
+  const [ name, setName ] = useState(kpi.name);
+  const [ description, setDescription ] = useState(kpi.description);
+  const [ due, setDue ] = useState(kpi.due);
+  const [ repeat, setRepeat ] = useState(kpi.repeat);
+  const [ quantity, setQuantity ] = useState(kpi.weights.quantity);
+  const [ quality, setQuality ] = useState(kpi.weights.quality);
+  const [ time, setTime ] = useState(kpi.weights.time);
+  const totalWeight = (+quantity) + (+quality) + (+time);
+
+  const handleQuantityChecked = (event) => {
+    if (event.target.checked) setQuantity(50);
+    else if (quality === 0 && time === 0) return;
+    else setQuantity(0);
+  }
+  const handleQualityChecked = (event) => {
+    if (event.target.checked) setQuality(25);
+    else if (quantity === 0 && time === 0) return;
+    else setQuality(0);
+  }
+  const handleTimeChecked = (event) => {
+    if (event.target.checked) setTime(25);
+    else if (quality === 0 && quantity === 0) return;
+    else setTime(0);
+  }
+
   return (
     <div className='w-full'>
       <Header currentPage='Chỉnh sửa KPI' backDestination='/kpi/1' state={location.state} />
@@ -17,23 +58,23 @@ const EditKPI = () => {
           Chỉnh sửa KPI
         </Typography>
         <div className='flex flex-col gap-4 items-center'>
-          <Input label='Tên KPI' value={name} required />
-          <Input label='Mô tả'/>
-          <DateInput value={due}/>
-          <Select value={0} label='Lặp lại'>
+          <Input label='Tên KPI' value={name} required onChange={({target}) => setName(target.value)} />
+          <Input label='Mô tả' value={description || ''} onChange={({target}) => setDescription(target.value)} />
+          <DateInput value={due} handleChange={setDue}/>
+          <Select value={repeat} label='Lặp lại' onChange={(val) => setRepeat(val)}>
             <Option value={0}>Không lặp lại</Option>
             <Option value={1}>Hàng ngày</Option>
             <Option value={2}>Hàng tuần</Option>
             <Option value={3}>Hàng tháng</Option>
             <Option value={4}>Hàng năm</Option>
           </Select>
-          <Select value={0} label='Nhắc nhở'>
+          {/* <Select value={kpi.noti || 0} label='Nhắc nhở'>
             <Option value={0}>Không nhắc nhở</Option>
             <Option value={1}>Trước 5 phút</Option>
             <Option value={2}>Trước 30 phút</Option>
             <Option value={3}>Trước 1 ngày</Option>
             <Option value={4}>Trước 3 ngày</Option>
-          </Select>
+          </Select> */}
         </div>
         <div className='grid grid-cols-3 grid-rows-4 gap-y-1.5'>
           <div className='col-span-3 flex items-center'>
@@ -50,7 +91,7 @@ const EditKPI = () => {
           </div>
           <div className='col-span-3 flex items-center'>
             <div className='flex items-center gap-2 w-2/3'>
-              <input type='checkbox' className='w-6 h-6 accent-purple rounded-md' checked />
+              <input type='checkbox' className='w-6 h-6 accent-purple rounded-md' checked={quantity > 0} onChange={handleQuantityChecked}/>
               <div className='flex flex-col items-start'>
                 <Typography className='font-inter'>
                   Số lượng
@@ -61,15 +102,15 @@ const EditKPI = () => {
               </div>
             </div>
             <div className='flex justify-start gap-1 items-center w-1/3'>
-              <input type="number" value={50} className='w-12 h-8 px-2 border border-darkGray rounded-md' />
+              <input type="number" value={quantity} className='w-12 h-8 px-2 border border-darkGray rounded-md' onChange={({target}) => setQuantity(target.value)} />
               <Typography className='font-inter font-regular text-lg'>
-                %
+                / {totalWeight}
               </Typography>
             </div>
           </div>
           <div className='col-span-3 flex items-center'>
             <div className='flex items-center gap-2 w-2/3'>
-              <input type='checkbox' className='w-6 h-6 accent-purple rounded-md' checked/>
+              <input type='checkbox' className='w-6 h-6 accent-purple rounded-md' checked={quality > 0} onChange={handleQualityChecked}/>
               <div className='flex flex-col items-start'>
                 <Typography className='font-inter'>
                   Chất lượng
@@ -80,15 +121,15 @@ const EditKPI = () => {
               </div>
             </div>
             <div className='flex justify-start gap-1 items-center w-1/3'>
-              <input type="number" value={25} className='w-12 h-8 px-2 border border-darkGray rounded-md' />
-              <Typography className='font-inter font-regular text-lg'>
-                %
+              <input type="number" value={quality} className='w-12 h-8 px-2 border border-darkGray rounded-md' onChange={({target}) => setQuality(target.value)} />
+              <Typography className='font-inter font-regular text-lg' >
+                / {totalWeight}
               </Typography>
             </div>
           </div>
           <div className='col-span-3 flex items-center'>
             <div className='flex items-center gap-2 w-2/3'>
-              <input type='checkbox' className='w-6 h-6 accent-purple rounded-md' checked/>
+              <input type='checkbox' className='w-6 h-6 accent-purple rounded-md' checked={time > 0} onChange={handleTimeChecked}/>
               <div className='flex flex-col items-start'>
                 <Typography className='font-inter'>
                   Thời gian
@@ -99,15 +140,15 @@ const EditKPI = () => {
               </div>
             </div>
             <div className='flex justify-start gap-1 items-center w-1/3'>
-              <input type="number" value={25} className='w-12 h-8 px-2 border border-darkGray rounded-md' />
+              <input type="number" value={time} onChange={({target}) => setTime(target.value)} className='w-12 h-8 px-2 border border-darkGray rounded-md' />
               <Typography className='font-inter font-regular text-lg'>
-                %
+                / {totalWeight}
               </Typography>
             </div>
           </div>
         </div>
         <Link to='/kpi/1' state={location.state}>
-          <CornerButton icon='finish' />
+          <CornerButton icon='finish' handleClick={handleSubmit} />
         </Link>
       </main>
       <Navbar />

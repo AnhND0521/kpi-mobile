@@ -3,17 +3,17 @@ import React, { useState } from 'react'
 import KPIProgressChart from '../components/charts/KPIProgressChart';
 import { CalendarIcon, ChevronRightIcon, PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
 import { FunnelIcon } from '@heroicons/react/24/solid';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import CornerButton from '../components/CornerButton';
 import Task from '../components/Task';
-import { findKpiById, getNumberOfFinishedTasks } from '../utils/dataUtils';
+import { deleteKpi, findKpiById, getNumberOfFinishedTasks } from '../utils/dataUtils';
 import moment from 'moment/moment';
+import ConfirmDialog from '../components/ConfirmDialog';
 
 const KPIDetails = () => {
   const location = useLocation();
-  // const { name, finished, total, due } = location.state;
   const { id } = useParams();
   console.log(id);
 
@@ -22,6 +22,15 @@ const KPIDetails = () => {
   const finished = getNumberOfFinishedTasks(kpi);
   const upcoming = kpi.tasks.filter(t => t.status !== 1 && new Date(t.date) >= new Date()).length;
   const pastDue = kpi.tasks.filter(t => t.status !== 1 && new Date(t.date) < new Date()).length;
+  
+  const [ openDialog, setOpenDialog ] = useState(false);
+
+  const navigate = useNavigate();
+  
+  const handleDelete = () => {
+    deleteKpi(kpi.id);
+    navigate('/dashboard');
+  }
 
   return (
     <div className='w-full'>
@@ -32,12 +41,12 @@ const KPIDetails = () => {
             {kpi.name}
           </Typography>
           <div>
-            <Link to={`/kpi/${id}/edit`} state={location.state}>
+            <Link to={`/kpi/${id}/edit`} state={{kpi: kpi}}>
               <IconButton variant='outlined' className='border-purple w-8 h-8'>
                 <PencilIcon className='w-6 text-purple'/>
               </IconButton>
             </Link>
-            <IconButton variant='outlined' className='border-purple w-8 h-8 ml-2'>
+            <IconButton variant='outlined' className='border-purple w-8 h-8 ml-2' onClick={() => setOpenDialog(true)}>
               <TrashIcon className='w-6 text-purple'/>
             </IconButton>
           </div>
@@ -127,6 +136,15 @@ const KPIDetails = () => {
       </main>
       <CornerButton icon='add' />
       <Navbar />
+
+      
+
+      <ConfirmDialog 
+        message='Bạn có chắc muốn xóa KPI này?' 
+        open={openDialog} 
+        handleOpen={() => setOpenDialog(true)} 
+        handleCancel={() => setOpenDialog(false)}
+        handleConfirm={handleDelete} />
     </div>
   )
 }

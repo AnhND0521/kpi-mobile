@@ -3,9 +3,9 @@ import { IconButton } from '@material-tailwind/react'
 import React from 'react'
 
 const CornerButton = (props) => {
-  const { icon } = props;
+  const { icon, handleClick } = props;
   return (
-    <div className='fixed bottom-20 right-4 flex items-center justify-center w-16 h-16 bg-purple shadow-lg rounded-full'>
+    <div className='fixed bottom-20 right-4 flex items-center justify-center w-16 h-16 bg-purple shadow-lg rounded-full' onClick={handleClick}>
       { icon === 'add' && <PlusIcon className='text-white w-12' /> }
       { icon === 'next' && <ArrowRightIcon className='text-white w-12' /> }
       { icon === 'finish' && <CheckIcon className='text-white w-12' /> }
