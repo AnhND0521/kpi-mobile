@@ -8,7 +8,6 @@ import moment from 'moment/moment'
 
 const DateInput = (props) => {
   const { value, handleChange } = props;
-  // const [date, setDate] = useState(value ? parseDate(value) : null);
 
   return (
     <Popover placement="bottom">
