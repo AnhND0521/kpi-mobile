@@ -21,6 +21,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy'
 import Feedback from './pages/Feedback'
 import EditTask from './pages/EditTask';
 import { sortKpis } from './utils/dataUtils';
+import KPIReport from './pages/KPIReport';
 
 function App() {
   const data = [
@@ -321,6 +322,7 @@ function App() {
           <Route path="/add-kpi" element={<AddKPI />} />
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/kpi/:id" element={<KPIDetails />} />
+          <Route path="/kpi/:id/report" element={<KPIReport />} />
           <Route path="/kpi/:id/edit" element={<EditKPI />} />
           <Route path="/kpi/:id/task/:taskid" element={<TaskDetails />} />
           <Route path="/kpi/:id/task/:taskid/edit" element={<EditTask />} />

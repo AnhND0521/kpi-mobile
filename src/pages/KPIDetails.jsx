@@ -56,10 +56,12 @@ const KPIDetails = () => {
                 Hạn {moment(kpi.due).format('DD/MM/YYYY')}
               </Typography>
             </div>
-            <Button variant='filled' className='flex gap-2 items-center bg-purple py-2'>
-              Xem báo cáo
-              <ChevronRightIcon className='w-6 text-white'/>
-            </Button>
+            <Link to={`/kpi/${id}/report`}>
+              <Button variant='filled' className='flex gap-2 items-center bg-purple py-2'>
+                Xem báo cáo
+                <ChevronRightIcon className='w-6 text-white'/>
+              </Button>
+            </Link>
           </div>
           <KPIProgressChart
             finished={finished}
