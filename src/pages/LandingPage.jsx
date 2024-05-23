@@ -18,7 +18,7 @@ const LandingPage = () => {
   const closeDrawer = () => setIsDrawerOpen(false);
 
   return (
-    <div className='fixed w-full h-screen'>
+    <div className='w-full'>
       <header className='flex items-center justify-between w-full h-16 px-3 py-3 bg-purple'>
         <img src={logo} className='h-full ml-3' />
         <Typography variant='h5' color='white' className='font-inter'>
@@ -77,7 +77,7 @@ const LandingPage = () => {
           </Button>
         </Link>
       </main>
-      <footer className="fixed bottom-0 flex w-full flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 py-6 text-center md:justify-between bg-darkPurple">
+      <footer className="flex w-full flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 py-6 text-center md:justify-between bg-darkPurple">
         <Typography color="white" className="font-normal">
           Sync with external systems
         </Typography>
