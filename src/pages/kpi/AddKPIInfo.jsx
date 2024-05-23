@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import CornerButton from '../../components/CornerButton'
 import { Input, Option, Select, Typography } from '@material-tailwind/react'
@@ -6,6 +6,8 @@ import DateInput from '../../components/DateInput'
 
 const AddKPIInfo = (props) => {
   const { setStep } = props;
+  const [ date, setDate ] = useState('');
+
   return (
     <>
       <Typography className='font-inter font-semibold text-lg self-start'>
@@ -14,20 +16,13 @@ const AddKPIInfo = (props) => {
       <div className='flex flex-col gap-4 items-center'>
         <Input label='Tên KPI' required/>
         <Input label='Mô tả'/>
-        <DateInput />
+        <DateInput value={date} handleChange={setDate}/>
         <Select value={0} label='Lặp lại'>
           <Option value={0}>Không lặp lại</Option>
           <Option value={1}>Hàng ngày</Option>
           <Option value={2}>Hàng tuần</Option>
           <Option value={3}>Hàng tháng</Option>
           <Option value={4}>Hàng năm</Option>
-        </Select>
-        <Select value={0} label='Nhắc nhở'>
-          <Option value={0}>Không nhắc nhở</Option>
-          <Option value={1}>Trước 5 phút</Option>
-          <Option value={2}>Trước 30 phút</Option>
-          <Option value={3}>Trước 1 ngày</Option>
-          <Option value={4}>Trước 3 ngày</Option>
         </Select>
       </div>
       <div className='grid grid-cols-3 grid-rows-4 gap-y-1.5'>

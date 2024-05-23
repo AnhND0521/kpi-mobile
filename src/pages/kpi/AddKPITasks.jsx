@@ -12,7 +12,7 @@ const AddKPITasks = () => {
   const [date, setDate] = useState('');
   const [start, setStart] = useState('');
   const [end, setEnd] = useState('');
-  const [priority, setPriority] = useState(0);
+  const [priority, setPriority] = useState(2);
   const [repeat, setRepeat] = useState(0);
   const [reminder, setReminder] = useState(0);
 
@@ -56,9 +56,9 @@ const AddKPITasks = () => {
             />
           </div>
           <Select value={priority} label='Ưu tiên' onChange={(val) => setPriority(val)}>
-            <Option value={0}>Thấp</Option>
-            <Option value={1}>Trung bình</Option>
-            <Option value={2}>Cao</Option>
+            <Option value={1}>Thấp</Option>
+            <Option value={2}>Trung bình</Option>
+            <Option value={3}>Cao</Option>
           </Select>
           <Select value={repeat} label='Lặp lại' onChange={(val) => setRepeat(val)}>
             <Option value={0}>Không lặp lại</Option>
