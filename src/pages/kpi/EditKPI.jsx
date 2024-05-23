@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Header from '../../components/Header'
 import Navbar from '../../components/Navbar'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import CornerButton from '../../components/CornerButton'
 import { Input, Option, Select, Typography } from '@material-tailwind/react'
 import DateInput from '../../components/DateInput'
@@ -11,6 +11,7 @@ import { findKpiById, saveKpi } from '../../utils/dataUtils'
 const EditKPI = () => {
   const { id } = useParams();
   const kpi = findKpiById(id);
+  const navigate = useNavigate();
 
   const handleSubmit = () => {
     kpi.name = name;
@@ -22,6 +23,7 @@ const EditKPI = () => {
     kpi.weights.time = time;
     console.log(kpi);
     saveKpi(kpi);
+    navigate(`/kpi/${id}`);
   }
 
   const [ name, setName ] = useState(kpi.name);
@@ -146,9 +148,7 @@ const EditKPI = () => {
             </div>
           </div>
         </div>
-        <Link to={`/kpi/${id}`}>
-          <CornerButton icon='finish' handleClick={handleSubmit} />
-        </Link>
+        <CornerButton icon='finish' handleClick={handleSubmit} />
       </main>
       <Navbar />
     </div>
