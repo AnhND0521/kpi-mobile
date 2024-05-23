@@ -5,7 +5,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 const Task = (props) => {
-  const { name, due, finished, total, taskName, start, end, taskDue, checked } = props;
+  const { name, due, finished, taskName, start, end, taskDue, checked } = props;
   return (
     <Link to='/kpi/1/task/1' state={ props } className='w-full'>
       <Card className='w-full rounded-md overflow-hidden'>
