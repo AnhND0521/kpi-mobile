@@ -32,6 +32,7 @@ const Settings = () => {
                 <SettingsOption
                     icon={<ShieldCheckIcon className="w-8"/>}
                     optionName="Quyền riêng tư"
+                    to="/settings/privacy"
                 />
                 <SettingsOption
                     icon={<ChatBubbleOvalLeftIcon className="w-8"/>}
