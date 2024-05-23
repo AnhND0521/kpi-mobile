@@ -17,7 +17,7 @@ const KPIDetails = () => {
       <Header currentPage='Chi tiết KPI' backDestination='/dashboard' />
       <main className='flex flex-col gap-4 my-16 p-4 overflow-y-scroll'>
         <div className='w-full flex justify-between items-center'>
-          <Typography variant='h4' className='font-inter font-regular'>
+          <Typography variant='h4' className='font-inter font-regular font-medium'>
             {name}
           </Typography>
           <div>
@@ -32,9 +32,9 @@ const KPIDetails = () => {
           </div>
         </div>
         <div className='min-h-36 flex items-between justify-between'>
-          <div className='flex flex-col items-start gap-2'>
+          <div className='flex flex-col items-start gap-5'>
             <div className='flex gap-1'>
-              <Typography className='font-inter font-bold text-sm'>
+              <Typography className='font-inter font-medium text-sm'>
                 {`${finished}/${total}`}
               </Typography>
               <Typography className='font-inter font-regular text-sm'>
@@ -43,11 +43,11 @@ const KPIDetails = () => {
             </div>
             <div className='flex items-center gap-2'>
               <CalendarIcon className='w-4'/>
-              <Typography className='font-inter font-bold text-sm'>
+              <Typography className='font-inter font-medium text-sm'>
                 Hạn {due}
               </Typography>
             </div>
-            <Button variant='filled' className='flex gap-2 items-center bg-purple'>
+            <Button variant='filled' className='flex gap-2 items-center bg-purple py-2'>
               Xem báo cáo
               <ChevronRightIcon className='w-6 text-white'/>
             </Button>
@@ -59,18 +59,18 @@ const KPIDetails = () => {
         </div>
         <hr className='border border-darkGray' />
         <div className='w-full flex justify-between items-center'>
-          <Typography variant='h4' className='font-inter font-regular'>
+          <Typography variant='h5' className='font-inter font-regular font-medium'>
             Danh sách công việc
           </Typography>
-          <div className='flex items-center gap-2'>
+          {/* <div className='flex items-center gap-2'>
             <FunnelIcon className='w-6'/>
             <Typography className='font-inter font-semibold text-sm'>
               Lọc
             </Typography>
-          </div>
+          </div> */}
         </div>
-        <Typography variant='h6' className='font-inter font-regular self-start'>
-          Công việc sắp tới(3)
+        <Typography variant='h6' className='font-inter font-regular font-medium self-start'>
+          Công việc sắp tới (3)
         </Typography>
         <div className='flex flex-col items-center gap-3'>
           <Task
@@ -104,8 +104,8 @@ const KPIDetails = () => {
             taskDue='14/6/2024'
           />
         </div>
-        <Typography variant='h6' className='font-inter font-regular text-red self-start'>
-          Công việc quá hạn(1)
+        <Typography variant='h6' className='font-inter font-regular font-medium text-red self-start'>
+          Công việc quá hạn (1)
         </Typography>
         <div className='flex flex-col items-center gap-3'>
           <Task
@@ -119,8 +119,8 @@ const KPIDetails = () => {
             taskDue='8/6/2024'
           />
         </div>
-        <Typography variant='h6' className='font-inter font-regular text-green self-start'>
-          Công việc đã hoàn thành(2)
+        <Typography variant='h6' className='font-inter font-regular font-medium text-green self-start'>
+          Công việc đã hoàn thành (2)
         </Typography>
         <div className='flex flex-col items-center gap-3'>
           <Task

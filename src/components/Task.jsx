@@ -13,7 +13,7 @@ const Task = (props) => {
           <div className='flex items-center gap-3'>
             <input type='checkbox' className='w-6 h-6 accent-purple rounded-md' checked={checked}/>
             <div className='flex flex-col items-start gap-2'>
-              <Typography variant='h4' className='font-inter font-medium text-lg'>
+              <Typography variant='h4' className='font-inter font-medium text-base'>
                 {taskName}
               </Typography>
               <div className='flex items-center gap-2'>
