@@ -5,21 +5,21 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 const Task = (props) => {
-  const { name, due, finished, taskName, start, end, taskDue, checked } = props;
+  const { id, kpiId, name, start, end, due, checked } = props;
   return (
-    <Link to='/kpi/1/task/1' state={ props } className='w-full'>
+    <Link to={`/kpi/${kpiId}/task/${id}`} className='w-full'>
       <Card className='w-full rounded-md overflow-hidden'>
         <CardBody className='flex justify-between bg-gray p-3'>
           <div className='flex items-center gap-3'>
             <input type='checkbox' className='w-6 h-6 accent-purple rounded-md' checked={checked}/>
             <div className='flex flex-col items-start gap-2'>
               <Typography variant='h4' className='font-inter font-medium text-base'>
-                {taskName}
+                {name}
               </Typography>
               <div className='flex items-center gap-2'>
                 <CalendarIcon className='w-4'/>
                 <Typography className='font-inter font-medium text-sm'>
-                  {taskDue}
+                  {due}
                 </Typography>
                 <Typography className='font-inter font-medium text-sm ml-2'>
                   {start}-{end}

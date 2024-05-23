@@ -88,12 +88,12 @@ const KPIDetails = () => {
         <div className='flex flex-col items-center gap-3'>
           {kpi.tasks.filter(t => t.status !== 1 && new Date(t.date) >= new Date()).map(t => (
             <Task
-              name={kpi.name}
-              due={t.date}
-              taskName={t.name}
+              id={t.id}
+              kpiId={kpi.id}
+              name={t.name}
               start={t.start}
               end={t.end}
-              taskDue={moment(t.date).format('DD/MM/YYYY')}
+              due={moment(t.date).format('DD/MM/YYYY')}
             />))
           }
         </div>
@@ -102,12 +102,12 @@ const KPIDetails = () => {
         </Typography>
         {kpi.tasks.filter(t => t.status !== 1 && new Date(t.date) < new Date()).map(t => (
             <Task
-              name={kpi.name}
-              due={t.date}
-              taskName={t.name}
+              id={t.id}
+              kpiId={kpi.id}
+              name={t.name}
               start={t.start}
               end={t.end}
-              taskDue={moment(t.date).format('DD/MM/YYYY')}
+              due={moment(t.date).format('DD/MM/YYYY')}
             />))
           }
         <Typography variant='h6' className='font-inter font-regular font-medium text-green self-start'>
@@ -116,13 +116,13 @@ const KPIDetails = () => {
         <div className='flex flex-col items-center gap-3'>
         {kpi.tasks.filter(t => t.status === 1).map(t => (
             <Task
-              name={kpi.name}
-              due={t.date}
-              checked={true}
-              taskName={t.name}
+              id={t.id}
+              kpiId={kpi.id}
+              name={t.name}
               start={t.start}
               end={t.end}
-              taskDue={moment(t.date).format('DD/MM/YYYY')}
+              due={moment(t.date).format('DD/MM/YYYY')}
+              checked={true}
             />))
           }
         </div>

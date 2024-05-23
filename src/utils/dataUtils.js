@@ -360,7 +360,6 @@ exports.save = (kpis) => {
 }
 
 exports.getTasksByDate = (date) => {
-    
     const res = [];
     for (const kpi of data) {
         for (const task of kpi.tasks) {
@@ -370,4 +369,10 @@ exports.getTasksByDate = (date) => {
         }
     }
     return res;
+}
+
+exports.findTaskById = (id) => {
+    const kpi = kpis.filter(k => k.id == id.split('.')[0])[0];
+    const task = kpi.tasks.filter(t => t.id == id)[0];
+    return task;
 }

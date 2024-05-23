@@ -1,42 +1,45 @@
 import { IconButton, Rating, Typography } from '@material-tailwind/react'
 import React, { useState } from 'react'
 import { ArrowRightIcon, ArrowUturnLeftIcon, BellIcon, CalendarIcon, ClockIcon, FlagIcon, PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import CornerButton from '../components/CornerButton';
 import { CheckBadgeIcon } from '@heroicons/react/24/solid';
+import { findKpiById, findTaskById } from '../utils/dataUtils';
 
 const TaskDetails = () => {
-  const location = useLocation();
-  const { name, due, finished, total, taskName, start, end, taskDue, checked } = location.state;
+  const { id, taskId } = useParams();
+  const kpi = findKpiById(id);
+  const task = findTaskById(taskId);
+  console.log({ id, taskId });
   const [rated, setRated] = useState(0);
 
   return (
     <div className='w-full'>
-      <Header currentPage='Chi tiết công việc' backDestination='/kpi/1' state={location.state}/>
+      <Header currentPage='Chi tiết công việc' backDestination='/kpi/1'/>
       <main className='flex flex-col items-start gap-4 my-16 p-4 overflow-y-scroll'>
         <div className='w-full flex justify-between items-center'>
           <Typography variant='h4' className='font-inter font-regular'>
-            {taskName}
+            {task.name}
           </Typography>
           <div>
-            <Link to='/kpi/1/task/1/edit' state={location.state}>
-              <IconButton variant='outlined' className='border-purple w-8 h-8'>
-                <PencilIcon className='w-6 text-purple'/>
+            <Link to={`/kpi/${id}/task/${taskId}edit`}>
+              <IconButton variant='filled' className='bg-purple w-8 h-8'>
+                <PencilIcon className='w-6 text-white'/>
               </IconButton>
             </Link>
-            <IconButton variant='outlined' className='border-purple w-8 h-8 ml-2'>
-              <TrashIcon className='w-6 text-purple'/>
+            <IconButton variant='filled' className='bg-purple w-8 h-8 ml-2'>
+              <TrashIcon className='w-6 text-white'/>
             </IconButton>
           </div>
         </div>
-        <Link to='/kpi/1' state={location.state} className='flex items-center gap-1'>
+        <Link to='/kpi/1' className='flex items-center gap-1'>
           <Typography className='font-inter font-regular text-purple'>
             Trong
           </Typography>
           <Typography className='font-inter font-semibold text-purple'>
-            {name}
+            {kpi.name}
           </Typography>
           <ArrowRightIcon className='w-4 text-purple' />
         </Link>
@@ -44,13 +47,13 @@ const TaskDetails = () => {
           <div className='flex items-center gap-2'>
             <CalendarIcon className='w-6' />
             <Typography className='font-inter font-regular'>
-              {taskDue}
+              {task.date}
             </Typography>
           </div>
           <div className='flex items-center gap-2'>
             <ClockIcon className='w-6' />
             <Typography className='font-inter font-regular'>
-              {start} - {end}
+              {task.start} - {task.end}
             </Typography>
           </div>
           <div className='flex items-center gap-2'>
@@ -72,7 +75,7 @@ const TaskDetails = () => {
             </Typography>
           </div>
         </div>
-        {checked && 
+        {task.status && 
         <>
           <Typography variant='h5' className='font-inter'>
             Đánh giá
@@ -85,13 +88,13 @@ const TaskDetails = () => {
               Thời hạn:
             </Typography>
             <Typography className='font-inter text-sm'>
-              {taskDue} {end}
+              {task.date} {task.end}
             </Typography>
             <Typography className='font-inter text-sm'>
               Hoàn thành:
             </Typography>
             <Typography className='font-inter text-sm'>
-              {taskDue} {end}
+              {task.date} {task.end}
             </Typography>
           </div>
           <div className='flex items-center gap-2'>
@@ -109,7 +112,7 @@ const TaskDetails = () => {
           </div>
         </>}
       </main>
-      <Link to='/kpi/1' state={location.state}>
+      <Link to='/kpi/1'>
         <CornerButton icon='finish' />
       </Link>
       <Navbar />
