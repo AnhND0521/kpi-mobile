@@ -8,7 +8,7 @@ import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import CornerButton from '../components/CornerButton';
 import Task from '../components/Task';
-import { deleteKpi, findKpiById, getNumberOfFinishedTasks } from '../utils/dataUtils';
+import { deleteKpi, findKpiById, getNumberOfFinishedTasks, saveTask } from '../utils/dataUtils';
 import moment from 'moment/moment';
 import ConfirmDialog from '../components/ConfirmDialog';
 
@@ -17,7 +17,7 @@ const KPIDetails = () => {
   const { id } = useParams();
   console.log(id);
 
-  const kpi = findKpiById(id);
+  const [kpi, setKpi] = useState(findKpiById(id));
   const total = kpi.tasks.length;
   const finished = getNumberOfFinishedTasks(kpi);
   const upcoming = kpi.tasks.filter(t => t.status !== 1 && new Date(t.date) >= new Date()).length;
@@ -97,12 +97,8 @@ const KPIDetails = () => {
         <div className='flex flex-col items-center gap-3'>
           {kpi.tasks.filter(t => t.status !== 1 && new Date(t.date) >= new Date()).map(t => (
             <Task
-              name={kpi.name}
-              due={t.date}
-              taskName={t.name}
-              start={t.start}
-              end={t.end}
-              taskDue={moment(t.date).format('DD/MM/YYYY')}
+              kpi={kpi}
+              task={t}
             />))
           }
         </div>
@@ -111,12 +107,8 @@ const KPIDetails = () => {
         </Typography>
         {kpi.tasks.filter(t => t.status !== 1 && new Date(t.date) < new Date()).map(t => (
             <Task
-              name={kpi.name}
-              due={t.date}
-              taskName={t.name}
-              start={t.start}
-              end={t.end}
-              taskDue={moment(t.date).format('DD/MM/YYYY')}
+              kpi={kpi}
+              task={t}
             />))
           }
         <Typography variant='h6' className='font-inter font-regular font-medium text-green self-start'>
@@ -125,13 +117,8 @@ const KPIDetails = () => {
         <div className='flex flex-col items-center gap-3'>
         {kpi.tasks.filter(t => t.status === 1).map(t => (
             <Task
-              name={kpi.name}
-              due={t.date}
-              checked={true}
-              taskName={t.name}
-              start={t.start}
-              end={t.end}
-              taskDue={moment(t.date).format('DD/MM/YYYY')}
+              kpi={kpi}
+              task={t}
             />))
           }
         </div>

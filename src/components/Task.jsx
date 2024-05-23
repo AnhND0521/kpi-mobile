@@ -1,36 +1,49 @@
 import { CalendarIcon } from '@heroicons/react/24/outline';
 import { ChevronRightIcon } from '@heroicons/react/24/solid';
 import { Card, CardBody, Typography } from '@material-tailwind/react'
-import React from 'react'
-import { Link } from 'react-router-dom';
+import moment from 'moment/moment';
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+import { saveTask } from '../utils/dataUtils';
 
 const Task = (props) => {
-  const { name, due, finished, taskName, start, end, taskDue, checked } = props;
+  const { kpi, task } = props;
+
+  const navigate = useNavigate();
+  const handleChange = () => {
+    if (task.status !== 1) {
+      task.status = 1;
+    } else {
+      if (new Date(task.date) < new Date()) task.status = 2;
+      else task.status = 0;
+    }
+    saveTask(kpi.id, task);
+    navigate(`/kpi/${kpi.id}`);
+  }
+
   return (
-    <Link to='/kpi/1/task/1' state={ props } className='w-full'>
       <Card className='w-full rounded-md overflow-hidden'>
         <CardBody className='flex justify-between bg-gray p-3'>
           <div className='flex items-center gap-3'>
-            <input type='checkbox' className='w-6 h-6 accent-purple rounded-md' checked={checked}/>
+            <input type='checkbox' className='w-6 h-6 accent-purple rounded-md' checked={task.status === 1} onChange={handleChange}/>
             <div className='flex flex-col items-start gap-2'>
               <Typography variant='h4' className='font-inter font-medium text-base'>
-                {taskName}
+                {task.name}
               </Typography>
               <div className='flex items-center gap-2'>
                 <CalendarIcon className='w-4'/>
                 <Typography className='font-inter font-medium text-sm'>
-                  {taskDue}
+                  {moment(task.date).format('DD/MM/YYYY')}
                 </Typography>
                 <Typography className='font-inter font-medium text-sm ml-2'>
-                  {start}-{end}
+                  {task.start}-{task.end}
                 </Typography>
               </div>
             </div>
           </div>
-          <ChevronRightIcon className='w-8' />
+          <ChevronRightIcon className='w-8' onClick={() => navigate(`/kpi/${kpi.id}/task/${task.id}`)}/>
         </CardBody>
       </Card>
-    </Link>
   )
 }
 

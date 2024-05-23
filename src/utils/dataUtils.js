@@ -415,3 +415,44 @@ exports.getTasksByDate = (date) => {
     }
     return res;
 }
+
+exports.saveTask = (kpiId, task) => {
+    const kpi = this.findKpiById(kpiId);
+
+    if (task.id) {
+        for (let i=0; i<kpi.tasks.length; i++) {
+            if (kpi.tasks[i].id === task.id) {
+                kpi.tasks[i] = task;
+                break;
+            }
+        }
+    } else {
+        task.id = this.getNextTaskId(kpi);
+        kpi.tasks.push(task);
+    }
+    console.log(task);
+    console.log(kpi.tasks);
+    console.log(kpis);
+
+    localStorage.removeItem("data");
+    localStorage.setItem("data", JSON.stringify(kpis));
+    return task;
+}
+
+exports.deleteTask = (kpiId, taskId) => {
+    const kpi = this.findKpiById(kpiId);
+
+    for (let i=0; i<kpi.tasks.length; i++) {
+        if (taskId === kpi.tasks[i].id) {
+            kpi.tasks.splice(i, 1);
+            localStorage.removeItem("data");
+            localStorage.setItem("data", JSON.stringify(kpis));
+            return;
+        }
+    }
+}
+
+exports.findTaskById = (kpiId, taskId) => {
+    const kpi = kpis.filter(k => k.id === kpiId)[0];
+    return kpi.tasks.filter(t => t.id === taskId)[0];
+}
