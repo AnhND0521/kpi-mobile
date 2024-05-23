@@ -1,8 +1,8 @@
-import { ArrowRightEndOnRectangleIcon, BellIcon, ChartBarSquareIcon, ChatBubbleOvalLeftIcon, ChevronRightIcon, EnvelopeIcon, PaintBrushIcon, ShieldCheckIcon, UserCircleIcon } from "@heroicons/react/24/outline";
+import { ArrowRightEndOnRectangleIcon, BellIcon, ChartBarSquareIcon, ChatBubbleOvalLeftIcon, ChevronRightIcon, EnvelopeIcon, PaintBrushIcon, QuestionMarkCircleIcon, ShieldCheckIcon, UserCircleIcon } from "@heroicons/react/24/outline";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import SettingsOption from "../components/SettingsOption";
-import { Switch, Typography } from "@material-tailwind/react";
+import { Typography } from "@material-tailwind/react";
 
 const Settings = () => {
 
@@ -30,17 +30,22 @@ const Settings = () => {
                     to="/settings/theme"
                 />
                 <SettingsOption
+                    icon={<BellIcon className="w-8"/>}
+                    optionName="Thông báo"
+                />
+                <SettingsOption
                     icon={<ShieldCheckIcon className="w-8"/>}
                     optionName="Quyền riêng tư"
                     to="/settings/privacy"
                 />
                 <SettingsOption
-                    icon={<ChatBubbleOvalLeftIcon className="w-8"/>}
-                    optionName="Feedback"
+                    icon={<QuestionMarkCircleIcon className="w-8"/>}
+                    optionName="Trợ giúp"
                 />
                 <SettingsOption
-                    icon={<BellIcon className="w-8"/>}
-                    optionName="Thông báo"
+                    icon={<ChatBubbleOvalLeftIcon className="w-8"/>}
+                    optionName="Feedback"
+                    to="/settings/feedback"
                 />
                 <SettingsOption
                     icon={<EnvelopeIcon className="w-8"/>}
@@ -50,7 +55,8 @@ const Settings = () => {
                     icon={<ArrowRightEndOnRectangleIcon className="w-8"/>}
                     optionName="Đăng xuất"
                     control={<></>}
-                /> 
+                    to="/login"
+                />
             </main>
             <Navbar active={3} />
         </div>
