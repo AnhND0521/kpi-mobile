@@ -5,7 +5,7 @@ import React from 'react'
 const CornerButton = (props) => {
   const { icon, type } = props;
   return (
-    <button className='fixed bottom-20 right-4 flex items-center justify-center w-16 h-16 bg-purple shadow-lg rounded-full' type={type}>
+    <button className='fixed bottom-20 right-4 flex items-center justify-center w-16 h-16 bg-purple shadow-lg rounded-full z-50' type={type}>
       { icon === 'add' && <PlusIcon className='text-white w-12' /> }
       { icon === 'next' && <ArrowRightIcon className='text-white w-12' /> }
       { icon === 'finish' && <CheckIcon className='text-white w-12' /> }

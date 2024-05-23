@@ -7,7 +7,7 @@ import { parseDate } from '../utils/dateShit'
 import moment from 'moment/moment'
 
 const DateInput = (props) => {
-  const { value, handleChange } = props;
+  const { value, handleChange, required } = props;
 
   return (
     <Popover placement="bottom">
@@ -17,7 +17,7 @@ const DateInput = (props) => {
           onChange={() => null}
           value={value ? moment(value).format('DD/MM/YYYY') : ""}
           icon={<CalendarIcon className='w-4' />}
-          required
+          required={required}
         />
       </PopoverHandler>
       <PopoverContent>

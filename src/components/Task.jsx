@@ -23,28 +23,28 @@ const Task = (props) => {
   }
 
   return (
-      <Card className='w-full rounded-md overflow-hidden'>
-        <CardBody className='flex justify-between bg-gray p-3'>
-          <div className='flex items-center gap-3'>
-            <input type='checkbox' className='w-6 h-6 accent-purple rounded-md' checked={task.status === 1} onChange={handleChange}/>
-            <div className='flex flex-col items-start gap-2'>
-              <Typography variant='h4' className='font-inter font-medium text-base'>
-                {task.name}
+    <Card className='w-full rounded-md overflow-hidden'>
+      <CardBody className='flex justify-between bg-gray p-3'>
+        <div className='flex items-center gap-3'>
+          <input type='checkbox' className='w-6 h-6 accent-purple rounded-md' checked={task.status === 1} onChange={handleChange}/>
+          <div className='flex flex-col items-start gap-2'>
+            <Typography variant='h4' className='font-inter font-medium text-base'>
+              {task.name}
+            </Typography>
+            <div className='flex items-center gap-2'>
+              <CalendarIcon className='w-4'/>
+              <Typography className='font-inter font-medium text-sm'>
+                {moment(task.date).format('DD/MM/YYYY')}
               </Typography>
-              <div className='flex items-center gap-2'>
-                <CalendarIcon className='w-4'/>
-                <Typography className='font-inter font-medium text-sm'>
-                  {moment(task.date).format('DD/MM/YYYY')}
-                </Typography>
-                <Typography className='font-inter font-medium text-sm ml-2'>
-                  {task.start}-{task.end}
-                </Typography>
-              </div>
+              <Typography className='font-inter font-medium text-sm ml-2'>
+                {task.start}-{task.end}
+              </Typography>
             </div>
           </div>
-          <ChevronRightIcon className='w-8' onClick={() => navigate(`/kpi/${kpi.id}/task/${task.id}`)}/>
-        </CardBody>
-      </Card>
+        </div>
+        <ChevronRightIcon className='w-8' onClick={() => navigate(`/kpi/${kpi.id}/task/${task.id}`)}/>
+      </CardBody>
+    </Card>
   )
 }
 

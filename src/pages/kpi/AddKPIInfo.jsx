@@ -1,28 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import CornerButton from '../../components/CornerButton'
 import { Input, Option, Select, Typography } from '@material-tailwind/react'
 import DateInput from '../../components/DateInput'
 
-const AddKPIInfo = (props) => {
-  const { setStep } = props;
+const AddKPIInfo = () => {
+  const [name, setName] = useState('')
+  const [description, setDescription] = useState('');
+  const [date, setDate] = useState('');
+  const [repeat, setRepeat] = useState(0);
+  const [reminder, setReminder] = useState(0);
+
   return (
     <>
       <Typography className='font-inter font-semibold text-lg self-start'>
         Thông tin KPI
       </Typography>
       <div className='flex flex-col gap-4 items-center'>
-        <Input label='Tên KPI' required/>
-        <Input label='Mô tả'/>
-        <DateInput />
-        <Select value={0} label='Lặp lại'>
+        <Input value={name} label='Tên KPI' onChange={event => setName(event.target.value)} required />
+        <Input value={description} label='Mô tả' onChange={event => setDescription(event.target.value)}/>
+        <DateInput value={date} handleChange={setDate} required />
+        <Select value={repeat} label='Lặp lại' onChange={val => setRepeat(val)}>
           <Option value={0}>Không lặp lại</Option>
           <Option value={1}>Hàng ngày</Option>
           <Option value={2}>Hàng tuần</Option>
           <Option value={3}>Hàng tháng</Option>
           <Option value={4}>Hàng năm</Option>
         </Select>
-        <Select value={0} label='Nhắc nhở'>
+        <Select value={reminder} label='Nhắc nhở' onChange={val => setReminder(val)}>
           <Option value={0}>Không nhắc nhở</Option>
           <Option value={1}>Trước 5 phút</Option>
           <Option value={2}>Trước 30 phút</Option>
