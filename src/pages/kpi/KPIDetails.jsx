@@ -1,19 +1,18 @@
 import { Button, Card, IconButton, Typography } from '@material-tailwind/react'
 import React, { useState } from 'react'
-import KPIProgressChart from '../components/charts/KPIProgressChart';
+import KPIProgressChart from '../../components/charts/KPIProgressChart';
 import { CalendarIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
-import Header from '../components/Header';
-import Navbar from '../components/Navbar';
-import CornerButton from '../components/CornerButton';
-import Task from '../components/Task';
-import { calculateKpiScore, deleteKpi, findKpiById, getNumberOfFinishedTasks, saveTask } from '../utils/dataUtils';
+import Header from '../../components/Header';
+import Navbar from '../../components/Navbar';
+import CornerButton from '../../components/CornerButton';
+import Task from '../../components/Task';
+import { calculateKpiScore, deleteKpi, findKpiById, getNumberOfFinishedTasks, saveTask } from '../../utils/dataUtils';
 import moment from 'moment/moment';
-import ConfirmDialog from '../components/ConfirmDialog';
+import ConfirmDialog from '../../components/ConfirmDialog';
 
 const KPIDetails = () => {
-  const location = useLocation();
   const { id } = useParams();
 
   const [kpi, setKpi] = useState(findKpiById(id));
@@ -122,18 +121,17 @@ const KPIDetails = () => {
         </div>
       </main>
       <Link to={`/kpi/${id}/add-task`}>
-        <CornerButton icon='add' />
+        <CornerButton icon='add' type='button'/>
       </Link>
       <Navbar />
-
-      
 
       <ConfirmDialog 
         message='Bạn có chắc muốn xóa KPI này?' 
         open={openDialog} 
         handleOpen={() => setOpenDialog(true)} 
         handleCancel={() => setOpenDialog(false)}
-        handleConfirm={handleDelete} />
+        handleConfirm={handleDelete} 
+      />
     </div>
   )
 }

@@ -1,11 +1,11 @@
 import React from 'react'
-import Header from '../components/Header'
-import Navbar from '../components/Navbar'
+import Header from '../../components/Header'
+import Navbar from '../../components/Navbar'
 import { Link } from 'react-router-dom'
-import CornerButton from '../components/CornerButton'
+import CornerButton from '../../components/CornerButton'
 import { Checkbox, Input, Option, Select, Typography } from '@material-tailwind/react'
-import DateInput from '../components/DateInput'
-import step1 from '../assets/add-kpi-step-1.png'
+import DateInput from '../../components/DateInput'
+import step1 from '../../assets/add-kpi-step-1.png'
 
 const AddKPI = () => {
   return (

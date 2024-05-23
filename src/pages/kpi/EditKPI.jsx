@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import Header from '../components/Header'
-import Navbar from '../components/Navbar'
+import Header from '../../components/Header'
+import Navbar from '../../components/Navbar'
 import { Link, useParams } from 'react-router-dom'
-import CornerButton from '../components/CornerButton'
+import CornerButton from '../../components/CornerButton'
 import { Input, Option, Select, Typography } from '@material-tailwind/react'
-import DateInput from '../components/DateInput'
+import DateInput from '../../components/DateInput'
 import moment from 'moment/moment'
-import { findKpiById, saveKpi } from '../utils/dataUtils'
+import { findKpiById, saveKpi } from '../../utils/dataUtils'
 
 const EditKPI = () => {
   const { id } = useParams();
