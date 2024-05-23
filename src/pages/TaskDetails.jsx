@@ -31,7 +31,7 @@ const TaskDetails = () => {
             </IconButton>
           </div>
         </div>
-        <div className='flex items-center gap-1'>
+        <Link to='/kpi/1' state={location.state} className='flex items-center gap-1'>
           <Typography className='font-inter font-regular text-purple'>
             Trong
           </Typography>
@@ -39,7 +39,7 @@ const TaskDetails = () => {
             {name}
           </Typography>
           <ArrowRightIcon className='w-4 text-purple' />
-        </div>
+        </Link>
         <div className='flex flex-col gap-2'>
           <div className='flex items-center gap-2'>
             <CalendarIcon className='w-6' />
