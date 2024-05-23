@@ -7,7 +7,7 @@ import { parseDate } from '../utils/dateShit'
 
 const DateInput = (props) => {
   const { value } = props;
-  const [date, setDate] = useState(value ? parseDate(value) : null);
+  const [date, setDate] = useState(value ? value : null);
 
   return (
     <Popover placement="bottom">

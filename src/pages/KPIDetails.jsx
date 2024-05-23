@@ -1,8 +1,8 @@
 import { Button, Card, IconButton, Typography } from '@material-tailwind/react'
 import React, { useState } from 'react'
 import KPIProgressChart from '../components/charts/KPIProgressChart';
-import { CalendarIcon, ChevronRightIcon, PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
-import { FunnelIcon } from '@heroicons/react/24/solid';
+import { CalendarIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
+import { PencilIcon, TrashIcon } from '@heroicons/react/24/solid';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
@@ -33,12 +33,12 @@ const KPIDetails = () => {
           </Typography>
           <div>
             <Link to={`/kpi/${id}/edit`} state={location.state}>
-              <IconButton variant='outlined' className='border-purple w-8 h-8'>
-                <PencilIcon className='w-6 text-purple'/>
+              <IconButton variant='filled' className='bg-purple w-8 h-8'>
+                <PencilIcon className='w-6 text-white'/>
               </IconButton>
             </Link>
-            <IconButton variant='outlined' className='border-purple w-8 h-8 ml-2'>
-              <TrashIcon className='w-6 text-purple'/>
+            <IconButton variant='filled' className='bg-purple w-8 h-8 ml-2'>
+              <TrashIcon className='w-6 text-white'/>
             </IconButton>
           </div>
         </div>

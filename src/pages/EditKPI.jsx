@@ -1,26 +1,28 @@
 import React from 'react'
 import Header from '../components/Header'
 import Navbar from '../components/Navbar'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import CornerButton from '../components/CornerButton'
 import { Checkbox, Input, Option, Select, Typography } from '@material-tailwind/react'
 import DateInput from '../components/DateInput'
+import { findKpiById } from '../utils/dataUtils'
 
 const EditKPI = () => {
-  const location = useLocation();
-  const { name, finished, total, due } = location.state;
+  const { id } = useParams();
+  const kpi = findKpiById(id);
+
   return (
     <div className='w-full'>
-      <Header currentPage='Chỉnh sửa KPI' backDestination='/kpi/1' state={location.state} />
+      <Header currentPage='Chỉnh sửa KPI' backDestination='/kpi/1' />
       <main className='flex flex-col gap-4 my-16 p-4 overflow-y-scroll'>
         <Typography className='font-inter font-semibold text-lg self-start'>
           Chỉnh sửa KPI
         </Typography>
         <div className='flex flex-col gap-4 items-center'>
-          <Input label='Tên KPI' value={name} required />
+          <Input label='Tên KPI' value={kpi.name} required />
           <Input label='Mô tả'/>
-          <DateInput value={due}/>
-          <Select value={0} label='Lặp lại'>
+          <DateInput value={kpi.due}/>
+          <Select value={kpi.repeat} label='Lặp lại'>
             <Option value={0}>Không lặp lại</Option>
             <Option value={1}>Hàng ngày</Option>
             <Option value={2}>Hàng tuần</Option>
@@ -106,7 +108,7 @@ const EditKPI = () => {
             </div>
           </div>
         </div>
-        <Link to='/kpi/1' state={location.state}>
+        <Link to='/kpi/1'>
           <CornerButton icon='finish' />
         </Link>
       </main>
