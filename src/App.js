@@ -25,6 +25,7 @@ import { sortKpis } from './utils/dataUtils';
 import KPIReport from './pages/kpi/KPIReport';
 import Schedule from './pages/Schedule';
 import AddTask from './pages/task/AddTask';
+import Profile from './pages/settings/Profile';
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
           <Route path="/settings/privacy" element={<PrivacyPolicy />} />
           <Route path="/settings/feedback" element={<Feedback />} />
           <Route path="/settings/help" element={<Help />} />
+          <Route path="/settings/profile" element={<Profile />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

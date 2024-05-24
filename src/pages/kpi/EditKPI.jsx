@@ -13,7 +13,8 @@ const EditKPI = () => {
   const kpi = findKpiById(id);
   const navigate = useNavigate();
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
     kpi.name = name;
     kpi.description = description;
     kpi.due = due;
@@ -54,6 +55,7 @@ const EditKPI = () => {
   return (
     <div className='w-full'>
       <Header currentPage='Chỉnh sửa KPI' backDestination='/kpi/1' />
+      <form onSubmit={handleSubmit}>
       <main className='flex flex-col gap-4 my-16 p-4 overflow-y-scroll'>
         <Typography className='font-inter font-semibold text-lg self-start'>
           Chỉnh sửa KPI
@@ -148,8 +150,9 @@ const EditKPI = () => {
             </div>
           </div>
         </div>
-        <CornerButton icon='finish' handleClick={handleSubmit} />
+        <CornerButton icon='finish' type='submit' />
       </main>
+      </form>
       <Navbar />
     </div>
   )
