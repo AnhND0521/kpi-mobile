@@ -26,7 +26,8 @@ const AddKPITasks = (props) => {
 
   const [ count, setCount ] = useState(0);
 
-  const handleAddTask = () => {
+  const handleAddTask = (event) => {
+    event.preventDefault();
     const task = {
       id: count,
       name: name,
@@ -51,20 +52,19 @@ const AddKPITasks = (props) => {
     setCount(count+1);
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = () => {
     kpi.tasks = tasks;
     saveKpi(kpi);
     navigate('/dashboard');
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    // <form onSubmit={handleSubmit}>
       <div className='flex flex-col gap-4'>
         <Typography className='font-inter font-semibold text-lg self-start'>
           Thêm nhiệm vụ
         </Typography>
-        <div className='flex flex-col gap-4 items-center'>
+        <form className='flex flex-col gap-4 items-center' onSubmit={handleAddTask}>
           <Input label='Tên nhiệm vụ' value={name} onChange={(event) => setName(event.target.value)} required/>
           <DateInput value={date} handleChange={setDate} required/>
           <div className="grid grid-cols-2 w-full gap-2">
@@ -103,11 +103,11 @@ const AddKPITasks = (props) => {
           <Button 
             variant='filled'
             className='w-full bg-purple'
-            onClick={handleAddTask}
+            type='submit'
           >
             Thêm
           </Button>
-        </div>
+        </form>
         <Typography className='font-inter font-semibold text-lg self-start'>
           Nhiệm vụ đã thêm
         </Typography>
@@ -135,9 +135,11 @@ const AddKPITasks = (props) => {
           )}
         </div>
 
-        <CornerButton icon='finish' type='submit' />
+        <div onClick={handleSubmit}>
+          <CornerButton icon='finish' type='submit' />
+        </div>
       </div>
-    </form>
+    // </form>
   )
 }
 
