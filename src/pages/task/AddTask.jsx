@@ -24,7 +24,7 @@ const AddTask = () => {
     const newTask = {
       id: getNextTaskId(findKpiById(id)),
       name: name,
-      date: date.toISOString(),
+      date: date,
       start: start,
       end: end,
       status: date < new Date() ? 2 : 0,

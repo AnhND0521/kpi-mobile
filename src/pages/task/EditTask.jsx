@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import Header from '../../components/Header'
 import Navbar from '../../components/Navbar'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import CornerButton from '../../components/CornerButton'
 import { Checkbox, Input, Option, Select, Typography } from '@material-tailwind/react'
 import DateInput from '../../components/DateInput'
-import { findKpiById, findTaskById } from '../../utils/dataUtils.js'
+import { findKpiById, findTaskById, saveTask } from '../../utils/dataUtils.js'
 
 const EditTask = () => {
   const { id, taskId } = useParams();
@@ -13,28 +13,53 @@ const EditTask = () => {
   const kpi = findKpiById(id);
   const task = findTaskById(id, taskId);
   console.log(kpi, task);
-  const [priority, setPriority] = useState(1);
-  const [repeat, setRepeat] = useState(2);
-  const [reminder, setReminder] = useState(3);
+  const [name, setName] = useState(task.name);
+  const [date, setDate] = useState(task.date);
+  const [start, setStart] = useState(task.start);
+  const [end, setEnd] = useState(task.end);
+  const [priority, setPriority] = useState(task.priority);
+  const [repeat, setRepeat] = useState(task.repeat);
+  const [reminder, setReminder] = useState(task.noti);
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    task.name = name;
+    task.date = date;
+    task.start = start;
+    task.end = end;
+    task.priority = priority;
+    task.repeat = repeat;
+    task.noti = reminder;
+
+    console.log(task);
+    saveTask(kpi.id, task);
+
+    navigate(`/kpi/${id}/task/${taskId}`);
+  }
+
 
   return (
     <div className='w-full'>
       <Header currentPage='Chỉnh sửa nhiệm vụ' backDestination={`/kpi/${id}/task/${taskId}`} />
       <main className='flex flex-col gap-4 my-16 p-4 overflow-y-scroll'>
+        <form onSubmit={handleSubmit}>
         <Typography className='font-inter font-semibold text-lg self-start'>
           Chỉnh sửa nhiệm vụ
         </Typography>
         <div className='flex flex-col gap-4 items-center'>
-          <Input label='Tên nhiệm vụ' value={task.name} required />
-          <DateInput value={task.date}/>
+          <Input label='Tên nhiệm vụ' value={name} onChange={(event) => setName(event.target.value)} required />
+          <DateInput value={date} handleChange={setDate}/>
           <div className=" flex gap-2 w-full">
-            <Input label='Bắt đầu' value={task.start} required />
-            <Input label='Kết thúc' value={task.end} required />
+            <Input label='Bắt đầu' value={start} onChange={(event) => setStart(event.target.value)} required />
+            <Input label='Kết thúc' value={end} onChange={(event) => setEnd(event.target.value)} required />
           </div>
           <Select value={priority} label='Ưu tiên' onChange={(val) => setPriority(val)}>
-            <Option value={0}>Thấp</Option>
-            <Option value={1}>Trung bình</Option>
-            <Option value={2}>Cao</Option>
+            <Option value={1}>Thấp</Option>
+            <Option value={2}>Trung bình</Option>
+            <Option value={3}>Cao</Option>
           </Select>
           <Select value={repeat} label='Lặp lại' onChange={(val) => setRepeat(val)}>
             <Option value={0}>Không lặp lại</Option>
@@ -51,9 +76,8 @@ const EditTask = () => {
             <Option value={4}>Trước 3 ngày</Option>
           </Select>
         </div>
-        <Link to={`/kpi/${id}/task/${taskId}`}>
-          <CornerButton icon='finish' />
-        </Link>
+        <CornerButton icon='finish' type='submit' />
+        </form>
       </main>
       <Navbar />
     </div>
