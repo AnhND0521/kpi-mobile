@@ -44,9 +44,9 @@ const EditTask = () => {
   return (
     <div className='w-full'>
       <Header currentPage='Chỉnh sửa nhiệm vụ' backDestination={`/kpi/${id}/task/${taskId}`} />
-      <main className='flex flex-col gap-4 my-16 p-4 overflow-y-scroll'>
-        <form onSubmit={handleSubmit}>
-        <Typography className='font-inter font-semibold text-lg self-start'>
+      <main>
+        <form className='flex flex-col gap-4 my-16 p-4 overflow-y-scroll' onSubmit={handleSubmit}>
+        <Typography className='font-inter font-semibold text-lg self-start mb-2'>
           Chỉnh sửa nhiệm vụ
         </Typography>
         <div className='flex flex-col gap-4 items-center'>

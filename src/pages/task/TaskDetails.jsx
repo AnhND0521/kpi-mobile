@@ -6,7 +6,7 @@ import Header from '../../components/Header';
 import Navbar from '../../components/Navbar';
 import CornerButton from '../../components/CornerButton';
 import { CheckBadgeIcon } from '@heroicons/react/24/solid';
-import { deleteTask, findKpiById, findTaskById } from '../../utils/dataUtils';
+import { deleteTask, findKpiById, findTaskById, saveTask } from '../../utils/dataUtils';
 import moment from 'moment/moment';
 import ConfirmDialog from '../../components/ConfirmDialog';
 
@@ -25,10 +25,18 @@ const TaskDetails = () => {
     navigate(`/kpi/${id}`);
   }
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    task.rated = rated;
+    saveTask(kpi.id, task);
+    navigate(`/kpi/${id}`);
+  }
+
   return (
     <div className='w-full'>
       <Header currentPage='Chi tiết công việc' backDestination={`/kpi/${id}`}/>
-      <main className='flex flex-col items-start gap-4 my-16 p-4 overflow-y-scroll'>
+      <main>
+      <form className='flex flex-col items-start gap-4 my-16 p-4 overflow-y-scroll' onSubmit={handleSubmit}>
         <div className='w-full flex justify-between items-center'>
           <Typography variant='h4' className='font-inter font-regular'>
             {task.name}
@@ -69,19 +77,19 @@ const TaskDetails = () => {
           <div className='flex items-center gap-2'>
             <FlagIcon className='w-6' />
             <Typography className='font-inter font-regular'>
-              Ưu tiên trung bình
+              Ưu tiên {['', 'Thấp', 'Trung bình', 'Cao'][task.priority]}
             </Typography>
           </div>
           <div className='flex items-center gap-2'>
             <ArrowUturnLeftIcon className='w-6' />
             <Typography className='font-inter font-regular'>
-              Không lặp lại
+              {['Không lặp lại', 'Hàng ngày', 'Hàng tuần', 'Hàng tháng', 'Hàng năm'][task.repeat]}
             </Typography>
           </div>
           <div className='flex items-center gap-2'>
             <BellIcon className='w-6' />
             <Typography className='font-inter font-regular'>
-              Thông báo trước 1 ngày
+              {task.noti == 0 ? 'Không nhắc nhở' : 'Nhắc nhở trước ' + ['5 phút', '30 phút', '1 ngày', '3 ngày'][task.noti]}
             </Typography>
           </div>
         </div>
@@ -121,6 +129,7 @@ const TaskDetails = () => {
             {rated}/5
           </div>
         </>}
+      </form>
       </main>
       <Link to={`/kpi/${id}`}>
         <CornerButton icon='finish' />
