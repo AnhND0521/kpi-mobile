@@ -18,10 +18,11 @@ const CornerButton = (props) => {
       <MenuList>
         <Link to='/add-kpi?step=1'>
           <MenuItem>
-            Thêm KPI
+            Thêm thủ công
           </MenuItem>
         </Link>
-        <MenuItem>Sex KPI</MenuItem>
+        <MenuItem>Sử dụng mẫu</MenuItem>
+        <MenuItem>Nhập từ hệ thống khác</MenuItem>
       </MenuList>
     </Menu> :
     <button className='fixed bottom-20 right-4 flex items-center justify-center w-16 h-16 bg-purple shadow-lg rounded-full z-50' type={type}>

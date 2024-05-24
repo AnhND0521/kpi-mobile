@@ -15,7 +15,7 @@ const AddKPIStepIndicator = (props) => {
         </div>
         <div className={step == 2 ? 'flex justify-center w-8 h-8 bg-purple rounded-full' : 'flex justify-center w-6 h-6 bg-darkGray rounded-full'}>
           <Typography className={step == 2 ? 'absolute top-10 w-32 font-inter font-semibold text-md' : 'absolute top-10 w-32 font-inter font-regular text-sm'}>
-            Thêm công việc
+            Thêm nhiệm vụ
           </Typography>
         </div>
       </div>

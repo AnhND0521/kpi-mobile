@@ -5,7 +5,7 @@ import moment from 'moment/moment';
 import React, { useState } from 'react'
 
 const AddKPITask = (props) => {
-  const { id, name, date, start, end } = props;
+  const { id, name, date, start, end, handleRemove } = props;
 
   return (
     <Card className='w-full rounded-md overflow-hidden'>
@@ -26,7 +26,7 @@ const AddKPITask = (props) => {
             </div>
           </div>
         </div>
-        <div className='w-6 h-6 rounded-full bg-purple' onClick={() => {}}>
+        <div className='w-6 h-6 rounded-full bg-purple' onClick={handleRemove}>
           <MinusIcon color='white' />
         </div>
       </CardBody>

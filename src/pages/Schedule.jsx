@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../components/Header'
 import Navbar from '../components/Navbar'
-import CalendarHorizontal from '../components/calendar/CalendarHorizontal'
+import CalendarHorizontal from '../components/Calendar/CalendarHorizontal'
 
 const Schedule = () => {
   return (
