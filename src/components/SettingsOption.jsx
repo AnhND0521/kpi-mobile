@@ -11,7 +11,7 @@ const SettingsOption = (props) => {
                     {icon}
                     <div className="flex justify-between items-center w-full">
                         <Typography className="text-md font-inter font-medium">{optionName}</Typography>
-                        <div className="inline">{ control ? control : <ChevronRightIcon className="w-8"/> }</div>
+                        <div>{ control ? control : <ChevronRightIcon className="w-8"/> }</div>
                     </div>
                 </CardBody>
             </Card>

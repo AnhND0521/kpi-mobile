@@ -1,8 +1,13 @@
 import { Button, Input, Textarea, Typography } from "@material-tailwind/react";
 import Header from "../../components/Header";
 import Navbar from "../../components/Navbar";
+import { useState } from "react";
+import MessageDialog from "../../components/MessageDialog";
+import { useNavigate } from "react-router-dom";
 
 const Feedback = () => {
+    const [openDialog, setOpenDialog] = useState(false);
+    const navigate = useNavigate();
     return (
         <div className="w-full">
             <Header currentPage='Feedback' backDestination='/settings' />
@@ -39,8 +44,9 @@ const Feedback = () => {
                     </div> 
                 </div>
 
-                <Button variant="filled" className="bg-purple w-full">Gửi phản hồi</Button>
+                <Button variant="filled" className="bg-purple w-full" onClick={() => setOpenDialog(true)}>Gửi phản hồi</Button>
             </main>
+            <MessageDialog message={'Phản hồi của bạn đã được gửi thành công!'} open={openDialog} handleOpen={setOpenDialog} handleConfirm={() => { setOpenDialog(false); navigate('/settings'); }} />
             <Navbar active={3} />
         </div>
     );

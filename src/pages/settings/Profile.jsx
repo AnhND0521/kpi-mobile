@@ -1,7 +1,7 @@
 import Header from "../../components/Header";
 import Navbar from "../../components/Navbar";
 import avatar from '../../assets/avatar.png';
-import { Button, Input, Typography } from "@material-tailwind/react";
+import { Button, Card, CardBody, Input, Typography } from "@material-tailwind/react";
 import CornerButton from "../../components/CornerButton";
 import { Link } from "react-router-dom";
 
@@ -11,12 +11,12 @@ const Profile = () => {
             <Header currentPage='Hồ sơ' backDestination='/settings' />
             <main className='flex flex-col items-center gap-4 my-16 px-4 py-8 overflow-y-scroll'>
                 <div className="flex flex-col items-center gap-2 mb-5">
-                    <img src={avatar} className="w-28 h-28 rounded-full"/>
-                    <div className="flex items-center justify-center gap-2 mt-2">
-                        <Typography className="font-inter text-xl font-medium">
-                            Nguyễn Anh Long
-                        </Typography>
-                    </div>
+                        <img src={avatar} className="w-28 h-28 rounded-full"/>
+                        <div className="flex items-center justify-center gap-2 mt-2">
+                            <Typography className="font-inter text-xl font-medium">
+                                Nguyễn Anh Long
+                            </Typography>
+                        </div>
                     <div className="flex items-center justify-between gap-4 mt-5 mb-10 w-full">
                         <Button variant="outlined" className="text-purple w-full">Đổi mật khẩu</Button>
                         <Button variant="outlined" className="text-purple w-full">Đổi ảnh đại diện</Button>
