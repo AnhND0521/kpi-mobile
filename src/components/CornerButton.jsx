@@ -3,10 +3,12 @@ import { IconButton, Menu, MenuHandler, MenuItem, MenuList } from '@material-tai
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import ImportKPIDialog from './ImportKPIDialog';
+import TemplateDialog from './TemplateDialog';
 
 const CornerButton = (props) => {
   const { icon, type, setKpis } = props;
   const [ openImport, setOpenImport ] = useState(false);
+  const [ openTemplate, setOpenTemplate ] = useState(false);
   return (
     type == 'menu' ? 
     <>
@@ -24,11 +26,12 @@ const CornerButton = (props) => {
             Thêm thủ công
           </MenuItem>
         </Link>
-        <MenuItem>Sử dụng mẫu</MenuItem>
+        <MenuItem onClick={() => setOpenTemplate(true)}>Sử dụng mẫu</MenuItem>
         <MenuItem onClick={() => setOpenImport(true)}>Nhập từ hệ thống khác</MenuItem>
       </MenuList>
     </Menu>
     <ImportKPIDialog open={openImport} setOpen={setOpenImport} setKpis={setKpis}/>
+    <TemplateDialog open={openTemplate} setOpen={setOpenTemplate} setKpis={setKpis}/>
     </> :
     <button className='fixed bottom-20 right-4 flex items-center justify-center w-16 h-16 bg-purple shadow-lg rounded-full z-50' type={type}>
       { icon === 'add' && <PlusIcon className='text-white w-12' /> }
