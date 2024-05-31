@@ -13,7 +13,7 @@ const Task = (props) => {
   const handleChange = () => {
     if (task.status !== 1) {
       task.status = 1;
-      task.completed = new Date();
+      task.completed = new Date().toISOString();
     } else {
       if (new Date(task.date) < new Date()) task.status = 2;
       else task.status = 0;
@@ -23,10 +23,10 @@ const Task = (props) => {
   }
 
   return (
-    <Card className='w-full rounded-md overflow-hidden'>
+    <Card className='w-full rounded-md overflow-hidden' onClick={(e) => { if (!e.target.id) navigate(`/kpi/${kpi.id}/task/${task.id}`); } }>
       <CardBody className='flex justify-between bg-gray p-3'>
         <div className='flex items-center gap-3'>
-          <input type='checkbox' className='w-6 h-6 accent-purple rounded-md' checked={task.status === 1} onChange={handleChange}/>
+          <input id='check' type='checkbox' className='w-6 h-6 accent-purple rounded-md' checked={task.status === 1} onChange={handleChange}/>
           <div className='flex flex-col items-start gap-2'>
             <Typography variant='h4' className='font-inter font-medium text-base'>
               {task.name}
@@ -42,7 +42,7 @@ const Task = (props) => {
             </div>
           </div>
         </div>
-        <ChevronRightIcon className='w-8' onClick={() => navigate(`/kpi/${kpi.id}/task/${task.id}`)}/>
+        <ChevronRightIcon className='w-8'/>
       </CardBody>
     </Card>
   )

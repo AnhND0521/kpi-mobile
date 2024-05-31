@@ -24,13 +24,14 @@ const AddTask = () => {
     const newTask = {
       id: getNextTaskId(findKpiById(id)),
       name: name,
-      date: date,
+      date: date.toISOString(),
       start: start,
       end: end,
       status: date < new Date() ? 2 : 0,
       priority: priority,
       repeat: repeat,
-      noti: reminder
+      noti: reminder,
+      quality: 5
     }
     console.log(newTask);
     kpi.tasks.push(newTask);
@@ -50,8 +51,8 @@ const AddTask = () => {
             <Input label='Tên nhiệm vụ' value={name} required onChange={(event) => setName(event.target.value)}/>
             <DateInput value={date} handleChange={setDate} required />
             <div className=" flex gap-2 w-full">
-              <Input label='Bắt đầu' value={start} required onChange={(event) => setStart(event.target.value)}/>
-              <Input label='Kết thúc' value={end} required onChange={(event) => setEnd(event.target.value)}/>
+              <Input label='Bắt đầu' type='time' value={start} required onChange={(event) => setStart(event.target.value)}/>
+              <Input label='Kết thúc' type='time' value={end} required onChange={(event) => setEnd(event.target.value)}/>
             </div>
             <Select value={priority} label='Ưu tiên' onChange={(val) => setPriority(val)}>
               <Option value={1}>Thấp</Option>
