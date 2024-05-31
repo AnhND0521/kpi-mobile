@@ -48,7 +48,7 @@ const CalendarHorizontal = () => {
       <Typography className='text-sm mb-2'>
         {addOneDayToDate(daysInWeek[activeDay]).toUTCString().substring(0,16)}
       </Typography>
-      <CardBody className='p-0 w-full flex flex-col items-center'>
+      <CardBody className='p-0 w-full h-[32rem] flex flex-col items-center'>
         <div className='w-full flex flex-row justify-between items-center gap-2'>
           <ArrowLeftIcon 
             className='cursor-pointer w-8' 

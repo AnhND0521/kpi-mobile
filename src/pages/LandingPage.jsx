@@ -1,7 +1,7 @@
 import { Button, Card, Drawer, IconButton, List, ListItem, Typography } from '@material-tailwind/react';
 import React, { useState } from 'react';
 import logo from '../assets/logo.png';
-import kpi from '../assets/landingpage.png';
+import kpi from '../assets/screenshot.png';
 import hust from '../assets/hust.png';
 import googlecalendar from '../assets/googlecalendar.png';
 import notion from '../assets/notion.png';
@@ -45,19 +45,19 @@ const LandingPage = () => {
             </div>
             <List>
               <ListItem>
-                How it works
+                Cách sử dụng
               </ListItem>
               <ListItem>
-                Services
+                Các dịch vụ
               </ListItem>
               <ListItem>
                 Blog
               </ListItem>
               <ListItem>
-                About Us
+                Về chúng tôi
               </ListItem>
               <Button className='w-full bg-purple'>
-                Contact Us
+                Liên hệ ngay
               </Button>
             </List>
           </Card>
@@ -65,21 +65,21 @@ const LandingPage = () => {
       </header>
       <main className='flex flex-col items-center gap-8 h-[50rem] px-12 py-16 bg-gradient-to-b from-white to-blue'>
         <Typography variant='h3' className='text-textBlue text-left'>
-          Make your life easier by actively tracking your plans
+          Làm chủ cuộc sống bằng việc quản lý nhiệm vụ cá nhân một cách hệ thống
         </Typography>
         <Typography variant='h6' className='text-textBlue text-left'>
-          Control and analyze your KPI progress in the most efficient way possible
+          Giúp tổ chức, theo dõi và thúc đẩy công việc của bạn một cách hiệu quả
         </Typography>
         <img src={kpi} />
         <Link to='/login'>
           <Button className='h-14 text-lg bg-purple uppercase'>
-            Get started
+           Bắt đầu ngay
           </Button>
         </Link>
       </main>
       <footer className="flex w-full flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 py-6 text-center md:justify-between bg-darkPurple">
         <Typography color="white" className="font-normal">
-          Sync with external systems
+          Hỗ trợ đồng bộ với các hệ thống khác
         </Typography>
         <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">
           <li>
