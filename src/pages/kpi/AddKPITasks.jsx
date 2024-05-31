@@ -70,12 +70,14 @@ const AddKPITasks = (props) => {
           <div className="grid grid-cols-2 w-full gap-2">
             <Input 
               label='Bắt đầu' 
+              type='time'
               value={start} 
               onChange={(event) => setStart(event.target.value)}
               required
             />
             <Input 
               label='Kết thúc'
+              type='time'
               value={end} 
               onChange={(event) => setEnd(event.target.value)}
               required
@@ -109,7 +111,7 @@ const AddKPITasks = (props) => {
           </Button>
         </form>
         <Typography className='font-inter font-semibold text-lg self-start'>
-          Nhiệm vụ đã thêm
+          Nhiệm vụ đã thêm ({tasks.length})
         </Typography>
         <div className='flex flex-col gap-4 items-center'>
           {tasks.map(task => 
