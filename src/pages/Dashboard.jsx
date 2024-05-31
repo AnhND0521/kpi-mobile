@@ -55,7 +55,7 @@ const Dashboard = () => {
           </div>
         </div>
         <KPIList kpis={kpis} />
-        <CornerButton icon='add' type='menu'/>
+        <CornerButton icon='add' type='menu' setKpis={setKpis} />
       </main>
       <Navbar />
     </div>

@@ -16,7 +16,7 @@ const DashboardKPI = (props) => {
     <Card className='w-full rounded-md overflow-hidden'>
       <CardBody className='flex justify-between bg-gray p-3'>
         <div className='flex flex-col items-start gap-3'>
-          <Typography variant='h4' className='font-inter font-medium text-xl'>
+          <Typography variant='h4' className='font-inter font-medium text-xl text-left'>
             {kpi.name}
           </Typography>
           <div className='flex gap-1'>
