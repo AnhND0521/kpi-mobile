@@ -625,6 +625,7 @@ exports.save = (kpis) => {
 }
 
 exports.getTasksByDate = (date) => {
+    console.log(date);
     const res = [];
     for (const kpi of data) {
         for (const task of kpi.tasks) {
