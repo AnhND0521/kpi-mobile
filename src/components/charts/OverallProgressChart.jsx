@@ -15,22 +15,22 @@ const OverallProgressChart = () => {
   return (
     <Card className='w-full rounded-md overflow-hidden' ref={chartCanvasRef}>
       <LineChart
-        xAxis={[{ data: [0, 1, 2, 3, 4, 5, 6], label: 'ngày' }]}
+        xAxis={[{ scaleType: 'point', data: ['4/5', '7/5', '10/5', '13/5', '16/5', '19/5', '22/5'], label: 'Ngày' }]}
         yAxis={[{ label: '%' }]}
         series={[
           {
-            data: [10, 14, 20, 23, 30, 33, 37],
-            color: '#7E56DA',
+            data: [14, 16, 20, 23, 30, 33, 37],
+            color: 'skyblue',
             label: 'Giảng dạy'
           },
           {
-            data: [24, 28, 36, 40, 52, 59, 63],
-            color: 'green',
+            data: [28, 34, 40, 44, 57, 59, 63],
+            color: '#1976d2',
             label: 'Nghiên cứu'
           },          
           {
-            data: [20, 24, 30, 39, 42, 47, 50],
-            color: 'red',
+            data: [6, 20, 24, 33, 42, 47, 50],
+            color: '#FF6B6F',
             label: 'Phục vụ'
           },
         ]}

@@ -15,10 +15,11 @@ const WeeklyFinishedTasksChart = () => {
   return (
     <Card className='w-full rounded-md overflow-hidden' ref={chartCanvasRef}>
       <LineChart
-        xAxis={[{ data: [1, 2, 3, 4, 5, 6, 7] }]}
+        xAxis={[{ scaleType: 'point', data: ['4/5', '7/5', '10/5', '13/5', '16/5', '19/5', '22/5'], label: 'Ngày' }]}
+        yAxis={[{ label: 'Số nhiệm vụ' }]}
         series={[
           {
-            data: [4, 8, 6, 2, 5, 1, 5],
+            data: [4, 6, 2, 3, 0, 2, 1],
             color: '#7E56DA'
           },
         ]}

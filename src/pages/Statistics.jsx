@@ -23,15 +23,15 @@ const Statistics = () => {
             Số lượng nhiệm vụ
           </Typography>
           <TasksChart
-            finished={10}
+            finished={20}
             ongoing={15}
-            overdue={20}
+            overdue={10}
             total={45}
           />
         </Card>
         <Card className='flex flex-col items-center gap-4 p-4 bg-gray overflow-hidden rounded-md'>
           <Typography variant='h5' className='font-inter text-md font-medium'>
-            Số nhiệm vụ hoàn thành tuần qua
+            Hiệu suất làm việc tuần qua
           </Typography>
           <WeeklyFinishedTasksChart />
         </Card>

@@ -16,7 +16,7 @@ const UpcomingTasksChart = (props) => {
   return (
     <Card className='w-full pb-4 rounded-md overflow-hidden' ref={chartCanvasRef}>
       <BarChart
-        xAxis={[{ scaleType: 'band', data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] }]}
+        xAxis={[{ scaleType: 'band', data: ['1/6', '2/6', '3/6', '4/6', '5/6', '6/6', '7/6'] }]}
         series={[{ data: upcomingTasksData, color: '#7E56DA'}]}
         width={width}
         height={256}
