@@ -15,11 +15,11 @@ const KPIProgressOverTimeChart = () => {
   return (
     <Card className='w-full rounded-md overflow-hidden' ref={chartCanvasRef}>
       <LineChart
-        xAxis={[{ data: [0, 1, 2, 3, 4, 5, 6], label: 'ngày' }]}
+        xAxis={[{ scaleType: 'point', data: ['10/5', '13/5', '16/5', '19/5', '22/5', '25/5', '28/5'], label: 'Ngày' }]}
         yAxis={[{ label: '%' }]}
         series={[
           {
-            data: [10, 14, 20, 23, 30, 33, 37],
+            data: [10, 14, 20, 19, 30, 33, 37],
             color: '#7E56DA'
           }
         ]}
