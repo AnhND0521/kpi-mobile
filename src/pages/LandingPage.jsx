@@ -21,7 +21,7 @@ const LandingPage = () => {
     <div className='w-full'>
       <header className='flex items-center justify-between w-full h-16 px-3 py-3 bg-purple'>
         <img src={logo} className='h-full ml-3' />
-        <Typography variant='h5' color='white' className='font-inter'>
+        <Typography variant='h5' color='white' className='font-garamond italic font-semibold text-2xl'>
           KPI Master
         </Typography>
         <IconButton variant="text" size="lg" onClick={isDrawerOpen ? closeDrawer : openDrawer}>
@@ -63,7 +63,7 @@ const LandingPage = () => {
           </Card>
         </Drawer>
       </header>
-      <main className='flex flex-col items-center gap-8 h-[50rem] px-12 py-16 bg-gradient-to-b from-white to-blue'>
+      <main className='flex flex-col items-start gap-8 h-[50rem] px-12 pt-10 pb-16 bg-gradient-to-b from-white to-blue'>
         <Typography variant='h3' className='text-textBlue text-left'>
           Làm chủ cuộc sống bằng việc quản lý nhiệm vụ cá nhân một cách hệ thống
         </Typography>
@@ -76,8 +76,31 @@ const LandingPage = () => {
            Bắt đầu ngay
           </Button>
         </Link>
+        <Typography className="text-textBlue font-medium mt-4">
+          Hỗ trợ đồng bộ với các hệ thống khác
+        </Typography>
+        <ul className="flex flex-wrap items-center gap-x-6">
+          <li>
+            <img src={hust} className='w-6'/>
+          </li>
+          <li>
+            <img src={sun} className='w-6'/>
+          </li>
+          <li>
+            <img src={fpt} className='w-6'/>
+          </li>
+          <li>
+            <img src={googlecalendar} className='w-6'/>
+          </li>
+          <li>
+            <img src={notion} className='w-6'/>
+          </li>
+          <li>
+            <img src={jira} className='w-6'/>
+          </li>
+        </ul>
       </main>
-      <footer className="flex w-full flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 py-6 text-center md:justify-between bg-darkPurple">
+      {/* <footer className="flex w-full flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 py-6 text-center md:justify-between bg-darkPurple">
         <Typography color="white" className="font-normal">
           Hỗ trợ đồng bộ với các hệ thống khác
         </Typography>
@@ -101,7 +124,7 @@ const LandingPage = () => {
             <img src={jira} className='w-8'/>
           </li>
         </ul>
-      </footer>
+      </footer> */}
     </div>
   )
 }

@@ -23,7 +23,8 @@ module.exports = withMT({
     },
     extend: {
       fontFamily: { 
-        "inter": ['inter', 'sans-serif'] 
+        "inter": ['inter', 'sans-serif'],
+        "garamond": ['Garamond', 'serif']
       } 
     },
   },
