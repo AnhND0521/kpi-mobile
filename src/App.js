@@ -26,6 +26,7 @@ import KPIReport from './pages/kpi/KPIReport';
 import Schedule from './pages/Schedule';
 import AddTask from './pages/task/AddTask';
 import Profile from './pages/settings/Profile';
+import RouletteGame from './pages/RouletteGame';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/statistics" element={<Statistics />} />
+          <Route path="/gacha" element={<RouletteGame />} />
           <Route path="/add-kpi" element={<AddKPI />} />
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/notifications" element={<Notifications />} />
