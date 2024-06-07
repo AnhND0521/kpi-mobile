@@ -131,7 +131,7 @@ const AddKPIInfo = () => {
                   Thời gian
                 </Typography>
                 <Typography className='font-inter text-textGray text-xs'>
-                  Số thời gian hoàn thành trước hạn
+                  Thời điểm hoàn thành so với hạn
                 </Typography>
               </div>
             </div>

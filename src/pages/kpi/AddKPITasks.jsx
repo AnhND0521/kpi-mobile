@@ -67,7 +67,7 @@ const AddKPITasks = (props) => {
         <form className='flex flex-col gap-4 items-center' onSubmit={handleAddTask}>
           <Input label='Tên nhiệm vụ' value={name} onChange={(event) => setName(event.target.value)} required/>
           <DateInput value={date} handleChange={setDate} required/>
-          <div className="grid grid-cols-2 w-full gap-2">
+          <div className="w-full flex justify-between gap-1">
             <Input 
               label='Bắt đầu' 
               type='time'

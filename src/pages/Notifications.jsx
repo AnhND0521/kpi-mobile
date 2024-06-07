@@ -9,35 +9,35 @@ const Notifications = () => {
     const [notifications, setNotifications] = useState([
         {
             id: 1,
-            content: "Nhiệm vụ 'ABC' đã bị quá hạn! Hãy hoàn thành trước khi quá muộn!",
+            content: "Nhiệm vụ 'Học UI/UX' đến hạn vào hôm nay! Hãy nhớ hoàn thành nhé!",
             time: new Date(),
             type: 0,
             read: false
         },
         {
             id: 2,
-            content: "Nhiệm vụ 'ABC' đã bị quá hạn! Hãy hoàn thành trước khi quá muộn!",
+            content: "Nhiệm vụ 'Làm BTVN' đã bị quá hạn! Hãy hoàn thành trước khi quá muộn!",
             time: new Date(),
             type: 1,
             read: false
         },
         {
             id: 3,
-            content: "Nhiệm vụ 'ABC' đã bị quá hạn! Hãy hoàn thành trước khi quá muộn!",
+            content: "Nhiệm vụ 'Báo cáo GR1' đã bị quá hạn! Hãy hoàn thành trước khi quá muộn!",
             time: new Date(),
             type: 0,
             read: true
         },
         {
             id: 4,
-            content: "Nhiệm vụ 'ABC' đã bị quá hạn! Hãy hoàn thành trước khi quá muộn!",
+            content: "Nhiệm vụ 'Học ITSS' đến hạn vào hôm nay! Hãy nhớ hoàn thành nhé!",
             time: new Date(),
             type: 0,
             read: true
         },
         {
             id: 5,
-            content: "Nhiệm vụ 'ABC' đã bị quá hạn! Hãy hoàn thành trước khi quá muộn!",
+            content: "Nhiệm vụ 'Chuẩn bị bài' đã bị quá hạn! Hãy hoàn thành trước khi quá muộn!",
             time: new Date(),
             type: 1,
             read: false
@@ -95,7 +95,7 @@ const Notifications = () => {
                 <div className="flex flex-col gap-4 mt-4">
                 { notifications.map(n => (
                     <Card key={n.id} className={`${n.read ? 'bg-[#E8DBFC]/[.3]' : 'bg-[#E8DBFC]/[.5]'} flex flex-col items-start`}>
-                        <div className={`absolute top-3 left-0 w-0.5 h-[4.8rem]`} style={{ backgroundColor: n.type === 0 ? 'orange' : 'red' }}></div>
+                        { !n.read && <div className={`absolute top-3 left-0 w-0.5 h-[4.8rem]`} style={{ backgroundColor: n.type === 0 ? 'orange' : 'red' }}></div> }
                         <CardBody className="p-4">
                             <div className="flex justify-between mb-3">
                                 <Typography className={`text-left font-inter text-sm font-${n.read ? 'normal' : 'semibold'}`}>
