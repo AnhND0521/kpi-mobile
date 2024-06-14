@@ -185,7 +185,7 @@ const ImportKPIDialog = ({open, setOpen, setKpis}) => {
             <DialogBody className='text-black px-6 py-10 pt-0'>
                 <form className="flex flex-col items-start gap-6 w-full" onSubmit={handleSubmit}>
                     <Typography className="text-base font-normal">
-                        Hãy nhập URL dẫn đến dự án của bạn
+                        Hãy nhập URL dẫn đến dự án của bạn. Hệ thống sẽ tự động đồng bộ dữ liệu từ nguồn đó.
                     </Typography>
                     <div className="w-full">
                         <Input type="text" label="URL" value={url} onChange={({target}) => setURL(target.value)} required />

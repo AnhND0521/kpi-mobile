@@ -501,7 +501,8 @@ const TemplateDialog = ({open, setOpen, setKpis}) => {
                 <XMarkIcon className='w-5 cursor-pointer' onClick={() => { setOpen(false); } } />
             </DialogHeader>
             <DialogBody className='text-black px-0 py-10 pt-0 h-[40rem] overflow-y-scroll'>
-                <div className="flex flex-col items-start gap-6">
+                <div className="flex flex-col items-start gap-5">
+                    <Typography className="px-3 text-sm">Áp dụng ngay các mẫu KPI được sử dụng nhiều trong hệ thống!</Typography>
                     <Carousel>
                         { templates.map((t, i) => (
                             <div className="flex items-center justify-center gap-4 bg-[#d6d0f7] py-10">

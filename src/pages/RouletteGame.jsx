@@ -104,7 +104,7 @@ const RouletteGame = () => {
     <div className='w-full'>
     <Header currentPage='Vòng quay may mắn' backDestination='/dashboard' />
     <main className='flex flex-col gap-4 my-16 p-4 overflow-y-scroll'>
-      <Typography className="text-base font-normal  ">Hãy làm việc chăm chỉ để nhận thêm lượt quay mỗi ngày nhé!</Typography>
+      <Typography className="text-base font-normal  ">Số lượt quay bạn nhận được mỗi ngày sẽ ứng với số ngày liên tiếp hoàn thành nhiệm vụ tính tới ngày đó!</Typography>
       <div className="w-full flex flex-col gap-10 items-center mt-3">
         <Roulette data={data} setTotalCoins={setTotalCoins} />
         <div className="flex flex-col gap-10 w-full items-center">
